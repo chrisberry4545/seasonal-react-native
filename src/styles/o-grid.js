@@ -9,6 +9,9 @@ const oGrid = {
     width: '45%',
     aspectRatio: 1,
   },
+  oGridItemInner: {
+    flex: 1
+  },
   oGridItemImage: {
     flex: 1
   },
