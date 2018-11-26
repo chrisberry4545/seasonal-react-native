@@ -2,15 +2,14 @@ const oGrid = {
   oGrid: {
     flexDirection: 'row',
     flex: 1,
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
   },
   oGridItem: {
-    width: '50%',
+    width: '45%',
     aspectRatio: 1,
   },
-  oGridItemInner: {
-    marginLeft: 20,
-    marginRight: 20,
+  oGridItemImage: {
     flex: 1
   },
   oGridItemText: {

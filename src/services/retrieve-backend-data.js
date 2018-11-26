@@ -9,7 +9,6 @@ const getAllSeasonData = () => {
 };
 
 const getSeasonDataBySeasonIndex = (seasonIndex) => {
-    console.log('backend url', SEASON_DATA_URL);
     return fetch(
         `http://localhost:3000/season-data/${seasonIndex}`
     ).then((resp) => resp.json());

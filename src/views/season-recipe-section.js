@@ -1,27 +1,32 @@
 import React from 'react';
-import { Image, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import {
   styles
 } from './../styles';
 
+import {
+  Grid
+} from './grid';
+
+import {
+  GridItem
+} from './grid-item';
+
 const SeasonRecipeSection = ({ recipes }) => (
-  <View>
+  <View style={ styles.cSeasonalDetailsSectionInner }>
     <Text style={ styles.cHeadingMed }>Recipe ideas</Text>
-    <View style={ styles.oGrid }>
+    <Grid>
     {
       recipes && recipes.map((recipe) =>  (
-        <View key={ recipe.id } style={ styles.oGridItem }>
-          <View style={ styles.oGridItemInner }>
-            <Image style={ { flex: 1 } } source={ { uri: recipe.imageUrlSmall } } />
-            <Text style={ [styles.oGridItemText, styles.cTextMed] }>
-              { recipe.name }
-            </Text>
-          </View>
-        </View>
+        <GridItem
+          key={ recipe.id }
+          imageUrlSmall={ recipe.imageUrlSmall }
+          text={ recipe.name }
+        />
       ))
     }
-    </View>
+    </Grid>
   </View>
 );
 

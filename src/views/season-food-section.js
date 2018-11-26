@@ -2,23 +2,31 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import {
-  FoodThumbnail
-} from './food-thumbnail';
+  Grid
+} from './grid';
+
+import {
+  GridItem
+} from './grid-item';
 
 import {
   styles
 } from './../styles';
 
 const SeasonFoodSection = ({ food }) => (
-  <View style={ { flex: 1 } }>
+  <View style={ styles.cSeasonalDetailsSectionInner }>
     <Text style={ styles.cHeadingMed }>Currently in season</Text>
-    <View style={ styles.oGrid }>
+    <Grid>
       {
         food && food.map((food) =>  (
-          <FoodThumbnail key={ food.id } food={ food } />
+          <GridItem
+            key={ food.id }
+            imageUrlSmall={ food.imageUrlSmall }
+            text={ food.name }
+            />
         ))
       }
-    </View>
+    </Grid>
   </View>
 );
 

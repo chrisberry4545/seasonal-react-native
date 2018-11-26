@@ -14,12 +14,12 @@ import {
 } from './../styles';
 
 const SeasonalDetails = ({ season }) => (
-  <View style={ { flex: 1 } }>
+  <View style={ styles.cSeasonalDetails }>
     <Text style={ styles.cHeadingLarge }>{ season.name }</Text>
-    <View style={ { marginTop: 50, flex: 1 } }>
+    <View style={ styles.cSeasonalDetailsSection }>
       <SeasonFoodSection food={ season.food }/>
     </View>
-    <View style={ { marginTop: 200, flex: 1 } }>
+    <View style={ styles.cSeasonalDetailsSection }>
       <SeasonRecipeSection recipes={ season.recipes }/>
     </View>
   </View>

@@ -9,9 +9,7 @@ import {
 
 export default class App extends React.Component {
   constructor() {
-    console.log('getting data');
     getCurrentSeasonData().then((season) => {
-      console.log('got data', season);
       this.setState({
         season
       })
@@ -25,7 +23,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <View style={ styles.container }>
         {
           this.state.season && <SeasonalDetails season={this.state.season} />
         }
