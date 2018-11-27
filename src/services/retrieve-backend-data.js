@@ -3,20 +3,18 @@ import {
 } from '././../config';
 
 const getAllSeasonData = () => {
-    return fetch(
-        'http://localhost:3000/season-data'
-    ).then((resp) => resp.json());
+  return fetch(SEASON_DATA_URL).then((resp) => resp.json());
 };
 
 const getSeasonDataBySeasonIndex = (seasonIndex) => {
-    return fetch(
-        `http://localhost:3000/season-data/${seasonIndex}`
-    ).then((resp) => resp.json());
+  return fetch(
+      `${SEASON_DATA_URL}/${seasonIndex}`
+  ).then((resp) => resp.json());
 };
 
 const getCurrentSeasonData = () => {
-    const currentSeasonIndex = new Date().getUTCMonth();
-    return getSeasonDataBySeasonIndex(currentSeasonIndex);
+  const currentSeasonIndex = new Date().getUTCMonth();
+  return getSeasonDataBySeasonIndex(currentSeasonIndex);
 };
 
 export {

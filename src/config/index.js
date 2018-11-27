@@ -1,10 +1,6 @@
 const BACKEND_URL = process.env.BACKEND_URL
-    || 'http://localhost:3000';
+    || 'https://seasonal-backend.herokuapp.com';
 
-const config = {
-    SEASON_DATA_URL: process.env.SEASON_DATA_URL || `${BACKEND_URL}/season-data`
-};
 
-export {
-    config
-};
+export const SEASON_DATA_URL =
+  process.env.SEASON_DATA_URL || `${BACKEND_URL}/season-data`;
