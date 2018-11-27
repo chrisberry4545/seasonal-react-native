@@ -3,19 +3,19 @@ import { Text, View } from 'react-native';
 
 import {
   styles
-} from './../styles';
+} from '../../styles';
 
 import {
   Grid
-} from './grid';
+} from '../layouts/grid';
 
 import {
   GridItem
-} from './grid-item';
+} from '../layouts/grid-item';
 
 import {
   goToLinkUrl
-} from './../helpers';
+} from '../../helpers';
 
 const SeasonRecipeSection = ({ recipes }) => (
   <View style={ styles.cSeasonalDetailsSectionInner }>

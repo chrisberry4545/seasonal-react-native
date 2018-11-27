@@ -11,7 +11,7 @@ import {
 
 import {
   styles
-} from './../styles';
+} from '../../styles';
 
 const SeasonalDetails = ({ season }) => (
   <View style={ styles.cSeasonalDetails }>

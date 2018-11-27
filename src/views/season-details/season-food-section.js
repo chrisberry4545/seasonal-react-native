@@ -3,15 +3,15 @@ import { Text, View } from 'react-native';
 
 import {
   Grid
-} from './grid';
+} from '../layouts/grid';
 
 import {
   GridItem
-} from './grid-item';
+} from '../layouts/grid-item';
 
 import {
   styles
-} from './../styles';
+} from '../../styles';
 
 const SeasonFoodSection = ({ food }) => (
   <View style={ styles.cSeasonalDetailsSectionInner }>
