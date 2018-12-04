@@ -16,7 +16,7 @@ import {
 const SeasonalDetails = ({ season }) => (
   <ScrollView style={ styles.cSeasonalDetails }>
     <Text style={ [styles.cHeadingLarge, styles.cSeasonalDetailsHeading] }>
-      Seasonal
+      Eat Seasonal
     </Text>
     <Text style={ [styles.cHeadingMed, styles.cSeasonalDetailsHeading] }>
       { season.name }
