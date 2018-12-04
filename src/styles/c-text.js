@@ -1,7 +1,13 @@
+const {
+  settings
+} = require('./../styles/settings');
+
 const cText = {
   cTextMed: {
-    fontSize: 12,
-    lineHeight: 14
+    color: settings.colors.primaryText,
+    fontSize: 14,
+    lineHeight: 14,
+    fontFamily: settings.fonts.primary
   }
 };
 

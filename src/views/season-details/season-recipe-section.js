@@ -18,21 +18,23 @@ import {
 } from '../../helpers';
 
 const SeasonRecipeSection = ({ recipes }) => (
-  <View style={ styles.cSeasonalDetailsSectionInner }>
-    <Text style={ styles.cHeadingMed }>Recipe ideas</Text>
-    <Grid>
-    {
-      recipes && recipes.map((recipe) =>  (
-        <GridItem
-          key={ recipe.id }
-          imageUrlSmall={ recipe.imageUrlSmall }
-          text={ recipe.name }
-          onPress={ () => goToLinkUrl(recipe.linkUrl) }
-        />
-      ))
-    }
-    </Grid>
-  </View>
+  Boolean(recipes && recipes.length > 0)
+    ? <View style={ styles.cSeasonalDetailsSectionInner }>
+      <Text style={ styles.cHeadingMed }>Recipe ideas</Text>
+      <Grid>
+      {
+        recipes && recipes.map((recipe) =>  (
+          <GridItem
+            key={ recipe.id }
+            imageUrlSmall={ recipe.imageUrlSmall }
+            text={ recipe.name }
+            onPress={ () => goToLinkUrl(recipe.linkUrl) }
+          />
+        ))
+      }
+      </Grid>
+    </View>
+    : null
 );
 
 export {

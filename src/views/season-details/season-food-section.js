@@ -15,7 +15,6 @@ import {
 
 const SeasonFoodSection = ({ food }) => (
   <View style={ styles.cSeasonalDetailsSectionInner }>
-    <Text style={ styles.cHeadingMed }>Currently in season</Text>
     <Grid>
       {
         food && food.map((food) =>  (

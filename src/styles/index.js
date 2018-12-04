@@ -1,10 +1,13 @@
+import { settings } from './settings';
 import { StyleSheet } from 'react-native';
+import { oMainContainer } from './o-main-container';
 import { oGrid } from './o-grid';
 import { cHeadings } from './c-headings';
 import { cText } from './c-text';
 import { cSeasonalDetails } from './c-seasonal-details';
 
 const styles = StyleSheet.create({
+  ...oMainContainer,
   ...oGrid,
   ...cHeadings,
   ...cText,
@@ -12,5 +15,6 @@ const styles = StyleSheet.create({
 });
 
 export {
+  settings,
   styles
 };

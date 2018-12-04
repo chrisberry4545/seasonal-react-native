@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 
 import {
   SeasonFoodSection
@@ -14,15 +14,20 @@ import {
 } from '../../styles';
 
 const SeasonalDetails = ({ season }) => (
-  <View style={ styles.cSeasonalDetails }>
-    <Text style={ styles.cHeadingLarge }>{ season.name }</Text>
+  <ScrollView style={ styles.cSeasonalDetails }>
+    <Text style={ [styles.cHeadingLarge, styles.cSeasonalDetailsHeading] }>
+      Seasonal
+    </Text>
+    <Text style={ [styles.cHeadingMed, styles.cSeasonalDetailsHeading] }>
+      { season.name }
+    </Text>
     <View style={ styles.cSeasonalDetailsSection }>
       <SeasonFoodSection food={ season.food }/>
     </View>
     <View style={ styles.cSeasonalDetailsSection }>
       <SeasonRecipeSection recipes={ season.recipes }/>
     </View>
-  </View>
+  </ScrollView>
 );
 
 export {
