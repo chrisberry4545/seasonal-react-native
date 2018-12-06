@@ -13,8 +13,7 @@ const oGrid = {
     paddingTop: gridPadding,
     flexDirection: 'row',
     flex: 1,
-    flexWrap: 'wrap',
-    justifyContent: 'space-between'
+    flexWrap: 'wrap'
   },
   oGridItem: {
     width: '50%',
@@ -26,6 +25,12 @@ const oGrid = {
   },
   oGridItemInner: {
     flex: 1
+  },
+  oGridItemInnerEven: {
+    paddingRight: 10
+  },
+  oGridItemInnerOdd: {
+    paddingLeft: 10
   },
   oGridItemImage: {
     flex: 1,

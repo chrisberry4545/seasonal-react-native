@@ -17,11 +17,12 @@ const SeasonFoodSection = ({ food }) => (
   <View style={ styles.cSeasonalDetailsSectionInner }>
     <Grid>
       {
-        food && food.map((food) =>  (
+        food && food.map((food, index) =>  (
           <GridItem
             key={ food.id }
             imageUrlSmall={ food.imageUrlSmall }
             text={ food.name }
+            evenGridItem={ index % 2 === 0 }
             />
         ))
       }
