@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "seasonal-app",
-    "description": "This project is really great.",
+    "name": "Seasonal",
+    "description": "Displays the current in seasons fruit and vegetables.",
     "slug": "seasonal-app",
     "privacy": "public",
     "sdkVersion": "31.0.0",
     "platforms": ["ios", "android"],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -22,6 +22,11 @@
     ],
     "ios": {
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.chrisbdev.seasonal",
+      "permissions": [],
+      "versionCode": 2
     }
   }
 }
