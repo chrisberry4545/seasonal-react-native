@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActivityIndicator, View } from 'react-native';
-import { AppLoading } from 'expo';
 import {
   getSeasonDataBySeasonIndex,
   getCurrentSeasonIndex
@@ -55,19 +54,18 @@ export class SeasonDetailsScreen extends React.Component {
   }
   render() {
     return (
-      !this.state.season
-      ? (
-        <AppLoading/>
-      ) : (
-        <View style={ styles.oMainContainer }>
-          <NavigationBar navigation={ this.props.navigation } />
-          {
-            !this.state.isLoading
-              ? <SeasonalDetailsView season={ this.state.season } />
-              : <ActivityIndicator size="large" />
-          }
-        </View>
-      )
+      <View style={ styles.oMainContainer }>
+        {
+          !this.state.season
+          ? <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
+          : <NavigationBar navigation={ this.props.navigation } />
+        }
+        {
+          !this.state.isLoading && this.state.season
+            ? <SeasonalDetailsView season={ this.state.season } />
+            : <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
+        }
+      </View>
     );
   }
 }

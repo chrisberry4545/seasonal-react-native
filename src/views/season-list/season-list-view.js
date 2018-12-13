@@ -16,7 +16,7 @@ const SeasonListView = ({ seasonData, onSeasonClicked }) => (
     contentContainerStyle={ styles.cSeasonalListScrollViewInner }>
     {
       !seasonData ?
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
       : (
         <View style={ styles.cSeasonalListMainView }>
           { seasonData.map(({ id, name }, index) => (
