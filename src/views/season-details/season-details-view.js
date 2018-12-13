@@ -13,14 +13,8 @@ import {
   styles
 } from '../../styles';
 
-const SeasonalDetails = ({ season }) => (
+const SeasonalDetailsView = ({ season }) => (
   <ScrollView style={ styles.cSeasonalDetails }>
-    <Text style={ [styles.cHeadingLarge, styles.cSeasonalDetailsHeading] }>
-      Eat Seasonal
-    </Text>
-    <Text style={ [styles.cHeadingMed, styles.cSeasonalDetailsHeading] }>
-      { season.name }
-    </Text>
     <View style={ styles.cSeasonalDetailsSection }>
       <SeasonFoodSection food={ season.food }/>
     </View>
@@ -31,5 +25,5 @@ const SeasonalDetails = ({ season }) => (
 );
 
 export {
-  SeasonalDetails
+  SeasonalDetailsView
 };

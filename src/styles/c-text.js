@@ -2,12 +2,21 @@ const {
   settings
 } = require('./../styles/settings');
 
+const textBase = {
+  color: settings.colors.primaryText,
+  fontFamily: settings.fonts.primary
+};
+
 const cText = {
   cTextMed: {
-    color: settings.colors.primaryText,
+    ...textBase,
     fontSize: 14,
-    lineHeight: 14,
-    fontFamily: settings.fonts.primary
+    lineHeight: 14
+  },
+  cTextLarge: {
+    ...textBase,
+    fontSize: 16,
+    lineHeight: 16
   }
 };
 

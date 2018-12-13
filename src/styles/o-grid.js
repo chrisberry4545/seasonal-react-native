@@ -8,8 +8,6 @@ const gridPadding = 18;
 
 const oGrid = {
   oGrid: {
-    borderTopWidth: StyleSheet.hairlineWidth,
-    borderColor: settings.colors.grey,
     paddingTop: gridPadding,
     flexDirection: 'row',
     flex: 1,

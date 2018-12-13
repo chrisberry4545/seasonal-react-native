@@ -12,13 +12,10 @@ const getSeasonDataBySeasonIndex = (seasonIndex) => {
   ).then((resp) => resp.json());
 };
 
-const getCurrentSeasonData = () => {
-  const currentSeasonIndex = new Date().getUTCMonth();
-  return getSeasonDataBySeasonIndex(currentSeasonIndex);
-};
+const getCurrentSeasonIndex = () => new Date().getUTCMonth();
 
 export {
     getAllSeasonData,
-    getCurrentSeasonData,
+    getCurrentSeasonIndex,
     getSeasonDataBySeasonIndex
 };
