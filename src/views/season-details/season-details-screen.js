@@ -25,6 +25,7 @@ export class SeasonDetailsScreen extends React.Component {
     drawerLabel: 'Current Season'
   };
   state = {
+    firstLoadComplete: false,
     isLoading: false,
     season: null,
     seasonIndex: null
@@ -48,6 +49,7 @@ export class SeasonDetailsScreen extends React.Component {
     });
     const season = await getSeasonDataBySeasonIndex(seasonIndex);
     this.setState({
+      firstLoadComplete: true,
       isLoading: false,
       season
     });
@@ -56,9 +58,9 @@ export class SeasonDetailsScreen extends React.Component {
     return (
       <View style={ styles.oMainContainer }>
         {
-          !this.state.season
-          ? <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
-          : <NavigationBar navigation={ this.props.navigation } />
+          this.state.firstLoadComplete
+            ? <NavigationBar navigation={ this.props.navigation } />
+            : this.state.season && <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
         }
         {
           !this.state.isLoading && this.state.season
