@@ -1,27 +1,52 @@
+import React, { Component } from 'react';
+import { AppLoading } from 'expo';
 import {
   createAppContainer,
   createDrawerNavigator
 } from 'react-navigation';
 import {
   SeasonDetailsScreen,
-  SeasonListScreen
 } from './src/views';
-import {
-  SCREENS,
-} from './src/const';
 import {
   settings
 } from './src/styles/settings';
+import {
+  getAllSeasonData
+} from './src/services';
 
-const drawerNavigator =  createDrawerNavigator({
-  [SCREENS.SEASON_DETAILS]: SeasonDetailsScreen,
-  [SCREENS.SEASON_LIST]: SeasonListScreen
-}, {
-  contentOptions: {
-    activeTintColor: settings.colors.black,
-    inactiveTintColor: settings.colors.primaryText,
+export default class App extends Component {
+  async componentDidMount() {
+    const seasonData = await getAllSeasonData();
+    this.setState({
+      seasonData
+    });
   }
-});
 
-const App = createAppContainer(drawerNavigator);
-export default App;
+  render() {
+    if (!this.state || !this.state.seasonData) {
+      return <AppLoading />;
+    }
+
+    const navigation = this.state.seasonData
+      .reduce((navObject, { name }, index) => {
+        navObject[name] = {
+          navigationOptions: {
+            drawerLabel: name
+          },
+          params: {
+            seasonIndex: index
+          },
+          screen: SeasonDetailsScreen
+        };
+        return navObject;
+        }, {});
+    const DrawerNavigator = createDrawerNavigator(navigation, {
+      contentOptions: {
+        activeTintColor: settings.colors.black,
+        inactiveTintColor: settings.colors.primaryText,
+      }
+    });
+    const AppContainer = createAppContainer(DrawerNavigator);
+    return <AppContainer />;
+  }
+}

@@ -1,8 +1,0 @@
-const SCREENS = {
-  SEASON_DETAILS: 'SEASON_DETAILS',
-  SEASON_LIST: 'SEASON_LIST'
-};
-
-export {
-  SCREENS
-};
