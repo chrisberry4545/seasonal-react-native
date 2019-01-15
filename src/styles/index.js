@@ -7,7 +7,6 @@ import { cText } from './c-text';
 import { cLoadingIndicator } from './c-loading-indicator';
 import { cNavigationBar } from './c-navigation-bar';
 import { cSeasonalDetails } from './c-seasonal-details';
-import { cSeasonalList } from './c-seasonal-list';
 
 const styles = StyleSheet.create({
   ...oMainContainer,
@@ -16,8 +15,7 @@ const styles = StyleSheet.create({
   ...cText,
   ...cLoadingIndicator,
   ...cNavigationBar,
-  ...cSeasonalDetails,
-  ...cSeasonalList
+  ...cSeasonalDetails
 });
 
 export {

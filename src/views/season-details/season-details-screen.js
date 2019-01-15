@@ -21,9 +21,6 @@ export class SeasonDetailsScreen extends React.Component {
   constructor() {
     super();
   }
-  static navigationOptions = {
-    drawerLabel: 'Current Season'
-  };
   state = {
     firstLoadComplete: false,
     isLoading: false,
