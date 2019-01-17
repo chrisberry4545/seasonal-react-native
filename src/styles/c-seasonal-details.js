@@ -12,6 +12,10 @@ const cSeasonalDetails = {
   },
   cSeasonalDetailsSectionInner: {
     flex: 1
+  },
+  cSeasonalDetailsNoRecipesText: {
+    marginTop: 20,
+    textAlign: 'center'
   }
 };
 

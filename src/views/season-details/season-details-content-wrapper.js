@@ -1,34 +1,26 @@
 import React from 'react';
-import { ActivityIndicator, View } from 'react-native';
+import { ActivityIndicator, ScrollView, View } from 'react-native';
 import {
   getSeasonDataBySeasonIndex,
   getCurrentSeasonIndex
 } from '../../services';
 import {
-  SeasonalDetailsView
-} from './season-details-view';
-import {
   styles
 } from '../../styles';
-import {
-  loadFonts
-} from '../../helpers';
 import {
   NavigationBar
 } from './../shared';
 
-export class SeasonDetailsScreen extends React.Component {
+export class SeasonDetailsContentWrapper extends React.Component {
   constructor() {
     super();
   }
   state = {
-    firstLoadComplete: false,
     isLoading: false,
     season: null,
     seasonIndex: null
   }
   async componentDidMount() {
-    await loadFonts();
     this.updateSeasonData();
   }
   componentDidUpdate() {
@@ -46,22 +38,28 @@ export class SeasonDetailsScreen extends React.Component {
     });
     const season = await getSeasonDataBySeasonIndex(seasonIndex);
     this.setState({
-      firstLoadComplete: true,
       isLoading: false,
       season
     });
   }
   render() {
+    const childrenWithProps = React.Children.map(this.props.children, (child) =>
+      React.cloneElement(child, { season: this.state.season })
+    );
     return (
       <View style={ styles.oMainContainer }>
-        {
-          this.state.firstLoadComplete
-            ? <NavigationBar navigation={ this.props.navigation } />
-            : this.state.season && <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
-        }
+        <NavigationBar navigation={ this.props.navigation } />
         {
           !this.state.isLoading && this.state.season
-            ? <SeasonalDetailsView season={ this.state.season } />
+            ? (
+              <ScrollView style={ styles.cSeasonalDetails }>
+                <View style={ styles.cSeasonalDetailsSection }>
+                  <View style={ styles.cSeasonalDetailsSectionInner }>
+                    { childrenWithProps }
+                  </View>
+                </View>
+              </ScrollView>
+            )
             : <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
         }
       </View>
