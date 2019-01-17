@@ -25,8 +25,9 @@ export class SeasonDetailsContentWrapper extends React.Component {
   }
   componentDidUpdate() {
     const { navigation } = this.props;
-    const seasonIndex =
-      navigation.getParam('seasonIndex', getCurrentSeasonIndex());
+    const parentNavigator = navigation.dangerouslyGetParent();
+    const seasonIndex = parentNavigator &&
+      parentNavigator.getParam('seasonIndex', getCurrentSeasonIndex());
     if (this.state.seasonIndex !== seasonIndex) {
       this.updateSeasonData(seasonIndex);
     }
