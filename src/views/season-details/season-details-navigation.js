@@ -20,10 +20,10 @@ const SeasonDetailsNavigation = createBottomTabNavigator({
     Recipes: SeasonRecipesScreen
 }, {
   tabBarOptions: {
-    activeTintColor: settings.colors.black,
-    inactiveTintColor: settings.colors.primaryText,
-    labelStyle: styles.cTextLarge
-  }
+    activeBackgroundColor: settings.colors.selectionColor,
+    labelStyle: [styles.cTextLarge, styles.cSeasonalDetailsTabLabel],
+    styles: styles.cSeasonalDetailsTab
+  },
 });
 
 export {

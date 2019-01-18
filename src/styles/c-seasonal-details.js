@@ -2,6 +2,12 @@ const cSeasonalDetails = {
   cSeasonalDetails: {
     flex: 1
   },
+  cSeasonalDetailsTab: {
+    paddingTop: 0
+  },
+  cSeasonalDetailsTabLabel: {
+    marginBottom: 16
+  },
   cSeasonalDetailsHeading: {
     textAlign: 'center'
   },
