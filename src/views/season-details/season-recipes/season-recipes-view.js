@@ -17,21 +17,18 @@ import {
 const SeasonRecipesView = ({ season }) => (
   Boolean(season && season.recipes && season.recipes.length > 0)
     ? (
-      <View>
-        <Text style={ styles.cHeadingMed }>Recipe ideas</Text>
-          <Grid>
-          {
-            season.recipes.map((recipe) =>  (
-              <GridItem
-                key={ recipe.id }
-                imageUrlSmall={ recipe.imageUrlSmall }
-                text={ recipe.name }
-                onPress={ () => goToLinkUrl(recipe.linkUrl) }
-              />
-            ))
-          }
-          </Grid>
-      </View>
+        <Grid>
+        {
+          season.recipes.map((recipe) =>  (
+            <GridItem
+              key={ recipe.id }
+              imageUrlSmall={ recipe.imageUrlSmall }
+              text={ recipe.name }
+              onPress={ () => goToLinkUrl(recipe.linkUrl) }
+            />
+          ))
+        }
+        </Grid>
     )
     :(
       <Text style={ [styles.cHeadingMed, styles.cSeasonalDetailsNoRecipesText] }>
