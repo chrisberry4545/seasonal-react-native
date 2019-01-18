@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import { AppLoading } from 'expo';
 import {
@@ -5,7 +6,7 @@ import {
   createDrawerNavigator
 } from 'react-navigation';
 import {
-  SeasonDetailsScreen,
+  SeasonDetailsNavigation
 } from './src/views';
 import {
   settings
@@ -13,9 +14,13 @@ import {
 import {
   getAllSeasonData
 } from './src/services';
+import {
+  loadFonts
+} from './src/helpers';
 
 export default class App extends Component {
   async componentDidMount() {
+    await loadFonts();
     const seasonData = await getAllSeasonData();
     this.setState({
       seasonData
@@ -36,7 +41,7 @@ export default class App extends Component {
           params: {
             seasonIndex: index
           },
-          screen: SeasonDetailsScreen
+          screen: SeasonDetailsNavigation
         };
         return navObject;
         }, {});

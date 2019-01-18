@@ -1,7 +1,3 @@
-export * from './season-food-section';
+export * from './season-details-content-wrapper';
 
-export * from './season-recipe-section';
-
-export * from './season-details-view';
-
-export * from './season-details-screen';
+export * from './season-details-navigation';
