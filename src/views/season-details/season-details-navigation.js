@@ -22,7 +22,8 @@ const SeasonDetailsNavigation = createBottomTabNavigator({
   tabBarOptions: {
     activeBackgroundColor: settings.colors.selectionColor,
     labelStyle: [styles.cTextLarge, styles.cSeasonalDetailsTabLabel],
-    styles: styles.cSeasonalDetailsTab
+    style: styles.cSeasonalDetailsTabWrapper,
+    tabStyle: styles.cSeasonalDetailsTab
   },
 });
 
