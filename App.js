@@ -12,7 +12,8 @@ import {
   settings
 } from './src/styles/settings';
 import {
-  getAllSeasonData
+  getAllSeasonData,
+  getCurrentSeasonIndex,
 } from './src/services';
 import {
   loadFonts
@@ -49,7 +50,8 @@ export default class App extends Component {
       contentOptions: {
         activeTintColor: settings.colors.black,
         inactiveTintColor: settings.colors.primaryText,
-      }
+      },
+      initialRouteName: this.state.seasonData[getCurrentSeasonIndex()].name
     });
     const AppContainer = createAppContainer(DrawerNavigator);
     return <AppContainer />;
