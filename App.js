@@ -6,6 +6,7 @@ import {
   createDrawerNavigator
 } from 'react-navigation';
 import {
+  AboutUsScreen,
   SeasonDetailsNavigation
 } from './src/views';
 import {
@@ -46,6 +47,12 @@ export default class App extends Component {
         };
         return navObject;
         }, {});
+    navigation.moreInfo = {
+      navigationOptions: {
+        drawerLabel: 'About us'
+      },
+      screen: AboutUsScreen
+    }
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {
         activeTintColor: settings.colors.black,

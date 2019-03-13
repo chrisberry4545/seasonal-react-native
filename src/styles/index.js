@@ -5,6 +5,7 @@ import { oGrid } from './o-grid';
 import { cHeadings } from './c-headings';
 import { cText } from './c-text';
 import { cLoadingIndicator } from './c-loading-indicator';
+import { cAboutUs } from './c-about-us';
 import { cNavigationBar } from './c-navigation-bar';
 import { cSeasonalDetails } from './c-seasonal-details';
 
@@ -14,6 +15,7 @@ const styles = StyleSheet.create({
   ...cHeadings,
   ...cText,
   ...cLoadingIndicator,
+  ...cAboutUs,
   ...cNavigationBar,
   ...cSeasonalDetails
 });
