@@ -7,16 +7,16 @@ import {
 
 import {
   Grid,
-  GridItem,
+  GridItem
 } from '../../layouts';
 
 import {
   goToLinkUrl
 } from '../../../helpers';
-import { HydratedSeason } from '@chrisb-dev/seasonal-shared';
+import { IHydratedSeason } from '@chrisb-dev/seasonal-shared';
 
 export const SeasonRecipesView: SFC<{
-  season?: HydratedSeason
+  season?: IHydratedSeason
 }> = ({ season }) => (
   Boolean(season && season.recipes && season.recipes.length > 0)
     ? (
@@ -33,7 +33,7 @@ export const SeasonRecipesView: SFC<{
         }
         </Grid>
     )
-    :(
+    : (
       <Text style={ [styles.cHeadingMed, styles.cSeasonalDetailsNoRecipesText] }>
         Sorry, there's currently no recipes for this season. Check back soon!
       </Text>

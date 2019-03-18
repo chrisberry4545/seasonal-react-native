@@ -1,6 +1,6 @@
 import { Font } from 'expo';
 import {
-  settings,
+  settings
 } from './../styles';
 
 export const loadFonts = (): Promise<void> => Font.loadAsync({

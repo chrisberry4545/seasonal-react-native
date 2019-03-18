@@ -16,11 +16,11 @@ export const NavigationBar: SFC<{
       <TouchableOpacity
         style={ styles.cNavigationBarMenuButton }
         onPress={ navigation.openDrawer }>
-        <Ionicons name="ios-menu" size={ 32 } />
+        <Ionicons name='ios-menu' size={ 32 } />
       </TouchableOpacity>
       <Text style={ [styles.cHeadingLarge, styles.cNavigationBarHeading] }>
         Eat Seasonal
       </Text>
     </View>
   );
-}
+};

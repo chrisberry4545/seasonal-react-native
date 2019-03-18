@@ -4,12 +4,12 @@ import {
 import { StyleSheet, ViewStyle, TextStyle } from 'react-native';
 
 export const cNavigationBar: ViewStyle = {
+  alignItems: 'center',
   borderBottomWidth: StyleSheet.hairlineWidth,
   borderColor: settings.colors.greyMed,
-  alignItems: 'center',
   flexDirection: 'row',
-  paddingTop: 16,
-  paddingBottom: 10
+  paddingBottom: 10,
+  paddingTop: 16
 };
 
 export const cNavigationBarMenuButton: ViewStyle = {

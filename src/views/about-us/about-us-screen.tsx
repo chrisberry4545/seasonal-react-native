@@ -9,7 +9,7 @@ import {
 
 import {
   NavigationBar
-} from '../shared'
+} from '../shared';
 
 import {
   PRIVACY_POLICY_URL

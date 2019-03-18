@@ -2,12 +2,12 @@ import React, { SFC } from 'react';
 
 import {
   Grid,
-  GridItem,
+  GridItem
 } from '../../layouts';
-import { HydratedSeason } from '@chrisb-dev/seasonal-shared';
+import { IHydratedSeason } from '@chrisb-dev/seasonal-shared';
 
 export const SeasonFoodView: SFC<{
-  season?: HydratedSeason
+  season?: IHydratedSeason
 }> = ({ season }) => (
   <Grid>
     {

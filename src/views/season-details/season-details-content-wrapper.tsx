@@ -12,29 +12,31 @@ import {
 } from './../shared';
 import { NavigationScreenProp } from 'react-navigation';
 
-
-interface SeasonalDetailsContentWrapperInterface {
-  navigation: NavigationScreenProp<{}>
+interface ISeasonalDetailsContentWrapperInterface {
+  navigation: NavigationScreenProp<{}>;
 }
 
 export class SeasonDetailsContentWrapper
-extends Component<SeasonalDetailsContentWrapperInterface> {
-  constructor(props: SeasonalDetailsContentWrapperInterface) {
-    super(props);
-  }
-  state = {
+extends Component<ISeasonalDetailsContentWrapperInterface> {
+  public state = {
     isLoading: false,
     season: null,
     seasonIndex: null
+  };
+
+  constructor(props: ISeasonalDetailsContentWrapperInterface) {
+    super(props);
   }
-  async componentDidMount() {
+
+  public async componentDidMount() {
     const { navigation } = this.props;
     const parentNavigator = navigation.dangerouslyGetParent();
     const seasonIndex = parentNavigator &&
       parentNavigator.getParam('seasonIndex', getCurrentSeasonIndex());
     this.updateSeasonData(seasonIndex);
   }
-  async updateSeasonData(seasonIndex: number) {
+
+  public async updateSeasonData(seasonIndex: number) {
     this.setState({
       isLoading: true,
       seasonIndex
@@ -45,7 +47,8 @@ extends Component<SeasonalDetailsContentWrapperInterface> {
       season
     });
   }
-  render() {
+
+  public render() {
     const childrenWithProps = Children.map(this.props.children, (child) =>
       React.cloneElement(child as ReactElement, { season: this.state.season })
     );
@@ -64,7 +67,7 @@ extends Component<SeasonalDetailsContentWrapperInterface> {
               </ScrollView>
             )
             : <ActivityIndicator
-                size="large"
+                size='large'
                 style={ styles.cLoadingIndicator } />
         }
       </View>

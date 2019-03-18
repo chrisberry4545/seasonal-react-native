@@ -1,12 +1,12 @@
 import { TextStyle } from 'react-native';
 
 export const cAboutUsLink: TextStyle = {
-  textAlign: 'center',
+  flex: 1,
   marginTop: 10,
-  flex: 1
+  textAlign: 'center'
 };
 
 export const cAboutUsLinkText: TextStyle = {
-  textAlign: 'center',
-  flex: 1
+  flex: 1,
+  textAlign: 'center'
 };

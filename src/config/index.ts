@@ -1,7 +1,6 @@
 const BACKEND_URL: string = process.env.BACKEND_URL
     || 'https://seasonal-backend.herokuapp.com';
 
-
 export const SEASON_DATA_URL: string =
   process.env.SEASON_DATA_URL || `${BACKEND_URL}/season-data`;
 

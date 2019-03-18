@@ -7,19 +7,19 @@ import { StyleSheet, ViewStyle, ImageStyle } from 'react-native';
 const gridPadding = 18;
 
 export const oGrid: ViewStyle = {
-  paddingTop: gridPadding,
-  flexDirection: 'row',
   flex: 1,
-  flexWrap: 'wrap'
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  paddingTop: gridPadding
 };
 
 export const oGridItem: ViewStyle = {
-  width: '50%',
   aspectRatio: 1,
   borderBottomWidth: StyleSheet.hairlineWidth,
   borderColor: settings.colors.greyMed,
+  marginBottom: gridPadding,
   paddingBottom: gridPadding,
-  marginBottom: gridPadding
+  width: '50%'
 };
 
 export const oGridItemInner: ViewStyle = {
@@ -35,8 +35,8 @@ export const oGridItemInnerOdd: ViewStyle = {
 };
 
 export const oGridItemImage: ImageStyle = {
-  flex: 1,
-  borderRadius: 15
+  borderRadius: 15,
+  flex: 1
 };
 
 export const oGridItemText: ViewStyle = {

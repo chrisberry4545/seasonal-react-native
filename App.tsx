@@ -20,10 +20,10 @@ import {
 import {
   loadFonts
 } from './src/helpers';
-import { BaseSeason } from '@chrisb-dev/seasonal-shared';
+import { IBaseSeason } from '@chrisb-dev/seasonal-shared';
 
 interface AppState {
-  seasonData: BaseSeason[] | undefined;
+  seasonData: IBaseSeason[] | undefined;
 }
 
 export default class App extends Component<{}, AppState> {
