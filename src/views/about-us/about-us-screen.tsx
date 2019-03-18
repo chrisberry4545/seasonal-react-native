@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { SFC } from 'react';
+import { NavigationScreenProp } from 'react-navigation';
 
 import { Linking, Text, TouchableOpacity, View } from 'react-native';
 
@@ -14,7 +15,7 @@ import {
   PRIVACY_POLICY_URL
 } from '../../config';
 
-const linkToPrivacyPolicy = () => {
+const linkToPrivacyPolicy = (): void => {
   Linking.canOpenURL(PRIVACY_POLICY_URL).then((supported) => {
     if (supported) {
       Linking.openURL(PRIVACY_POLICY_URL);
@@ -22,7 +23,9 @@ const linkToPrivacyPolicy = () => {
   });
 };
 
-export const AboutUsScreen = ({ navigation }) => (
+export const AboutUsScreen: SFC<{
+  navigation: NavigationScreenProp<{}>
+}> = ({ navigation }) => (
   <View style={ styles.oMainContainer }>
     <NavigationBar navigation={ navigation } />
     <TouchableOpacity

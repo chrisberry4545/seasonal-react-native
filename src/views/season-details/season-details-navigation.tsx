@@ -15,18 +15,13 @@ import {
   styles
 } from './../../styles';
 
-const SeasonDetailsNavigation = createBottomTabNavigator({
+export const SeasonDetailsNavigation = createBottomTabNavigator({
     Food: SeasonFoodScreen,
     Recipes: SeasonRecipesScreen
 }, {
   tabBarOptions: {
     activeBackgroundColor: settings.colors.selectionColor,
     labelStyle: [styles.cTextLarge, styles.cSeasonalDetailsTabLabel],
-    style: styles.cSeasonalDetailsTabWrapper,
-    tabStyle: styles.cSeasonalDetailsTab
+    style: styles.cSeasonalDetailsTabWrapper
   },
 });
-
-export {
-  SeasonDetailsNavigation
-};

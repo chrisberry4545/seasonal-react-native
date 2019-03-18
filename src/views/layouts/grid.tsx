@@ -1,13 +1,9 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { View } from 'react-native';
 import { styles } from '../../styles';
 
-const Grid = ({ children }) => (
+export const Grid: SFC<{}> = ({ children }) => (
   <View style={ styles.oGrid }>
     { children }
   </View>
 );
-
-export {
-  Grid
-};

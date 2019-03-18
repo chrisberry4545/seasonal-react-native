@@ -3,10 +3,6 @@ import {
   settings,
 } from './../styles';
 
-const loadFonts = () => Font.loadAsync({
+export const loadFonts = (): Promise<void> => Font.loadAsync({
   [settings.fonts.primary]: require('./../../assets/fonts/Roboto-Regular.ttf')
 });
-
-module.exports = {
-  loadFonts
-};

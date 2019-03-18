@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, Children, ReactElement } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 import {
   getSeasonDataBySeasonIndex,
@@ -10,10 +10,17 @@ import {
 import {
   NavigationBar
 } from './../shared';
+import { NavigationScreenProp } from 'react-navigation';
 
-export class SeasonDetailsContentWrapper extends React.Component {
-  constructor() {
-    super();
+
+interface SeasonalDetailsContentWrapperInterface {
+  navigation: NavigationScreenProp<{}>
+}
+
+export class SeasonDetailsContentWrapper
+extends Component<SeasonalDetailsContentWrapperInterface> {
+  constructor(props: SeasonalDetailsContentWrapperInterface) {
+    super(props);
   }
   state = {
     isLoading: false,
@@ -27,7 +34,7 @@ export class SeasonDetailsContentWrapper extends React.Component {
       parentNavigator.getParam('seasonIndex', getCurrentSeasonIndex());
     this.updateSeasonData(seasonIndex);
   }
-  async updateSeasonData(seasonIndex) {
+  async updateSeasonData(seasonIndex: number) {
     this.setState({
       isLoading: true,
       seasonIndex
@@ -39,8 +46,8 @@ export class SeasonDetailsContentWrapper extends React.Component {
     });
   }
   render() {
-    const childrenWithProps = React.Children.map(this.props.children, (child) =>
-      React.cloneElement(child, { season: this.state.season })
+    const childrenWithProps = Children.map(this.props.children, (child) =>
+      React.cloneElement(child as ReactElement, { season: this.state.season })
     );
     return (
       <View style={ styles.oMainContainer }>
@@ -56,7 +63,9 @@ export class SeasonDetailsContentWrapper extends React.Component {
                 </View>
               </ScrollView>
             )
-            : <ActivityIndicator size="large" style={ styles.cLoadingIndicator } />
+            : <ActivityIndicator
+                size="large"
+                style={ styles.cLoadingIndicator } />
         }
       </View>
     );

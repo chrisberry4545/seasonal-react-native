@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import {
   Grid,
   GridItem,
 } from '../../layouts';
+import { HydratedSeason } from '@chrisb-dev/seasonal-shared';
 
-const SeasonFoodView = ({ season }) => (
+export const SeasonFoodView: SFC<{
+  season?: HydratedSeason
+}> = ({ season }) => (
   <Grid>
     {
       season && season.food && season.food.map((food, index) =>  (
@@ -19,7 +22,3 @@ const SeasonFoodView = ({ season }) => (
     }
   </Grid>
 );
-
-export {
-  SeasonFoodView
-};

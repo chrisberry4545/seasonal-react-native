@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, { SFC } from 'react';
+import { Text } from 'react-native';
 
 import {
   styles
@@ -13,13 +13,16 @@ import {
 import {
   goToLinkUrl
 } from '../../../helpers';
+import { HydratedSeason } from '@chrisb-dev/seasonal-shared';
 
-const SeasonRecipesView = ({ season }) => (
+export const SeasonRecipesView: SFC<{
+  season?: HydratedSeason
+}> = ({ season }) => (
   Boolean(season && season.recipes && season.recipes.length > 0)
     ? (
         <Grid>
         {
-          season.recipes.map((recipe) =>  (
+          season && season.recipes && season.recipes.map((recipe) =>  (
             <GridItem
               key={ recipe.id }
               imageUrlSmall={ recipe.imageUrlSmall }
@@ -36,7 +39,3 @@ const SeasonRecipesView = ({ season }) => (
       </Text>
     )
 );
-
-export {
-  SeasonRecipesView
-};

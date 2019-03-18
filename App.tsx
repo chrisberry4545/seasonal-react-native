@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { AppLoading } from 'expo';
 import {
   createAppContainer,
-  createDrawerNavigator
+  createDrawerNavigator,
+  NavigationScreenRouteConfig
 } from 'react-navigation';
 import {
   AboutUsScreen,
@@ -19,8 +20,13 @@ import {
 import {
   loadFonts
 } from './src/helpers';
+import { BaseSeason } from '@chrisb-dev/seasonal-shared';
 
-export default class App extends Component {
+interface AppState {
+  seasonData: BaseSeason[] | undefined;
+}
+
+export default class App extends Component<{}, AppState> {
   async componentDidMount() {
     await loadFonts();
     const seasonData = await getAllSeasonData();
@@ -34,8 +40,8 @@ export default class App extends Component {
       return <AppLoading />;
     }
 
-    const navigation = this.state.seasonData
-      .reduce((navObject, { name }, index) => {
+    const navigation: { [key: string]: NavigationScreenRouteConfig} =
+      this.state.seasonData.reduce((navObject, { name }, index) => {
         navObject[name] = {
           navigationOptions: {
             drawerLabel: name
@@ -46,13 +52,13 @@ export default class App extends Component {
           screen: SeasonDetailsNavigation
         };
         return navObject;
-        }, {});
+        }, {} as { [key: string]: NavigationScreenRouteConfig});
     navigation.moreInfo = {
       navigationOptions: {
         drawerLabel: 'About us'
       },
       screen: AboutUsScreen
-    }
+    };
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {
         activeTintColor: settings.colors.black,

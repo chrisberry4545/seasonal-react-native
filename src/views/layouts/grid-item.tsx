@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from '../../styles';
 
-const GridItem = ({  evenGridItem, imageUrlSmall, text, onPress }) => (
+export const GridItem: SFC<{
+  evenGridItem?: boolean,
+  imageUrlSmall: string,
+  text: string,
+  onPress?: () => void
+}> = ({  evenGridItem, imageUrlSmall, text, onPress }) => (
   <TouchableOpacity
     style={ styles.oGridItem }
     onPress={ onPress }
@@ -19,7 +24,3 @@ const GridItem = ({  evenGridItem, imageUrlSmall, text, onPress }) => (
     </View>
   </TouchableOpacity>
 );
-
-export {
-  GridItem
-};

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import {
   styles
 } from '../../styles';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationEvents } from 'react-navigation';
+import { NavigationEvents, NavigationScreenProp } from 'react-navigation';
 
-export const NavigationBar = ({ navigation }) => {
+export const NavigationBar: SFC<{
+  navigation: NavigationScreenProp<{}>
+}> = ({ navigation }) => {
   return (
     <View style={ styles.cNavigationBar }>
       <NavigationEvents
