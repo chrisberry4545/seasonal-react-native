@@ -15,19 +15,19 @@ import {
 } from './src/styles/settings';
 import {
   getAllSeasonData,
-  getCurrentSeasonIndex,
+  getCurrentSeasonIndex
 } from './src/services';
 import {
   loadFonts
 } from './src/helpers';
 import { IBaseSeason } from '@chrisb-dev/seasonal-shared';
 
-interface AppState {
+interface IAppState {
   seasonData: IBaseSeason[] | undefined;
 }
 
-export default class App extends Component<{}, AppState> {
-  async componentDidMount() {
+export default class App extends Component<{}, IAppState> {
+  public async componentDidMount() {
     await loadFonts();
     const seasonData = await getAllSeasonData();
     this.setState({
@@ -35,7 +35,7 @@ export default class App extends Component<{}, AppState> {
     });
   }
 
-  render() {
+  public render() {
     if (!this.state || !this.state.seasonData) {
       return <AppLoading />;
     }
@@ -62,7 +62,7 @@ export default class App extends Component<{}, AppState> {
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {
         activeTintColor: settings.colors.black,
-        inactiveTintColor: settings.colors.primaryText,
+        inactiveTintColor: settings.colors.primaryText
       },
       initialRouteName: this.state.seasonData[getCurrentSeasonIndex()].name
     });
