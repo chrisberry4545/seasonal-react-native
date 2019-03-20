@@ -3,16 +3,16 @@ import { Text } from 'react-native';
 
 import {
   styles
-} from './../../../styles';
+} from './../../styles';
 
 import {
   Grid,
   GridItem
-} from '../../layouts';
+} from '../../components-layout';
 
 import {
   goToLinkUrl
-} from '../../../helpers';
+} from '../../helpers';
 import { IHydratedSeason } from '@chrisb-dev/seasonal-shared';
 
 export const SeasonRecipesView: SFC<{

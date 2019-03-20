@@ -1,18 +1,18 @@
 import React, { SFC } from 'react';
 
 import {
-  SeasonFoodView
-} from './season-food-view';
+  SeasonRecipesView
+} from './SeasonRecipesView';
 
 import {
   SeasonDetailsContentWrapper
-} from './../season-details-content-wrapper';
+} from '../../components-layout';
 import { NavigationScreenProp } from 'react-navigation';
 
-export const SeasonFoodScreen: SFC<{
+export const SeasonRecipesPage: SFC<{
   navigation: NavigationScreenProp<{}>
 }> = ({ navigation }) => (
   <SeasonDetailsContentWrapper navigation={ navigation }>
-    <SeasonFoodView />
+    <SeasonRecipesView />
   </SeasonDetailsContentWrapper>
 );

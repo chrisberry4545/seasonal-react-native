@@ -1,10 +1,7 @@
 import {
-  SeasonFoodScreen
-} from './season-food';
-
-import {
-  SeasonRecipesScreen
-} from './season-recipes';
+  SeasonFoodPage,
+  SeasonRecipesPage
+} from '../../components-main';
 
 import {
   createBottomTabNavigator
@@ -15,9 +12,9 @@ import {
   styles
 } from './../../styles';
 
-export const SeasonDetailsNavigation = createBottomTabNavigator({
-    Food: SeasonFoodScreen,
-    Recipes: SeasonRecipesScreen
+export const SeasonDetailsPage = createBottomTabNavigator({
+    Food: SeasonFoodPage,
+    Recipes: SeasonRecipesPage
 }, {
   tabBarOptions: {
     activeBackgroundColor: settings.colors.selectionColor,

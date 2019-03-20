@@ -3,7 +3,7 @@ import React, { SFC } from 'react';
 import {
   Grid,
   GridItem
-} from '../../layouts';
+} from '../../components-layout';
 import { IHydratedSeason } from '@chrisb-dev/seasonal-shared';
 
 export const SeasonFoodView: SFC<{

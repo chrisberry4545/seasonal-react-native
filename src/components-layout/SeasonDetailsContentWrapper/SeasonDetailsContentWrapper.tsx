@@ -9,7 +9,7 @@ import {
 } from '../../styles';
 import {
   NavigationBar
-} from './../shared';
+} from '../../components-main';
 import { NavigationScreenProp } from 'react-navigation';
 
 interface ISeasonalDetailsContentWrapperInterface {

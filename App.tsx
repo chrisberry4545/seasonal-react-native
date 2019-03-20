@@ -7,9 +7,9 @@ import {
   NavigationScreenRouteConfig
 } from 'react-navigation';
 import {
-  AboutUsScreen,
-  SeasonDetailsNavigation
-} from './src/views';
+  AboutUsPage,
+  SeasonDetailsPage
+} from './src/components-pages';
 import {
   settings
 } from './src/styles/settings';
@@ -49,7 +49,7 @@ export default class App extends Component<{}, IAppState> {
           params: {
             seasonIndex: index
           },
-          screen: SeasonDetailsNavigation
+          screen: SeasonDetailsPage
         };
         return navObject;
         }, {} as { [key: string]: NavigationScreenRouteConfig});
@@ -57,7 +57,7 @@ export default class App extends Component<{}, IAppState> {
       navigationOptions: {
         drawerLabel: 'About us'
       },
-      screen: AboutUsScreen
+      screen: AboutUsPage
     };
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {

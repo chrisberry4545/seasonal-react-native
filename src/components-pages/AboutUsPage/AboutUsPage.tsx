@@ -9,7 +9,7 @@ import {
 
 import {
   NavigationBar
-} from '../shared';
+} from '../../components-main';
 
 import {
   PRIVACY_POLICY_URL
@@ -23,7 +23,7 @@ const linkToPrivacyPolicy = (): void => {
   });
 };
 
-export const AboutUsScreen: SFC<{
+export const AboutUsPage: SFC<{
   navigation: NavigationScreenProp<{}>
 }> = ({ navigation }) => (
   <View style={ styles.oMainContainer }>
