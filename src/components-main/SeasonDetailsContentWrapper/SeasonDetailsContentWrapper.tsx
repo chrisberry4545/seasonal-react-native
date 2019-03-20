@@ -1,7 +1,6 @@
-import React, { Component, Children, ReactElement } from 'react';
+import React, { Component } from 'react';
 import { ActivityIndicator, ScrollView, View } from 'react-native';
 import {
-  getSeasonDataBySeasonIndex,
   getCurrentSeasonIndex
 } from '../../services';
 import {
@@ -10,58 +9,36 @@ import {
 import {
   NavigationBar
 } from '../../components-main';
-import { NavigationScreenProp } from 'react-navigation';
 
-interface ISeasonalDetailsContentWrapperInterface {
-  navigation: NavigationScreenProp<{}>;
-}
+import {
+  ISeasonDetailsContentWrapperProps
+} from './SeasonDetailsContentWrapper.interface';
 
 export class SeasonDetailsContentWrapper
-extends Component<ISeasonalDetailsContentWrapperInterface> {
-  public state = {
-    isLoading: false,
-    season: null,
-    seasonIndex: null
-  };
-
-  constructor(props: ISeasonalDetailsContentWrapperInterface) {
+extends Component<ISeasonDetailsContentWrapperProps> {
+  constructor(props: ISeasonDetailsContentWrapperProps) {
     super(props);
   }
 
   public async componentDidMount() {
     const { navigation } = this.props;
-    const parentNavigator = navigation.dangerouslyGetParent();
+    const parentNavigator = navigation && navigation.dangerouslyGetParent();
     const seasonIndex = parentNavigator &&
       parentNavigator.getParam('seasonIndex', getCurrentSeasonIndex());
-    this.updateSeasonData(seasonIndex);
-  }
-
-  public async updateSeasonData(seasonIndex: number) {
-    this.setState({
-      isLoading: true,
-      seasonIndex
-    });
-    const season = await getSeasonDataBySeasonIndex(seasonIndex);
-    this.setState({
-      isLoading: false,
-      season
-    });
+    this.props.onInit(seasonIndex);
   }
 
   public render() {
-    const childrenWithProps = Children.map(this.props.children, (child) =>
-      React.cloneElement(child as ReactElement, { season: this.state.season })
-    );
     return (
       <View style={ styles.oMainContainer }>
         <NavigationBar navigation={ this.props.navigation } />
         {
-          !this.state.isLoading && this.state.season
+          !this.props.isLoading
             ? (
               <ScrollView style={ styles.cSeasonalDetails }>
                 <View style={ styles.cSeasonalDetailsSection }>
                   <View style={ styles.cSeasonalDetailsSectionInner }>
-                    { childrenWithProps }
+                    { this.props.children }
                   </View>
                 </View>
               </ScrollView>

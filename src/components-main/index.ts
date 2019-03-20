@@ -1,5 +1,7 @@
 export * from './NavigationBar/NavigationBar';
 
-export * from './SeasonFood/SeasonFoodPage';
+export * from './SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
 
-export * from './SeasonRecipes/SeasonRecipesPage';
+export * from './SeasonFood/SeasonFood.connector';
+
+export * from './SeasonRecipes/SeasonRecipes.connector';

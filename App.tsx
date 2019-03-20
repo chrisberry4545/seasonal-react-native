@@ -21,6 +21,8 @@ import {
   loadFonts
 } from './src/helpers';
 import { IBaseSeason } from '@chrisb-dev/seasonal-shared';
+import { Provider } from 'react-redux';
+import { store } from './src/store';
 
 interface IAppState {
   seasonData: IBaseSeason[] | undefined;
@@ -67,6 +69,10 @@ export default class App extends Component<{}, IAppState> {
       initialRouteName: this.state.seasonData[getCurrentSeasonIndex()].name
     });
     const AppContainer = createAppContainer(DrawerNavigator);
-    return <AppContainer />;
+    return (
+      <Provider store={store}>
+        <AppContainer />
+      </Provider>
+    );
   }
 }

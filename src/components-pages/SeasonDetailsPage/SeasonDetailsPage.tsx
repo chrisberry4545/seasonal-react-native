@@ -1,6 +1,6 @@
 import {
-  SeasonFoodPage,
-  SeasonRecipesPage
+  SeasonFoodConnector,
+  SeasonRecipesConnector
 } from '../../components-main';
 
 import {
@@ -13,8 +13,8 @@ import {
 } from './../../styles';
 
 export const SeasonDetailsPage = createBottomTabNavigator({
-    Food: SeasonFoodPage,
-    Recipes: SeasonRecipesPage
+    Food: SeasonFoodConnector,
+    Recipes: SeasonRecipesConnector
 }, {
   tabBarOptions: {
     activeBackgroundColor: settings.colors.selectionColor,
