@@ -8,7 +8,10 @@ import {
 } from '../../styles';
 import {
   NavigationBar
-} from '../../components-main';
+} from '../../components-main/NavigationBar/NavigationBar';
+import {
+  CurrentSeasonNameConnecter
+} from '../../components-main/CurrentSeasonName/CurrentSeasonName.connector';
 
 import {
   ISeasonDetailsContentWrapperProps
@@ -36,6 +39,7 @@ extends Component<ISeasonDetailsContentWrapperProps> {
           !this.props.isLoading
             ? (
               <ScrollView style={ styles.cSeasonalDetails }>
+                <CurrentSeasonNameConnecter />
                 <View style={ styles.cSeasonalDetailsSection }>
                   <View style={ styles.cSeasonalDetailsSectionInner }>
                     { this.props.children }

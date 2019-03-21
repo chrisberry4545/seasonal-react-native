@@ -1,3 +1,5 @@
+export * from './CurrentSeasonName/CurrentSeasonName.connector';
+
 export * from './NavigationBar/NavigationBar';
 
 export * from './SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';

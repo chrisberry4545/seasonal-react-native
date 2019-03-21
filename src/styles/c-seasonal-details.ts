@@ -19,8 +19,7 @@ export const cSeasonalDetailsHeading: TextStyle = {
 
 export const cSeasonalDetailsSection: ViewStyle = {
   flex: 1,
-  marginBottom: 0,
-  marginTop: 10
+  marginBottom: 0
 };
 
 export const cSeasonalDetailsSectionInner: ViewStyle = {
