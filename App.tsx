@@ -11,8 +11,8 @@ import {
   SeasonDetailsPage
 } from './src/components-pages';
 import {
-  settings
-} from './src/styles/settings';
+  styles
+} from './src/styles';
 import {
   getAllSeasonData,
   getCurrentSeasonIndex
@@ -63,8 +63,8 @@ export default class App extends Component<{}, IAppState> {
     };
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {
-        activeTintColor: settings.colors.black,
-        inactiveTintColor: settings.colors.primaryText
+        activeTintColor: styles.colors.black,
+        inactiveTintColor: styles.colors.primaryText
       },
       initialRouteName: this.state.seasonData[getCurrentSeasonIndex()].name
     });

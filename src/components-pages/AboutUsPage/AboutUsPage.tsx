@@ -1,11 +1,7 @@
 import React, { SFC } from 'react';
 import { NavigationScreenProp } from 'react-navigation';
 
-import { Linking, Text, TouchableOpacity, View } from 'react-native';
-
-import {
-  styles
-} from '../../styles';
+import { Linking, TextStyle } from 'react-native';
 
 import {
   NavigationBar
@@ -14,6 +10,19 @@ import {
 import {
   PRIVACY_POLICY_URL
 } from '../../config';
+import { TextHeadingMedium, BareButton } from '../../components-elements';
+import { MainContainer } from '../../components-layout';
+
+const styleAboutUsLink: TextStyle = {
+  flex: 1,
+  marginTop: 10,
+  textAlign: 'center'
+};
+
+const styleAboutUsLinkText: TextStyle = {
+  flex: 1,
+  textAlign: 'center'
+};
 
 const linkToPrivacyPolicy = (): void => {
   Linking.canOpenURL(PRIVACY_POLICY_URL).then((supported) => {
@@ -26,14 +35,14 @@ const linkToPrivacyPolicy = (): void => {
 export const AboutUsPage: SFC<{
   navigation: NavigationScreenProp<{}>
 }> = ({ navigation }) => (
-  <View style={ styles.oMainContainer }>
+  <MainContainer>
     <NavigationBar navigation={ navigation } />
-    <TouchableOpacity
-      style={ [styles.cAboutUsLink] }
+    <BareButton
+      style={ styleAboutUsLink }
       onPress={linkToPrivacyPolicy}>
-      <Text style={ [styles.cHeadingMed, styles.cAboutUsLinkText] }>
+      <TextHeadingMedium style={ styleAboutUsLinkText }>
         Privacy Policy
-      </Text>
-    </TouchableOpacity>
-  </View>
+      </TextHeadingMedium>
+    </BareButton>
+  </MainContainer>
 );

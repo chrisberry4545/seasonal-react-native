@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ScrollView, View } from 'react-native';
+import { ActivityIndicator, ScrollView, View, ViewStyle } from 'react-native';
 import {
   getCurrentSeasonIndex
 } from '../../services';
-import {
-  styles
-} from '../../styles';
 import {
   NavigationBar
 } from '../../components-main/NavigationBar/NavigationBar';
@@ -16,6 +13,24 @@ import {
 import {
   ISeasonDetailsContentWrapperProps
 } from './SeasonDetailsContentWrapper.interface';
+import { MainContainer } from '../../components-layout';
+
+const styleSeasonalDetails: ViewStyle = {
+  flex: 1
+};
+
+const styleSeasonalDetailsSection: ViewStyle = {
+  flex: 1,
+  marginBottom: 0
+};
+
+const styleSeasonalDetailsSectionInner: ViewStyle = {
+  flex: 1
+};
+
+const styleSeasonDetailsContentWrapperLoadingIndicator: ViewStyle = {
+  flex: 1
+};
 
 export class SeasonDetailsContentWrapper
 extends Component<ISeasonDetailsContentWrapperProps> {
@@ -33,15 +48,15 @@ extends Component<ISeasonDetailsContentWrapperProps> {
 
   public render() {
     return (
-      <View style={ styles.oMainContainer }>
+      <MainContainer>
         <NavigationBar navigation={ this.props.navigation } />
         {
           !this.props.isLoading
             ? (
-              <ScrollView style={ styles.cSeasonalDetails }>
+              <ScrollView style={ styleSeasonalDetails }>
                 <CurrentSeasonNameConnecter />
-                <View style={ styles.cSeasonalDetailsSection }>
-                  <View style={ styles.cSeasonalDetailsSectionInner }>
+                <View style={ styleSeasonalDetailsSection }>
+                  <View style={ styleSeasonalDetailsSectionInner }>
                     { this.props.children }
                   </View>
                 </View>
@@ -49,9 +64,9 @@ extends Component<ISeasonDetailsContentWrapperProps> {
             )
             : <ActivityIndicator
                 size='large'
-                style={ styles.cLoadingIndicator } />
+                style={ styleSeasonDetailsContentWrapperLoadingIndicator } />
         }
-      </View>
+      </MainContainer>
     );
   }
 }

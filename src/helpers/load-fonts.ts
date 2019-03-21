@@ -1,8 +1,8 @@
 import { Font } from 'expo';
 import {
-  settings
+  styles
 } from './../styles';
 
 export const loadFonts = (): Promise<void> => Font.loadAsync({
-  [settings.fonts.primary]: require('./../../assets/fonts/Roboto-Regular.ttf')
+  [styles.fonts.primary]: require('./../../assets/fonts/Roboto-Regular.ttf')
 });

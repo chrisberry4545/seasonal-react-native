@@ -1,9 +1,4 @@
 import React, { SFC } from 'react';
-import { Text } from 'react-native';
-
-import {
-  styles
-} from './../../styles';
 
 import {
   Grid,
@@ -18,6 +13,13 @@ import {
   SeasonDetailsContentWrapperConnector
 } from '../SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
 import { ISeasonRecipesInputProps } from './SeasonRecipes.interface';
+import { TextHeadingMedium } from '../../components-elements';
+import { TextStyle } from 'react-native';
+
+const styleSeasonalDetailsNoRecipesText: TextStyle = {
+  marginTop: 20,
+  textAlign: 'center'
+};
 
 export const SeasonRecipes: SFC<ISeasonRecipesInputProps> = ({
   recipes,
@@ -41,10 +43,10 @@ export const SeasonRecipes: SFC<ISeasonRecipesInputProps> = ({
           </Grid>
       )
       : (
-        <Text
-          style={ [styles.cHeadingMed, styles.cSeasonalDetailsNoRecipesText] }>
+        <TextHeadingMedium
+          style={ styleSeasonalDetailsNoRecipesText }>
           Sorry, there's currently no recipes for this season. Check back soon!
-        </Text>
+        </TextHeadingMedium>
       )
     }
     </SeasonDetailsContentWrapperConnector>

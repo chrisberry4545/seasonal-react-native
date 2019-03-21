@@ -8,17 +8,30 @@ import {
 } from 'react-navigation';
 
 import {
-  settings,
   styles
 } from './../../styles';
+
+import {
+  styleTextLarge
+} from '../../components-elements/Text';
+import { ViewStyle } from 'react-native';
+
+const cSeasonalDetailsTabWrapper: ViewStyle = {
+  marginTop: -20
+};
+
+const cSeasonalDetailsTabLabel: ViewStyle = {
+  marginBottom: 16,
+  marginTop: 10
+};
 
 export const SeasonDetailsPage = createBottomTabNavigator({
     Food: SeasonFoodConnector,
     Recipes: SeasonRecipesConnector
 }, {
   tabBarOptions: {
-    activeBackgroundColor: settings.colors.selectionColor,
-    labelStyle: [styles.cTextLarge, styles.cSeasonalDetailsTabLabel],
-    style: styles.cSeasonalDetailsTabWrapper
+    activeBackgroundColor: styles.colors.selectionColor,
+    labelStyle: [styleTextLarge, cSeasonalDetailsTabLabel],
+    style: cSeasonalDetailsTabWrapper
   }
 });
