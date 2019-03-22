@@ -7,6 +7,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { NavigationEvents, NavigationScreenProp } from 'react-navigation';
 import { BareButton, TextHeadingLarge } from '../../components-elements';
 
+import {
+  SearchBarConnecter
+} from '../SearchBar/SearchBar.connector';
+
 const styleNavigationBar: ViewStyle = {
   alignItems: 'center',
   borderBottomWidth: StyleSheet.hairlineWidth,
@@ -40,6 +44,7 @@ export const NavigationBar: SFC<{
       <TextHeadingLarge style={ styleNavigationBarHeading }>
         Eat Seasonal
       </TextHeadingLarge>
+      <SearchBarConnecter />
     </View>
   );
 };
