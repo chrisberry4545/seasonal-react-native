@@ -6,8 +6,7 @@ import {
 import { ISeasonFoodInputProps } from './SeasonFood.interface';
 
 import {
-  Grid,
-  GridItem
+  ImageGrid
 } from '../../components-layout';
 
 export const SeasonFood: SFC<ISeasonFoodInputProps> = ({
@@ -15,17 +14,6 @@ export const SeasonFood: SFC<ISeasonFoodInputProps> = ({
   navigation
 }) => (
   <SeasonDetailsContentWrapperConnector navigation={ navigation }>
-    <Grid>
-      {
-        food && food.map(({ id, name, imageUrlSmall }, index) =>  (
-          <GridItem
-            key={ id }
-            imageUrlSmall={ imageUrlSmall }
-            text={ name }
-            evenGridItem={ index % 2 === 0 }
-            />
-        ))
-      }
-    </Grid>
+    <ImageGrid data={ food } />
   </SeasonDetailsContentWrapperConnector>
 );

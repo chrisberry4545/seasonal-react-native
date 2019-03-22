@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { SFC, Fragment } from 'react';
 
 import { ISearchBarProps } from './SearchBar.interface';
 import {
@@ -13,31 +13,32 @@ import { View, ViewStyle } from 'react-native';
 import { colors } from '../../styles/colors';
 
 const styleSearchBar: ViewStyle = {
+  backgroundColor: colors.backgroundColor,
   flexDirection: 'row',
+  height: 40,
   justifyContent: 'flex-end',
   left: 0,
-  paddingBottom: 17,
+  marginTop: 19,
   paddingRight: 12,
-  paddingTop: 22,
   position: 'absolute',
   right: 0,
   top: 0
 };
 
-const styleSearchBarInputWrapper: ViewStyle = {
-  backgroundColor: colors.backgroundColor,
-  bottom: 0,
+const styleSearchBarButton: ViewStyle = {
+  display: 'flex',
+  flex: 0,
   flexDirection: 'row',
-  left: 0,
-  position: 'absolute',
-  right: 0,
-  top: 0
+  justifyContent: 'flex-end',
+  paddingBottom: 12,
+  paddingLeft: 12,
+  paddingTop: 12
 };
 
-const styleSearchBarCloseIcon: ViewStyle = {
+const styleSearchBarCloseButton: ViewStyle = {
   position: 'absolute',
-  right: 12,
-  top: 14
+  right: 2,
+  top: -10
 };
 
 export const SearchBar: SFC<ISearchBarProps> = ({
@@ -46,27 +47,28 @@ export const SearchBar: SFC<ISearchBarProps> = ({
   onSearchChanged,
   onShowSearchBar
 }) => (
-  <View style={ styleSearchBar }>
+  <Fragment>
     <BareButton
+      style={ styleSearchBarButton }
       onPress={onShowSearchBar}>
       <Ionicons name='ios-search'
         size={ 24 }/>
     </BareButton>
     {
       isSearchBarVisible
-       ? <View style={ styleSearchBarInputWrapper }>
+       ? <View style={ styleSearchBar }>
           <Input
             autoFocus
             onChangeText={(newSearchTerm) => onSearchChanged(newSearchTerm)}
             placeholder='Search'/>
           <BareButton
+            style={ [styleSearchBarButton, styleSearchBarCloseButton] }
             onPress={onHideSearchBar}>
             <Ionicons name='ios-close'
-              style={ styleSearchBarCloseIcon }
               size={ 40 } />
           </BareButton>
         </View>
         : null
     }
-  </View>
+  </Fragment>
 );

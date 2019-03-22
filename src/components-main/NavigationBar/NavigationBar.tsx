@@ -21,7 +21,8 @@ const styleNavigationBar: ViewStyle = {
 };
 
 const styleNavigationBarMenuButton: ViewStyle = {
-  flex: 0
+  flex: 0,
+  paddingTop: 4
 };
 
 const styleNavigationBarHeading: TextStyle = {

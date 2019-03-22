@@ -1,5 +1,5 @@
-export * from './Grid/Grid';
+export * from './ImageGrid/ImageGrid';
 
-export * from './GridItem/GridItem';
+export * from './ImageGridItem/ImageGridItem';
 
 export * from './MainContainer/MainContainer';
