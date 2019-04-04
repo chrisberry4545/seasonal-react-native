@@ -4,10 +4,6 @@ import { TextMedium, BareButton } from '../../components-elements';
 import { styles } from '../../styles';
 import { IImageGridItem } from './ImageGridItem.interface';
 
-import {
-  goToLinkUrl
-} from '../../helpers';
-
 const gridPadding = 18;
 
 const styleImageGridItem: ViewStyle = {
@@ -44,14 +40,17 @@ export const ImageGridItem: SFC<IImageGridItem> = ({
   id,
   evenGridItem,
   name,
-  linkUrl,
   imageUrlSmall,
   onClick
 }) => (
   <BareButton
     style={ styleImageGridItem }
-    onClick={ () => onClick ? onClick(id) : goToLinkUrl(linkUrl) }
-    activeOpacity={ linkUrl ? 0.2 : 1 }
+    onClick={() => {
+      if (onClick) {
+        onClick(id);
+      }
+    }}
+    activeOpacity={ onClick ? 0.2 : 1 }
   >
     <View style={ [
       styleImageGridItemInner,

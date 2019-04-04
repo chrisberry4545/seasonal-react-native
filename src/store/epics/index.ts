@@ -13,6 +13,10 @@ import {
   getCurrentSeasonDataEpic$
 } from './current-season-data.epics';
 
+import {
+  goToRecipeLink$
+} from './route.epics';
+
 import { initAppEpic$ } from './init.epics';
 
 export const rootEpic = combineEpics(
@@ -20,5 +24,6 @@ export const rootEpic = combineEpics(
   getCurrentSeasonDataEpic$,
   getAllBasicSeasonDataStartEpic$,
   getAllBasicSeasonDataEpic$,
-  getCurrentFoodDetailsDataEpic$
+  getCurrentFoodDetailsDataEpic$,
+  goToRecipeLink$
 );

@@ -52,3 +52,16 @@ export function foodDetailsSelectSeason(
     type: FOOD_DETAILS_SELECT_SEASON
   };
 }
+
+export interface IRecipeItemClicked extends Action {
+  recipeItemId: string;
+}
+export const RECIPE_ITEM_CLICKED = 'RECIPE_ITEM_CLICKED';
+export function recipeItemClicked(
+  recipeItemId: string
+): IRecipeItemClicked {
+  return {
+    recipeItemId,
+    type: RECIPE_ITEM_CLICKED
+  };
+}

@@ -3,6 +3,5 @@ export interface IImageGridItem {
   evenGridItem?: boolean;
   name: string;
   imageUrlSmall: string;
-  linkUrl?: string;
   onClick?: (itemId: string) => void;
 }

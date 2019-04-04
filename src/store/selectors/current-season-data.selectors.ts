@@ -35,3 +35,12 @@ export const selectCurrentSeasonName = createSelector(
   selectCurrentSeason,
   (currentSeason): string | undefined => currentSeason && currentSeason.name
 );
+
+export const selectCurrentSeasonRecipesById = (recipeId: string) => (
+  createSelector(
+    selectCurrentSeasonRecipes,
+    (recipes): IRecipe | undefined => recipes && recipes.find(({ id }) => (
+      id === recipeId
+    ))
+  )
+);

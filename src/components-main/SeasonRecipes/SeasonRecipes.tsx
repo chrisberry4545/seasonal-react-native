@@ -7,13 +7,14 @@ import {
 import {
   SeasonDetailsContentWrapperConnector
 } from '../SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
-import { ISeasonRecipesInputProps } from './SeasonRecipes.interface';
+import { ISeasonRecipesProps } from './SeasonRecipes.interface';
 
-export const SeasonRecipes: SFC<ISeasonRecipesInputProps> = ({
+export const SeasonRecipes: SFC<ISeasonRecipesProps> = ({
   recipes,
-  navigation
+  navigation,
+  onRecipeClick
 }) => (
   <SeasonDetailsContentWrapperConnector navigation={ navigation }>
-    <ImageGrid data={ recipes } />
+    <ImageGrid data={ recipes } onClick={ onRecipeClick } />
   </SeasonDetailsContentWrapperConnector>
 );

@@ -1,5 +1,5 @@
 import {
-  ISeasonRecipesInputProps
+  ISeasonRecipesInputProps, ISeasonRecipesDispatchProps
 } from './SeasonRecipes.interface';
 
 import { connect } from 'react-redux';
@@ -7,9 +7,11 @@ import {
   SeasonRecipes
 } from './SeasonRecipes';
 import {
-  selectVisibleRecipeData
+  selectVisibleRecipeData, recipeItemClicked
 } from '../../store';
 import { IState } from '../../interfaces';
+
+import { Dispatch } from 'redux';
 
 const mapStateToProps = (
   state: IState
@@ -19,6 +21,15 @@ const mapStateToProps = (
   };
 };
 
+const mapDispatchToProps = (
+  dispatch: Dispatch
+): ISeasonRecipesDispatchProps => ({
+  onRecipeClick: (recipeItemId) => (
+    dispatch(recipeItemClicked(recipeItemId))
+  )
+});
+
 export const SeasonRecipesConnector = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SeasonRecipes);
