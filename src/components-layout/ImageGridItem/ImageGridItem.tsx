@@ -41,14 +41,16 @@ const styleImageGridItemText: ViewStyle = {
 };
 
 export const ImageGridItem: SFC<IImageGridItem> = ({
+  id,
   evenGridItem,
   name,
   linkUrl,
-  imageUrlSmall
+  imageUrlSmall,
+  onClick
 }) => (
   <BareButton
     style={ styleImageGridItem }
-    onPress={ () => goToLinkUrl(linkUrl) }
+    onPress={ () => onClick ? onClick(id) : goToLinkUrl(linkUrl) }
     activeOpacity={ linkUrl ? 0.2 : 1 }
   >
     <View style={ [

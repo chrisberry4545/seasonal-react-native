@@ -3,17 +3,34 @@ import React, { SFC } from 'react';
 import {
   SeasonDetailsContentWrapperConnector
 } from './../SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
-import { ISeasonFoodInputProps } from './SeasonFood.interface';
+import { ISeasonFoodProps } from './SeasonFood.interface';
 
 import {
   ImageGrid
 } from '../../components-layout';
+import { NavigationScreenProp } from 'react-navigation';
 
-export const SeasonFood: SFC<ISeasonFoodInputProps> = ({
+const navigateToFoodPage = (
+  navigation?: NavigationScreenProp<{}>
+) => {
+  if (navigation) {
+    navigation.navigate({
+      routeName: 'foodDetails'
+    });
+  }
+};
+
+export const SeasonFood: SFC<ISeasonFoodProps> = ({
   food,
-  navigation
+  navigation,
+  onFoodClick
 }) => (
   <SeasonDetailsContentWrapperConnector navigation={ navigation }>
-    <ImageGrid data={ food } />
+    <ImageGrid data={ food } onClick={
+      (foodItemId) => {
+        onFoodClick(foodItemId);
+        navigateToFoodPage(navigation);
+      }
+    } />
   </SeasonDetailsContentWrapperConnector>
 );

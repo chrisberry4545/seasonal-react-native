@@ -19,12 +19,16 @@ const styleImageGridNoResults: TextStyle = {
   textAlign: 'center'
 };
 
-export const ImageGrid: SFC<IImageGrid> = ({ data }) => (
+export const ImageGrid: SFC<IImageGrid> = ({
+  data,
+  onClick
+}) => (
   <View style={ styleImageGrid }>
     {
       data && data.length > 0
         ? data.map((item, index) => (
-          <ImageGridItem { ...item } evenGridItem={ index % 2 === 0 } />
+          <ImageGridItem { ...item }
+            evenGridItem={ index % 2 === 0 } onClick={onClick} />
         ))
         : <TextHeadingMedium
             style={ styleImageGridNoResults }>

@@ -4,4 +4,5 @@ import {
 
 export interface IImageGrid {
   data: IImageGridItem[] | undefined;
+  onClick?: (itemId: string) => void;
 }

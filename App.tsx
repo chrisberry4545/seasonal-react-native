@@ -8,6 +8,7 @@ import {
 } from 'react-navigation';
 import {
   AboutUsPage,
+  FoodDetailsPage,
   SeasonDetailsPage
 } from './src/components-pages';
 import {
@@ -22,7 +23,7 @@ import {
 } from './src/helpers';
 import { IBaseSeason } from '@chrisb-dev/seasonal-shared';
 import { Provider } from 'react-redux';
-import { store } from './src/store';
+import { store, setAllBasicSeasonDataSuccess } from './src/store';
 
 interface IAppState {
   seasonData: IBaseSeason[] | undefined;
@@ -32,6 +33,9 @@ export default class App extends Component<{}, IAppState> {
   public async componentDidMount() {
     await loadFonts();
     const seasonData = await getAllSeasonData();
+    store.dispatch(setAllBasicSeasonDataSuccess(
+      seasonData
+    ));
     this.setState({
       seasonData
     });
@@ -44,7 +48,7 @@ export default class App extends Component<{}, IAppState> {
 
     const navigation: { [key: string]: NavigationScreenRouteConfig} =
       this.state.seasonData.reduce((navObject, { name }, index) => {
-        navObject[name] = {
+        navObject[`season-${index}`] = {
           navigationOptions: {
             drawerLabel: name
           },
@@ -61,12 +65,18 @@ export default class App extends Component<{}, IAppState> {
       },
       screen: AboutUsPage
     };
+    navigation.foodDetails = {
+      navigationOptions: {
+        drawerLabel: ' '
+      },
+      screen: FoodDetailsPage
+    };
     const DrawerNavigator = createDrawerNavigator(navigation, {
       contentOptions: {
         activeTintColor: styles.colors.black,
         inactiveTintColor: styles.colors.primaryText
       },
-      initialRouteName: this.state.seasonData[getCurrentSeasonIndex()].name
+      initialRouteName: `season-${getCurrentSeasonIndex()}`
     });
     const AppContainer = createAppContainer(DrawerNavigator);
     return (

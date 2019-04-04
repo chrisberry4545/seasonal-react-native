@@ -26,3 +26,29 @@ export function hideSearchBar(): Action {
     type: HIDE_SEARCH_BAR
   };
 }
+
+export interface IFoodItemClicked extends Action {
+  foodItemId: string;
+}
+export const FOOD_ITEM_CLICKED = 'FOOD_ITEM_CLICKED';
+export function foodItemClicked(
+  foodItemId: string
+): IFoodItemClicked {
+  return {
+    foodItemId,
+    type: FOOD_ITEM_CLICKED
+  };
+}
+
+export interface ISelectSeason extends Action {
+  seasonIndex: number;
+}
+export const FOOD_DETAILS_SELECT_SEASON = 'FOOD_DETAILS_SELECT_SEASON';
+export function foodDetailsSelectSeason(
+  seasonIndex: number
+): ISelectSeason {
+  return {
+    seasonIndex,
+    type: FOOD_DETAILS_SELECT_SEASON
+  };
+}
