@@ -3,7 +3,8 @@ import React from 'react';
 import {
   IFoodDetailsLoaderInputProps
 } from './FoodDetailsLoader.interface';
-import { ActivityIndicator, View, ViewStyle } from 'react-native';
+import { View, ViewStyle } from 'react-native';
+import { LoadingSpinner } from '../../components-elements';
 
 const styleFoodDetailsLoader: ViewStyle = {
   flex: 1
@@ -14,7 +15,7 @@ export const FoodDetailsLoader = ({
 }: IFoodDetailsLoaderInputProps) => (
   isLoading
     ? <View style={styleFoodDetailsLoader}>
-      <ActivityIndicator size='large'  style={styleFoodDetailsLoader} />
+      <LoadingSpinner style={styleFoodDetailsLoader} />
     </View>
     : null
 );

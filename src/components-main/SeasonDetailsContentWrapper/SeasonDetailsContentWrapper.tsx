@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ActivityIndicator, ScrollView, View, ViewStyle } from 'react-native';
+import { ScrollView, View, ViewStyle } from 'react-native';
 import {
   getCurrentSeasonIndex
 } from '../../services';
@@ -14,6 +14,7 @@ import {
   ISeasonDetailsContentWrapperProps
 } from './SeasonDetailsContentWrapper.interface';
 import { MainContainer } from '../../components-layout';
+import { LoadingSpinner } from '../../components-elements';
 
 const styleSeasonalDetails: ViewStyle = {
   flex: 1
@@ -62,8 +63,7 @@ extends Component<ISeasonDetailsContentWrapperProps> {
                 </View>
               </ScrollView>
             )
-            : <ActivityIndicator
-                size='large'
+            : <LoadingSpinner
                 style={ styleSeasonDetailsContentWrapperLoadingIndicator } />
         }
       </MainContainer>
