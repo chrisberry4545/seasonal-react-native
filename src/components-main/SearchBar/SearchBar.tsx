@@ -2,13 +2,12 @@ import React, { SFC, Fragment } from 'react';
 
 import { ISearchBarProps } from './SearchBar.interface';
 import {
-  Input
+  Input, MagnifyingGlassIcon, CrossIcon
 } from '../../components-elements';
 
 import {
   BareButton
 } from '../../components-elements';
-import { Ionicons } from '@expo/vector-icons';
 import { View, ViewStyle } from 'react-native';
 import { colors } from '../../styles/colors';
 
@@ -51,8 +50,7 @@ export const SearchBar: SFC<ISearchBarProps> = ({
     <BareButton
       style={ styleSearchBarButton }
       onClick={onShowSearchBar}>
-      <Ionicons name='ios-search'
-        size={ 24 }/>
+      <MagnifyingGlassIcon size={ 24 }/>
     </BareButton>
     {
       isSearchBarVisible
@@ -64,8 +62,7 @@ export const SearchBar: SFC<ISearchBarProps> = ({
           <BareButton
             style={ [styleSearchBarButton, styleSearchBarCloseButton] }
             onClick={onHideSearchBar}>
-            <Ionicons name='ios-close'
-              size={ 40 } />
+            <CrossIcon size={ 40 } />
           </BareButton>
         </View>
         : null

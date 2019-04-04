@@ -3,9 +3,8 @@ import { View, ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import {
   styles
 } from '../../styles';
-import { Ionicons } from '@expo/vector-icons';
 import { NavigationEvents, NavigationScreenProp } from 'react-navigation';
-import { BareButton, TextHeadingLarge } from '../../components-elements';
+import { BareButton, TextHeadingLarge, BurgerIcon } from '../../components-elements';
 
 import {
   SearchBarConnecter
@@ -40,7 +39,7 @@ export const NavigationBar: SFC<{
       <BareButton
         style={ styleNavigationBarMenuButton }
         onClick={ navigation && navigation.openDrawer }>
-        <Ionicons name='ios-menu' size={ 32 } />
+        <BurgerIcon size={ 32 } />
       </BareButton>
       <TextHeadingLarge style={ styleNavigationBarHeading }>
         Eat Seasonal

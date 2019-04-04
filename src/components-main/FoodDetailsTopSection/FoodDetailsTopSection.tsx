@@ -2,13 +2,13 @@ import React from 'react';
 
 import {
   BareButton,
-  TextHeadingMedium
+  TextHeadingMedium,
+  ArrowIcon
 } from '../../components-elements';
 
 import {
   IFoodDetailsTopSectionInputProps
 } from './FoodDetailsTopSection.interface';
-import { Ionicons } from '@expo/vector-icons';
 import { View, Image, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
 const iconWidth = 30;
@@ -53,7 +53,7 @@ export const FoodDetailsTopSection = ({
             navigation.goBack();
           }
         }}>
-        <Ionicons name='ios-arrow-round-back' size={iconWidth} />
+        <ArrowIcon size={iconWidth} />
       </BareButton>
       <TextHeadingMedium style={styleFoodDetailsTopSectionText}>
         {foodName}
