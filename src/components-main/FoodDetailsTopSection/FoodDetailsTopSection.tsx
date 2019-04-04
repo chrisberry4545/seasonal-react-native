@@ -48,7 +48,7 @@ export const FoodDetailsTopSection = ({
     ? <View style={styleFoodDetailsTopSection}>
     <View style={styleFoodDetailsTopSectionInner}>
       <BareButton
-        onPress={() => {
+        onClick={() => {
           if (navigation) {
             navigation.goBack();
           }

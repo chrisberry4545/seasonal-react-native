@@ -102,7 +102,7 @@ export const SeasonsForFood = ({
               )
             ] }
             key={name}
-            onPress={ () => {
+            onClick={ () => {
               onSeasonSelected(seasonIndex);
               if (navigation) {
                 navigation.navigate({

@@ -28,7 +28,7 @@ const linkToPrivacyPolicy = (): void => {
 export const PrivacyPolicyLink: SFC<{}> = () => (
   <BareButton
     style={ stylePrivacyPolicyLink }
-    onPress={linkToPrivacyPolicy}>
+    onClick={linkToPrivacyPolicy}>
     <TextHeadingMedium style={ stylePrivacyPolicyLinkText }>
       Privacy Policy
     </TextHeadingMedium>

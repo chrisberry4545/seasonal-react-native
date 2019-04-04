@@ -39,7 +39,7 @@ export const NavigationBar: SFC<{
         onDidFocus={() => navigation && navigation.closeDrawer()} />
       <BareButton
         style={ styleNavigationBarMenuButton }
-        onPress={ navigation && navigation.openDrawer }>
+        onClick={ navigation && navigation.openDrawer }>
         <Ionicons name='ios-menu' size={ 32 } />
       </BareButton>
       <TextHeadingLarge style={ styleNavigationBarHeading }>

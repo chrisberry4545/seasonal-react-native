@@ -8,12 +8,12 @@ import {
 export const BareButton: SFC<IButton> = ({
   activeOpacity,
   children,
-  onPress,
+  onClick,
   style
 }) => (
   <TouchableOpacity
     style={ style }
-    onPress={onPress}
+    onPress={onClick}
     activeOpacity={activeOpacity}>
     { children }
   </TouchableOpacity>

@@ -50,7 +50,7 @@ export const SearchBar: SFC<ISearchBarProps> = ({
   <Fragment>
     <BareButton
       style={ styleSearchBarButton }
-      onPress={onShowSearchBar}>
+      onClick={onShowSearchBar}>
       <Ionicons name='ios-search'
         size={ 24 }/>
     </BareButton>
@@ -63,7 +63,7 @@ export const SearchBar: SFC<ISearchBarProps> = ({
             placeholder='Search'/>
           <BareButton
             style={ [styleSearchBarButton, styleSearchBarCloseButton] }
-            onPress={onHideSearchBar}>
+            onClick={onHideSearchBar}>
             <Ionicons name='ios-close'
               size={ 40 } />
           </BareButton>

@@ -2,6 +2,6 @@ import { StyleProp, TextStyle } from 'react-native';
 
 export interface IButton {
   activeOpacity?: number;
-  onPress?: () => void;
+  onClick?: () => void;
   style?: StyleProp<TextStyle>;
 }
