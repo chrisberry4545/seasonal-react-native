@@ -3,14 +3,15 @@ import { View, ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import {
   styles
 } from '../../styles';
-import { NavigationEvents, NavigationScreenProp } from 'react-navigation';
+import { NavigationEvents } from 'react-navigation';
 import { BareButton, TextHeadingLarge, BurgerIcon } from '../../components-elements';
 
 import {
   SearchBarConnecter
 } from '../SearchBar/SearchBar.connector';
+import { IHeaderDispatchProps } from './Header.interface';
 
-const styleNavigationBar: ViewStyle = {
+const styleHeader: ViewStyle = {
   alignItems: 'center',
   borderBottomWidth: StyleSheet.hairlineWidth,
   borderColor: styles.colors.greyMed,
@@ -19,29 +20,30 @@ const styleNavigationBar: ViewStyle = {
   paddingTop: 16
 };
 
-const styleNavigationBarMenuButton: ViewStyle = {
+const styleHeaderMenuButton: ViewStyle = {
   flex: 0,
   paddingTop: 4
 };
 
-const styleNavigationBarHeading: TextStyle = {
+const styleHeaderHeading: TextStyle = {
   flex: 1,
   textAlign: 'center'
 };
 
-export const NavigationBar: SFC<{
-  navigation: NavigationScreenProp<{}> | undefined
-}> = ({ navigation }) => {
+export const Header: SFC<IHeaderDispatchProps> = ({
+  onMenuOpen,
+  onMenuClose
+}) => {
   return (
-    <View style={ styleNavigationBar }>
+    <View style={ styleHeader }>
       <NavigationEvents
-        onDidFocus={() => navigation && navigation.closeDrawer()} />
+        onDidFocus={onMenuClose} />
       <BareButton
-        style={ styleNavigationBarMenuButton }
-        onClick={ navigation && navigation.openDrawer }>
+        style={ styleHeaderMenuButton }
+        onClick={onMenuOpen}>
         <BurgerIcon size={ 32 } />
       </BareButton>
-      <TextHeadingLarge style={ styleNavigationBarHeading }>
+      <TextHeadingLarge style={ styleHeaderHeading }>
         Eat Seasonal
       </TextHeadingLarge>
       <SearchBarConnecter />

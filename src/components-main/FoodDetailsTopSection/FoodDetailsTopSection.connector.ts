@@ -5,13 +5,16 @@ import {
 import {
   selectCurrentFoodDetailsName,
   selectCurrentFoodDetailsImageUrl,
-  selectIsFoodDataOrBasicSeasonsLoading
+  selectIsFoodDataOrBasicSeasonsLoading,
+  goBackFromFoodDetails
 } from '../../store';
 
 import { IState } from '../../interfaces';
 import {
-  IFoodDetailsTopSectionInputProps
+  IFoodDetailsTopSectionInputProps,
+  IFoodDetailsTopSectionDispatchProps
 } from './FoodDetailsTopSection.interface';
+import { Dispatch } from 'redux';
 
 const mapStateToProps = (
   state: IState
@@ -21,6 +24,13 @@ const mapStateToProps = (
   isLoading: selectIsFoodDataOrBasicSeasonsLoading(state)
 });
 
+const mapDispatchToProps = (
+  dispatch: Dispatch
+): IFoodDetailsTopSectionDispatchProps => ({
+  onGoBack: () => dispatch(goBackFromFoodDetails())
+});
+
 export const FoodDetailsTopSectionConnecter = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(FoodDetailsTopSection);

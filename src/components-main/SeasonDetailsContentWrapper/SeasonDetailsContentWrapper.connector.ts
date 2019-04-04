@@ -1,6 +1,5 @@
 import {
-  ISeasonDetailsContentWrapperInputProps,
-  ISeasonDetailsContentWrapperDispatchProps
+  ISeasonDetailsContentWrapperInputProps
 } from './SeasonDetailsContentWrapper.interface';
 
 import { connect } from 'react-redux';
@@ -8,11 +7,9 @@ import {
   SeasonDetailsContentWrapper
 } from './SeasonDetailsContentWrapper';
 import {
-  selectIsCurrentSeasonLoading,
-  setCurrentSeasonDataStart
+  selectIsCurrentSeasonLoading
 } from '../../store';
 import { IState } from '../../interfaces';
-import { Dispatch } from 'redux';
 
 const mapStateToProps = (
   state: IState
@@ -22,15 +19,6 @@ const mapStateToProps = (
   };
 };
 
-const mapDispatchToProps = (
-  dispatch: Dispatch
-): ISeasonDetailsContentWrapperDispatchProps => ({
-  onInit: (seasonIndex: number) => (
-    dispatch((setCurrentSeasonDataStart(seasonIndex)))
-  )
-});
-
 export const SeasonDetailsContentWrapperConnector = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(SeasonDetailsContentWrapper);

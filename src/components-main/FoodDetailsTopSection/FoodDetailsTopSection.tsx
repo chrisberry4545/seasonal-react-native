@@ -7,7 +7,7 @@ import {
 } from '../../components-elements';
 
 import {
-  IFoodDetailsTopSectionInputProps
+  IFoodDetailsTopSectionProps
 } from './FoodDetailsTopSection.interface';
 import { View, Image, ViewStyle, TextStyle, ImageStyle } from 'react-native';
 
@@ -42,17 +42,13 @@ export const FoodDetailsTopSection = ({
   foodImageUrl,
   foodName,
   isLoading,
-  navigation
-}: IFoodDetailsTopSectionInputProps) => (
+  onGoBack
+}: IFoodDetailsTopSectionProps) => (
   !isLoading
     ? <View style={styleFoodDetailsTopSection}>
     <View style={styleFoodDetailsTopSectionInner}>
       <BareButton
-        onClick={() => {
-          if (navigation) {
-            navigation.goBack();
-          }
-        }}>
+        onClick={onGoBack}>
         <ArrowIcon size={iconWidth} />
       </BareButton>
       <TextHeadingMedium style={styleFoodDetailsTopSectionText}>

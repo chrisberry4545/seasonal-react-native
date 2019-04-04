@@ -73,7 +73,6 @@ const styleSeasonsForFoodSeasonKeyMarkerSelected: ViewStyle = {
 };
 
 export const SeasonsForFood = ({
-  navigation,
   isLoading,
   seasonsSelectedForFood,
   onSeasonSelected
@@ -102,14 +101,7 @@ export const SeasonsForFood = ({
               )
             ] }
             key={name}
-            onClick={ () => {
-              onSeasonSelected(seasonIndex);
-              if (navigation) {
-                navigation.navigate({
-                  routeName: `season-${seasonIndex}`
-                });
-              }
-            }}>
+            onClick={ () => onSeasonSelected(seasonIndex)}>
             <TextMedium>
               { name.substring(0, 3) }
             </TextMedium>

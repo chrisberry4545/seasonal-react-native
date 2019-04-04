@@ -3,10 +3,19 @@ import { Action } from 'redux';
 import { StateObservable, ActionsObservable, ofType } from 'redux-observable';
 import { IState } from '../../interfaces';
 import { Observable } from 'rxjs';
-import { RECIPE_ITEM_CLICKED, IRecipeItemClicked } from '../actions';
-import { withLatestFrom, map } from 'rxjs/operators';
+import {
+  RECIPE_ITEM_CLICKED,
+  IRecipeItemClicked,
+  GO_BACK_FROM_FOOD_DETAILS,
+  FOOD_ITEM_CLICKED,
+  CLOSE_MENU,
+  OPEN_MENU,
+  FOOD_DETAILS_SELECT_SEASON
+} from '../actions';
+import { withLatestFrom, map, tap, ignoreElements } from 'rxjs/operators';
 import { selectCurrentSeasonRecipesById } from '../selectors';
 import { goToLinkUrl } from '../../helpers';
+import { navigate, closeDrawer, openDrawer } from '../../services';
 
 export const goToRecipeLink$: SeasonalEpic = (
   actions$: ActionsObservable<Action>,
@@ -22,11 +31,54 @@ export const goToRecipeLink$: SeasonalEpic = (
         (action as IRecipeItemClicked).recipeItemId
       )(state)
     ),
-    map((recipe) => {
+    tap((recipe) => {
       if (recipe) {
         goToLinkUrl(recipe.linkUrl);
       }
-      return { type: '' };
-    })
+    }),
+    ignoreElements()
+  )
+);
+
+export const goToFoodLink$: SeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(FOOD_ITEM_CLICKED),
+    tap(() => navigate('foodDetails')),
+    ignoreElements()
+  )
+);
+
+export const goToFoodTable$: SeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(
+      GO_BACK_FROM_FOOD_DETAILS,
+      FOOD_DETAILS_SELECT_SEASON
+    ),
+    tap(() => navigate('season-0')),
+    ignoreElements()
+  )
+);
+
+export const closeMenu$: SeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(CLOSE_MENU),
+    tap(() => closeDrawer()),
+    ignoreElements()
+  )
+);
+
+export const openMenu$: SeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(OPEN_MENU),
+    tap(() => openDrawer()),
+    ignoreElements()
   )
 );

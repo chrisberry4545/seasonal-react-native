@@ -6,7 +6,7 @@ export * from './FoodDetailsLoader/FoodDetailsLoader.connector';
 
 export * from './FoodDetailsTopSection/FoodDetailsTopSection.connector';
 
-export * from './NavigationBar/NavigationBar';
+export * from './Header/Header.connector';
 
 export * from './PrivacyPolicyLink/PrivacyPolicyLink';
 

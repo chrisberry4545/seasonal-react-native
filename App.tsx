@@ -15,6 +15,7 @@ import {
   styles
 } from './src/styles';
 import {
+  setTopLevelNavigator,
   getAllSeasonData,
   getCurrentSeasonIndex
 } from './src/services';
@@ -81,7 +82,9 @@ export default class App extends Component<{}, IAppState> {
     const AppContainer = createAppContainer(DrawerNavigator);
     return (
       <Provider store={store}>
-        <AppContainer />
+        <AppContainer ref={
+          (navigatorRef) => setTopLevelNavigator(navigatorRef)
+        }/>
       </Provider>
     );
   }
