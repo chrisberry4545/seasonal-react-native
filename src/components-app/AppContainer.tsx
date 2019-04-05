@@ -10,52 +10,20 @@ import {
   SeasonDetailsPage
 } from '../components-pages';
 import {
-  styles
-} from '../styles';
-import {
-  setTopLevelNavigator,
-  getCurrentSeasonIndex
+  setTopLevelNavigator
 } from '../services';
-import { IAppContainerInputProps } from './AppContainer.interface';
 import { ROUTES } from '../const';
+import { SideMenuConnecter } from '../components-main';
 
-export const AppContainer: SFC<IAppContainerInputProps> = ({
-  seasonData
-}) => {
-  if (!seasonData) {
-    return null;
-  }
-  const navigation: { [key: string]: NavigationScreenRouteConfig} =
-  seasonData.reduce((navObject, { name }, index) => {
-    navObject[`${ROUTES.SEASON_PREFIX}${index}`] = {
-      navigationOptions: {
-        drawerLabel: name
-      },
-      params: {
-        seasonIndex: index
-      },
-      screen: SeasonDetailsPage
-    };
-    return navObject;
-    }, {} as { [key: string]: NavigationScreenRouteConfig});
-  navigation[ROUTES.MORE_INFO] = {
-    navigationOptions: {
-      drawerLabel: 'About us'
-    },
-    screen: AboutUsPage
-  };
-  navigation[ROUTES.FOOD_DETAILS] = {
-    navigationOptions: {
-      drawerLabel: ' '
-    },
-    screen: FoodDetailsPage
+export const AppContainer: SFC<{}> = () => {
+  const navigation: { [key: string]: NavigationScreenRouteConfig} = {
+    [ROUTES.SEASON_DETAILS]: SeasonDetailsPage,
+    [ROUTES.ABOUT_US]: AboutUsPage,
+    [ROUTES.FOOD_DETAILS]: FoodDetailsPage
   };
   const DrawerNavigator = createDrawerNavigator(navigation, {
-    contentOptions: {
-      activeTintColor: styles.colors.black,
-      inactiveTintColor: styles.colors.primaryText
-    },
-    initialRouteName: `${ROUTES.SEASON_PREFIX}${getCurrentSeasonIndex()}`
+    contentComponent: () => <SideMenuConnecter />,
+    initialRouteName: ROUTES.SEASON_DETAILS
   });
   const CreatedAppContainer = createAppContainer(DrawerNavigator);
   return <CreatedAppContainer ref={

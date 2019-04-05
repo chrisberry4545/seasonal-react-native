@@ -14,6 +14,19 @@ export function closeMenu(): Action {
   };
 }
 
+export interface ISelectSeason extends Action {
+  seasonIndex: number;
+}
+export const SELECT_SEASON = 'SELECT_SEASON';
+export function selectSeason(
+  seasonIndex: number
+): ISelectSeason {
+  return {
+    seasonIndex,
+    type: SELECT_SEASON
+  };
+}
+
 export interface ISearchBarChanged extends Action {
   newSearchTerm: string;
 }

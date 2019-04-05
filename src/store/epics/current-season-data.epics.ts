@@ -9,7 +9,8 @@ import {
   setCurrentSeasonDataSuccess,
   INIT_APP,
   FOOD_DETAILS_SELECT_SEASON,
-  setCurrentSeasonDataStart
+  setCurrentSeasonDataStart,
+  SELECT_SEASON
 } from '../actions';
 
 import {
@@ -29,6 +30,7 @@ export const getCurrentSeasonDataStartEpic$: SeasonalEpic = (
 ): Observable<Action> => (
   actions$.pipe(
     ofType(
+      SELECT_SEASON,
       INIT_APP,
       FOOD_DETAILS_SELECT_SEASON
     ),

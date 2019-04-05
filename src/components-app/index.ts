@@ -1,1 +1,1 @@
-export * from './AppContainer.connector';
+export * from './AppContainer';

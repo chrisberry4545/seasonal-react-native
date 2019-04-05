@@ -3,7 +3,8 @@ import {
   SET_CURRENT_SEASON_DATA_SUCCESS,
   ISetCurrentSeasonDataSuccess,
   FOOD_DETAILS_SELECT_SEASON,
-  ISelectSeason
+  ISelectSeason,
+  SELECT_SEASON
 } from '../actions';
 import { ICurrentSeasonDataState } from '../../interfaces';
 import { Action } from 'redux';
@@ -31,6 +32,7 @@ export function currentSeasonDataReducer(
         data: (action as ISetCurrentSeasonDataSuccess).currentSeasonData,
         isLoading: false
       };
+    case SELECT_SEASON:
     case FOOD_DETAILS_SELECT_SEASON:
       return {
         ...state,

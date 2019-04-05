@@ -6,3 +6,10 @@ export function goBackFromFoodDetails(): Action {
     type: GO_BACK_FROM_FOOD_DETAILS
   };
 }
+
+export const GO_TO_ABOUT_US_PAGE = 'GO_TO_ABOUT_US_PAGE';
+export function goToAboutUsPage(): Action {
+  return {
+    type: GO_TO_ABOUT_US_PAGE
+  };
+}

@@ -10,7 +10,9 @@ import {
   FOOD_ITEM_CLICKED,
   CLOSE_MENU,
   OPEN_MENU,
-  FOOD_DETAILS_SELECT_SEASON
+  FOOD_DETAILS_SELECT_SEASON,
+  SELECT_SEASON,
+  GO_TO_ABOUT_US_PAGE
 } from '../actions';
 import { withLatestFrom, map, tap, ignoreElements } from 'rxjs/operators';
 import { selectCurrentSeasonRecipesById } from '../selectors';
@@ -51,15 +53,26 @@ export const goToFoodLink$: SeasonalEpic = (
   )
 );
 
+export const goToAboutUsPage$: SeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GO_TO_ABOUT_US_PAGE),
+    tap(() => navigate(ROUTES.ABOUT_US)),
+    ignoreElements()
+  )
+);
+
 export const goToFoodTable$: SeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
     ofType(
+      SELECT_SEASON,
       GO_BACK_FROM_FOOD_DETAILS,
       FOOD_DETAILS_SELECT_SEASON
     ),
-    tap(() => navigate(`${ROUTES.SEASON_PREFIX}0`)),
+    tap(() => navigate(ROUTES.SEASON_DETAILS)),
     ignoreElements()
   )
 );
@@ -68,7 +81,11 @@ export const closeMenu$: SeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
-    ofType(CLOSE_MENU),
+    ofType(
+      GO_TO_ABOUT_US_PAGE,
+      SELECT_SEASON,
+      CLOSE_MENU
+    ),
     tap(() => closeDrawer()),
     ignoreElements()
   )

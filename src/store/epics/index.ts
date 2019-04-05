@@ -15,6 +15,7 @@ import {
 } from './current-season-data.epics';
 
 import {
+  goToAboutUsPage$,
   goToRecipeLink$,
   goToFoodLink$,
   goToFoodTable$,
@@ -31,6 +32,7 @@ export const rootEpic = combineEpics(
   getAllBasicSeasonDataStartEpic$,
   getAllBasicSeasonDataEpic$,
   getCurrentFoodDetailsDataEpic$,
+  goToAboutUsPage$,
   goToRecipeLink$,
   goToFoodLink$,
   goToFoodTable$,
