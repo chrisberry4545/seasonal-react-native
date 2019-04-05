@@ -1,19 +1,16 @@
 import React, { SFC } from 'react';
-import { NavigationScreenProp } from 'react-navigation';
 
 import {
   AboutUs,
-  NavigationBar,
+  HeaderConnecter,
   PrivacyPolicyLink
 } from '../../components-main';
 
 import { MainContainer } from '../../components-layout';
 
-export const AboutUsPage: SFC<{
-  navigation: NavigationScreenProp<{}>
-}> = ({ navigation }) => (
+export const AboutUsPage: SFC<{}> = () => (
   <MainContainer>
-    <NavigationBar navigation={ navigation } />
+    <HeaderConnecter />
     <AboutUs />
     <PrivacyPolicyLink />
   </MainContainer>

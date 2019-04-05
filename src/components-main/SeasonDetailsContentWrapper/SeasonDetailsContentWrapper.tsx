@@ -1,17 +1,14 @@
-import React, { Component } from 'react';
+import React, { SFC } from 'react';
 import { ScrollView, View, ViewStyle } from 'react-native';
 import {
-  getCurrentSeasonIndex
-} from '../../services';
-import {
-  NavigationBar
-} from '../../components-main/NavigationBar/NavigationBar';
+  HeaderConnecter
+} from '../../components-main/Header/Header.connector';
 import {
   CurrentSeasonNameConnecter
 } from '../../components-main/CurrentSeasonName/CurrentSeasonName.connector';
 
 import {
-  ISeasonDetailsContentWrapperProps
+  ISeasonDetailsContentWrapperInputProps
 } from './SeasonDetailsContentWrapper.interface';
 import { MainContainer } from '../../components-layout';
 import { LoadingSpinner } from '../../components-elements';
@@ -33,32 +30,21 @@ const styleSeasonDetailsContentWrapperLoadingIndicator: ViewStyle = {
   flex: 1
 };
 
-export class SeasonDetailsContentWrapper
-extends Component<ISeasonDetailsContentWrapperProps> {
-  constructor(props: ISeasonDetailsContentWrapperProps) {
-    super(props);
-  }
-
-  public async componentDidMount() {
-    const { navigation } = this.props;
-    const parentNavigator = navigation && navigation.dangerouslyGetParent();
-    const seasonIndex = parentNavigator &&
-      parentNavigator.getParam('seasonIndex', getCurrentSeasonIndex());
-    this.props.onInit(seasonIndex);
-  }
-
-  public render() {
-    return (
+export const SeasonDetailsContentWrapper:
+SFC<ISeasonDetailsContentWrapperInputProps> = ({
+  isLoading,
+  children
+}) => (
       <MainContainer>
-        <NavigationBar navigation={ this.props.navigation } />
+        <HeaderConnecter />
         {
-          !this.props.isLoading
+          !isLoading
             ? (
               <ScrollView style={ styleSeasonalDetails }>
                 <CurrentSeasonNameConnecter />
                 <View style={ styleSeasonalDetailsSection }>
                   <View style={ styleSeasonalDetailsSectionInner }>
-                    { this.props.children }
+                    { children }
                   </View>
                 </View>
               </ScrollView>
@@ -67,6 +53,4 @@ extends Component<ISeasonDetailsContentWrapperProps> {
                 style={ styleSeasonDetailsContentWrapperLoadingIndicator } />
         }
       </MainContainer>
-    );
-  }
-}
+);

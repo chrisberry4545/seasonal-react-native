@@ -11,10 +11,9 @@ import { ISeasonRecipesProps } from './SeasonRecipes.interface';
 
 export const SeasonRecipes: SFC<ISeasonRecipesProps> = ({
   recipes,
-  navigation,
   onRecipeClick
 }) => (
-  <SeasonDetailsContentWrapperConnector navigation={ navigation }>
+  <SeasonDetailsContentWrapperConnector>
     <ImageGrid data={ recipes } onClick={ onRecipeClick } />
   </SeasonDetailsContentWrapperConnector>
 );

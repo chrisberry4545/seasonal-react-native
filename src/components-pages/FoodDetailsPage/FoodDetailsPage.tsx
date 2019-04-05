@@ -1,22 +1,19 @@
 import React, { SFC } from 'react';
-import { NavigationScreenProp } from 'react-navigation';
 
 import {
   FoodDetailsLoaderConnecter,
   FoodDetailsTopSectionConnecter,
   SeasonsForFoodConnecter,
-  NavigationBar
+  HeaderConnecter
 } from '../../components-main';
 
 import { MainContainer } from '../../components-layout';
 
-export const FoodDetailsPage: SFC<{
-  navigation: NavigationScreenProp<{}>
-}> = ({ navigation }) => (
+export const FoodDetailsPage: SFC<{}> = () => (
   <MainContainer>
-    <NavigationBar navigation={ navigation } />
-    <FoodDetailsTopSectionConnecter navigation={ navigation } />
+    <HeaderConnecter />
+    <FoodDetailsTopSectionConnecter />
     <FoodDetailsLoaderConnecter />
-    <SeasonsForFoodConnecter navigation={ navigation }/>
+    <SeasonsForFoodConnecter />
   </MainContainer>
 );

@@ -1,12 +1,17 @@
 import {
   SET_CURRENT_SEASON_DATA_START,
   SET_CURRENT_SEASON_DATA_SUCCESS,
-  ISetCurrentSeasonDataSuccess
+  ISetCurrentSeasonDataSuccess,
+  FOOD_DETAILS_SELECT_SEASON,
+  ISelectSeason,
+  SELECT_SEASON
 } from '../actions';
 import { ICurrentSeasonDataState } from '../../interfaces';
 import { Action } from 'redux';
+import { getCurrentSeasonIndex } from '../../services';
 
 const getDefaultState = (): ICurrentSeasonDataState => ({
+  currentSeasonIndex: getCurrentSeasonIndex(),
   data: undefined,
   isLoading: true
 });
@@ -26,6 +31,12 @@ export function currentSeasonDataReducer(
         ...state,
         data: (action as ISetCurrentSeasonDataSuccess).currentSeasonData,
         isLoading: false
+      };
+    case SELECT_SEASON:
+    case FOOD_DETAILS_SELECT_SEASON:
+      return {
+        ...state,
+        currentSeasonIndex: (action as ISelectSeason).seasonIndex
       };
     default:
       return state;

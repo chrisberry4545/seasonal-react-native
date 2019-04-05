@@ -10,20 +10,32 @@ import {
 } from './current-food-details-data.epics';
 
 import {
+  getCurrentSeasonDataStartEpic$,
   getCurrentSeasonDataEpic$
 } from './current-season-data.epics';
 
 import {
-  goToRecipeLink$
+  goToAboutUsPage$,
+  goToRecipeLink$,
+  goToFoodLink$,
+  goToFoodTable$,
+  closeMenu$,
+  openMenu$
 } from './route.epics';
 
 import { initAppEpic$ } from './init.epics';
 
 export const rootEpic = combineEpics(
   initAppEpic$,
+  getCurrentSeasonDataStartEpic$,
   getCurrentSeasonDataEpic$,
   getAllBasicSeasonDataStartEpic$,
   getAllBasicSeasonDataEpic$,
   getCurrentFoodDetailsDataEpic$,
-  goToRecipeLink$
+  goToAboutUsPage$,
+  goToRecipeLink$,
+  goToFoodLink$,
+  goToFoodTable$,
+  closeMenu$,
+  openMenu$
 );

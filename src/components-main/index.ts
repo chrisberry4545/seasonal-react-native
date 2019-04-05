@@ -6,7 +6,7 @@ export * from './FoodDetailsLoader/FoodDetailsLoader.connector';
 
 export * from './FoodDetailsTopSection/FoodDetailsTopSection.connector';
 
-export * from './NavigationBar/NavigationBar';
+export * from './Header/Header.connector';
 
 export * from './PrivacyPolicyLink/PrivacyPolicyLink';
 
@@ -19,3 +19,5 @@ export * from './SeasonFood/SeasonFood.connector';
 export * from './SeasonRecipes/SeasonRecipes.connector';
 
 export * from './SeasonsForFood/SeasonsForFood.connector';
+
+export * from './SideMenu/SideMenu.connector';
