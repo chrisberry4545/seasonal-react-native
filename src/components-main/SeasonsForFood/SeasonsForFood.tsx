@@ -28,8 +28,9 @@ const styleSeasonsForFoodSeasonWrapper: ViewStyle = {
   display: 'flex',
   flexDirection: 'row',
   flexWrap: 'wrap',
+  justifyContent: 'center',
   marginBottom: 16,
-  maxWidth: 380
+  maxWidth: 300
 };
 
 const styleSeasonsForFoodSeason: ViewStyle = {
