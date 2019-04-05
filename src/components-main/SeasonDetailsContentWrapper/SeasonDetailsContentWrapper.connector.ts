@@ -8,7 +8,7 @@ import {
 } from './SeasonDetailsContentWrapper';
 import {
   selectIsCurrentSeasonLoading
-} from '../../store';
+} from '@chrisb-dev/seasonal-shared';
 import { IState } from '../../interfaces';
 
 const mapStateToProps = (

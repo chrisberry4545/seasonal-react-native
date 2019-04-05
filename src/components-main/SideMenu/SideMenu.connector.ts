@@ -6,7 +6,9 @@ import {
   selectAllBasicSeasonData,
   selectIsBasicSeasonDataLoading,
   selectSeason,
-  selectCurrentSeasonIndex,
+  selectCurrentSeasonIndex
+} from '@chrisb-dev/seasonal-shared';
+import {
   goToAboutUsPage
 } from '../../store';
 

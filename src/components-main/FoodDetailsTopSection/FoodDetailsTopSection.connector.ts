@@ -5,7 +5,9 @@ import {
 import {
   selectCurrentFoodDetailsName,
   selectCurrentFoodDetailsImageUrl,
-  selectIsFoodDataOrBasicSeasonsLoading,
+  selectIsFoodDataOrBasicSeasonsLoading
+} from '@chrisb-dev/seasonal-shared';
+import {
   goBackFromFoodDetails
 } from '../../store';
 

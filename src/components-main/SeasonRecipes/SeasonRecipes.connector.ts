@@ -7,8 +7,9 @@ import {
   SeasonRecipes
 } from './SeasonRecipes';
 import {
-  selectVisibleRecipeData, recipeItemClicked
-} from '../../store';
+  selectVisibleRecipeData,
+  recipeItemClicked
+} from '@chrisb-dev/seasonal-shared';
 import { IState } from '../../interfaces';
 
 import { Dispatch } from 'redux';

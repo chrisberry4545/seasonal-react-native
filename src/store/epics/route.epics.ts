@@ -1,26 +1,30 @@
-import { SeasonalEpic } from './seasonal-epic.type';
+import { AppSeasonalEpic } from './seasonal-epic.type';
 import { Action } from 'redux';
 import { StateObservable, ActionsObservable, ofType } from 'redux-observable';
-import { IState } from '../../interfaces';
 import { Observable } from 'rxjs';
+import {
+  GO_BACK_FROM_FOOD_DETAILS,
+  GO_TO_ABOUT_US_PAGE
+} from '../actions';
 import {
   RECIPE_ITEM_CLICKED,
   IRecipeItemClicked,
-  GO_BACK_FROM_FOOD_DETAILS,
   FOOD_ITEM_CLICKED,
   CLOSE_MENU,
   OPEN_MENU,
   FOOD_DETAILS_SELECT_SEASON,
   SELECT_SEASON,
-  GO_TO_ABOUT_US_PAGE
-} from '../actions';
+  IFoodItemClicked,
+  setCurrentFoodDetailsDataStart,
+  IState,
+  selectCurrentSeasonRecipesById
+} from '@chrisb-dev/seasonal-shared';
 import { withLatestFrom, map, tap, ignoreElements } from 'rxjs/operators';
-import { selectCurrentSeasonRecipesById } from '../selectors';
 import { goToLinkUrl } from '../../helpers';
 import { navigate, closeDrawer, openDrawer } from '../../services';
 import { ROUTES } from '../../const';
 
-export const goToRecipeLink$: SeasonalEpic = (
+export const goToRecipeLink$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>,
   state$: StateObservable<IState>
 ): Observable<Action> => (
@@ -43,17 +47,20 @@ export const goToRecipeLink$: SeasonalEpic = (
   )
 );
 
-export const goToFoodLink$: SeasonalEpic = (
+export const goToFoodLink$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
     ofType(FOOD_ITEM_CLICKED),
-    tap(() => navigate(ROUTES.FOOD_DETAILS)),
-    ignoreElements()
+    map((action) => (action as IFoodItemClicked).foodItemId),
+    tap((foodItemId) => navigate(ROUTES.FOOD_DETAILS, {
+      id: foodItemId
+    })),
+    map((foodItemId) => setCurrentFoodDetailsDataStart(foodItemId))
   )
 );
 
-export const goToAboutUsPage$: SeasonalEpic = (
+export const goToAboutUsPage$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
@@ -63,7 +70,7 @@ export const goToAboutUsPage$: SeasonalEpic = (
   )
 );
 
-export const goToFoodTable$: SeasonalEpic = (
+export const goToFoodTable$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
@@ -77,7 +84,7 @@ export const goToFoodTable$: SeasonalEpic = (
   )
 );
 
-export const closeMenu$: SeasonalEpic = (
+export const closeMenu$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
@@ -91,7 +98,7 @@ export const closeMenu$: SeasonalEpic = (
   )
 );
 
-export const openMenu$: SeasonalEpic = (
+export const openMenu$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(

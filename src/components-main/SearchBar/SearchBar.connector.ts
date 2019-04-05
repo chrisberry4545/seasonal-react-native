@@ -7,7 +7,7 @@ import {
   selectIsSearchBarVisible,
   showSearchBar,
   hideSearchBar
-} from '../../store';
+} from '@chrisb-dev/seasonal-shared';
 import {
   ISearchBarDispatchProps,
   ISearchBarInputProps

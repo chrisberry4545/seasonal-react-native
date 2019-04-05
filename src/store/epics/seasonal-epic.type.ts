@@ -1,5 +1,5 @@
-import { Epic } from 'redux-observable';
 import { Action } from 'redux';
-import { IState } from '../../interfaces';
+import { IState } from '@chrisb-dev/seasonal-shared';
+import { SeasonalEpic } from '@chrisb-dev/seasonal-shared';
 
-export type SeasonalEpic = Epic<Action, Action, IState, {}>;
+export type AppSeasonalEpic = SeasonalEpic<Action, IState>;
