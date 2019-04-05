@@ -17,6 +17,7 @@ import {
   getCurrentSeasonIndex
 } from '../services';
 import { IAppContainerInputProps } from './AppContainer.interface';
+import { ROUTES } from '../const';
 
 export const AppContainer: SFC<IAppContainerInputProps> = ({
   seasonData
@@ -26,7 +27,7 @@ export const AppContainer: SFC<IAppContainerInputProps> = ({
   }
   const navigation: { [key: string]: NavigationScreenRouteConfig} =
   seasonData.reduce((navObject, { name }, index) => {
-    navObject[`season-${index}`] = {
+    navObject[`${ROUTES.SEASON_PREFIX}${index}`] = {
       navigationOptions: {
         drawerLabel: name
       },
@@ -37,13 +38,13 @@ export const AppContainer: SFC<IAppContainerInputProps> = ({
     };
     return navObject;
     }, {} as { [key: string]: NavigationScreenRouteConfig});
-  navigation.moreInfo = {
+  navigation[ROUTES.MORE_INFO] = {
     navigationOptions: {
       drawerLabel: 'About us'
     },
     screen: AboutUsPage
   };
-  navigation.foodDetails = {
+  navigation[ROUTES.FOOD_DETAILS] = {
     navigationOptions: {
       drawerLabel: ' '
     },
@@ -54,7 +55,7 @@ export const AppContainer: SFC<IAppContainerInputProps> = ({
       activeTintColor: styles.colors.black,
       inactiveTintColor: styles.colors.primaryText
     },
-    initialRouteName: `season-${getCurrentSeasonIndex()}`
+    initialRouteName: `${ROUTES.SEASON_PREFIX}${getCurrentSeasonIndex()}`
   });
   const CreatedAppContainer = createAppContainer(DrawerNavigator);
   return <CreatedAppContainer ref={

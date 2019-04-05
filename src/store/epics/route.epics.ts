@@ -16,6 +16,7 @@ import { withLatestFrom, map, tap, ignoreElements } from 'rxjs/operators';
 import { selectCurrentSeasonRecipesById } from '../selectors';
 import { goToLinkUrl } from '../../helpers';
 import { navigate, closeDrawer, openDrawer } from '../../services';
+import { ROUTES } from '../../const';
 
 export const goToRecipeLink$: SeasonalEpic = (
   actions$: ActionsObservable<Action>,
@@ -45,7 +46,7 @@ export const goToFoodLink$: SeasonalEpic = (
 ): Observable<Action> => (
   actions$.pipe(
     ofType(FOOD_ITEM_CLICKED),
-    tap(() => navigate('foodDetails')),
+    tap(() => navigate(ROUTES.FOOD_DETAILS)),
     ignoreElements()
   )
 );
@@ -58,7 +59,7 @@ export const goToFoodTable$: SeasonalEpic = (
       GO_BACK_FROM_FOOD_DETAILS,
       FOOD_DETAILS_SELECT_SEASON
     ),
-    tap(() => navigate('season-0')),
+    tap(() => navigate(`${ROUTES.SEASON_PREFIX}0`)),
     ignoreElements()
   )
 );
