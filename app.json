@@ -9,7 +9,7 @@
       "ios",
       "android"
     ],
-    "version": "1.9.2",
+    "version": "1.9.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
     "android": {
       "package": "com.chrisbdev.seasonal",
       "permissions": [],
-      "versionCode": 15
+      "versionCode": 16
     }
   }
 }

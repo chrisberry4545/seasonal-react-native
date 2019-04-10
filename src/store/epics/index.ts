@@ -12,6 +12,7 @@ import {
   closeMenu$,
   openMenu$
 } from './route.epics';
+import { trackActionEpic$ } from './tracking.epics';
 
 export const rootEpic = combineEpics(
   ...rootEpics,
@@ -20,5 +21,6 @@ export const rootEpic = combineEpics(
   goToFoodLink$,
   goToFoodTable$,
   closeMenu$,
-  openMenu$
+  openMenu$,
+  trackActionEpic$
 );
