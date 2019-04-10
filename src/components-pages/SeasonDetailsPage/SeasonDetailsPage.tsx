@@ -18,11 +18,11 @@ import { ViewStyle } from 'react-native';
 
 import { ROUTES } from '../../const';
 
-const cSeasonalDetailsTabWrapper: ViewStyle = {
+const styleSeasonalDetailsTabWrapper: ViewStyle = {
   marginTop: -20
 };
 
-const cSeasonalDetailsTabLabel: ViewStyle = {
+const styleSeasonalDetailsTabLabel: ViewStyle = {
   marginBottom: 16,
   marginTop: 10
 };
@@ -43,7 +43,7 @@ export const SeasonDetailsPage = createBottomTabNavigator({
 }, {
   tabBarOptions: {
     activeBackgroundColor: styles.colors.selectionColor,
-    labelStyle: [styleTextLarge, cSeasonalDetailsTabLabel],
-    style: cSeasonalDetailsTabWrapper
+    labelStyle: [styleTextLarge, styleSeasonalDetailsTabLabel],
+    style: styleSeasonalDetailsTabWrapper
   }
 });

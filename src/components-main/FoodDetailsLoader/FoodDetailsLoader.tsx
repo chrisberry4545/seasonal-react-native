@@ -3,19 +3,18 @@ import React from 'react';
 import {
   IFoodDetailsLoaderInputProps
 } from './FoodDetailsLoader.interface';
-import { View, ViewStyle } from 'react-native';
+import { ViewStyle } from 'react-native';
 import { LoadingSpinner } from '../../components-elements';
 
 const styleFoodDetailsLoader: ViewStyle = {
-  flex: 1
+  flex: 1,
+  minHeight: '100%'
 };
 
 export const FoodDetailsLoader = ({
   isLoading
 }: IFoodDetailsLoaderInputProps) => (
   isLoading
-    ? <View style={styleFoodDetailsLoader}>
-      <LoadingSpinner style={styleFoodDetailsLoader} />
-    </View>
+    ? <LoadingSpinner style={styleFoodDetailsLoader} />
     : null
 );
