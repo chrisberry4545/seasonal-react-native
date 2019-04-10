@@ -8,7 +8,8 @@
     "ios": "expo start --ios",
     "eject": "expo eject",
     "build:android": "expo build:android",
-    "lint": "tslint -c tslint.json 'src/**/*.ts{,x}'"
+    "lint": "tslint -c tslint.json 'src/**/*.ts{,x}'",
+    "react-schematics": "schematics @chrisb-dev/react-schematics:react-components --scss=false"
   },
   "dependencies": {
     "@chrisb-dev/seasonal-shared": "1.4.0",
@@ -30,6 +31,7 @@
     "typescript": "^3.3.3333"
   },
   "devDependencies": {
+    "@chrisb-dev/react-schematics": "1.0.0",
     "@chrisb-dev/tslint": "^1.0.1",
     "pre-commit": "^1.2.2",
     "tslint": "^5.14.0"
