@@ -8,7 +8,8 @@ import { LoadingSpinner } from '../../components-elements';
 
 const styleFoodDetailsLoader: ViewStyle = {
   flex: 1,
-  minHeight: '100%'
+  minHeight: '100%',
+  paddingBottom: 100
 };
 
 export const FoodDetailsLoader = ({

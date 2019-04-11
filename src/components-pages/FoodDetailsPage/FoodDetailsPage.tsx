@@ -13,9 +13,9 @@ import { ScrollView } from 'react-native-gesture-handler';
 export const FoodDetailsPage: SFC<{}> = () => (
   <MainContainer>
     <HeaderConnecter />
+    <FoodDetailsLoaderConnecter />
     <ScrollView>
       <FoodDetailsTopSectionConnecter />
-      <FoodDetailsLoaderConnecter />
       <SeasonsForFoodConnecter />
     </ScrollView>
   </MainContainer>
