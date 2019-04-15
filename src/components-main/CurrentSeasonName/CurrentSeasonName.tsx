@@ -2,20 +2,10 @@ import React, { SFC } from 'react';
 
 import { ICurrentSeasonName } from './CurrentSeasonName.interface';
 
-import { TextHeadingMedium } from '../../components-elements';
-
-import { TextStyle } from 'react-native';
-
-const styleCurrentSeasonName: TextStyle = {
-  marginBottom: 6,
-  marginTop: 8,
-  textAlign: 'center'
-};
+import { SeasonNameView } from '../../components-layout';
 
 export const CurrentSeasonName: SFC<ICurrentSeasonName> = ({
   currentSeasonName
 }) => (
-  <TextHeadingMedium style={ styleCurrentSeasonName }>
-    {currentSeasonName}
-  </TextHeadingMedium>
+  <SeasonNameView name={currentSeasonName} />
 );

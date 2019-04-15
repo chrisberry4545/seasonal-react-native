@@ -10,7 +10,9 @@ import {
   goToFoodLink$,
   goToFoodTable$,
   closeMenu$,
-  openMenu$
+  openMenu$,
+  goToAllSeasonsView$,
+  goBack$
 } from './route.epics';
 import { trackActionEpic$ } from './tracking.epics';
 
@@ -19,7 +21,9 @@ export const rootEpic = combineEpics(
   goToAboutUsPage$,
   goToRecipeLink$,
   goToFoodLink$,
+  goBack$,
   goToFoodTable$,
+  goToAllSeasonsView$,
   closeMenu$,
   openMenu$,
   trackActionEpic$

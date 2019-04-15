@@ -17,11 +17,13 @@ import {
   IFoodItemClicked,
   setCurrentFoodDetailsDataStart,
   IState,
-  selectCurrentSeasonRecipesById
+  selectCurrentSeasonRecipesById,
+  GO_TO_ALL_SEASONS_VIEW,
+  setAllSeasonsWithFoodDataStart
 } from '@chrisb-dev/seasonal-shared';
-import { withLatestFrom, map, tap, ignoreElements } from 'rxjs/operators';
+import { withLatestFrom, map, tap, ignoreElements, mapTo } from 'rxjs/operators';
 import { goToLinkUrl } from '../../helpers';
-import { navigate, closeDrawer, openDrawer } from '../../services';
+import { navigate, closeDrawer, openDrawer, navigateBackOne } from '../../services';
 import { ROUTES } from '../../const';
 
 export const goToRecipeLink$: AppSeasonalEpic = (
@@ -70,17 +72,36 @@ export const goToAboutUsPage$: AppSeasonalEpic = (
   )
 );
 
+export const goBack$: AppSeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GO_BACK_FROM_FOOD_DETAILS),
+    tap(() => navigateBackOne()),
+    ignoreElements()
+  )
+);
+
 export const goToFoodTable$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
     ofType(
       SELECT_SEASON,
-      GO_BACK_FROM_FOOD_DETAILS,
       FOOD_DETAILS_SELECT_SEASON
     ),
     tap(() => navigate(ROUTES.SEASON_DETAILS)),
     ignoreElements()
+  )
+);
+
+export const goToAllSeasonsView$: AppSeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GO_TO_ALL_SEASONS_VIEW),
+    tap(() => navigate(ROUTES.ALL_SEASONS)),
+    mapTo(setAllSeasonsWithFoodDataStart())
   )
 );
 

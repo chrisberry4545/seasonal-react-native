@@ -33,10 +33,40 @@ const styleSideMenuLoadingSpinner: ViewStyle = {
   flex: 1
 };
 
+const renderSideMenuButton = ({
+  name,
+  isSelected,
+  onClick,
+  key
+}: {
+  name: string
+  isSelected: boolean,
+  onClick: () => void,
+  key?: string
+}) => (
+  <BareButton
+    key={key}
+    style={[
+      styleSideMenuButton,
+      ...(
+        isSelected
+          ? [styleSideMenuButtonSelected]
+          : []
+      )
+    ]}
+    onClick={onClick}>
+    <TextMedium>{ name }</TextMedium>
+  </BareButton>
+);
+
 export const SideMenu = ({
   allBasicSeasonData,
   currentSeasonIndex,
   isLoading,
+  isCurrentRouteAboutUs,
+  isCurrentRouteAllSeasons,
+  isCurrentRouteSeasonDetails,
+  onAllSeasonsSelected,
   onSeasonSelected,
   onGoToAboutUsPage
 }: ISideMenuProps) => (
@@ -48,24 +78,29 @@ export const SideMenu = ({
             {
               allBasicSeasonData &&
               allBasicSeasonData.map(({ name }, index) => (
-                <BareButton
-                  key={name}
-                  style={[
-                    styleSideMenuButton,
-                    ...(
-                      index === currentSeasonIndex
-                        ? [styleSideMenuButtonSelected]
-                        : []
-                    )
-                  ]}
-                  onClick={() => onSeasonSelected(index)}>
-                  <TextMedium>{ name }</TextMedium>
-                </BareButton>
+                renderSideMenuButton({
+                  isSelected: isCurrentRouteSeasonDetails &&
+                    index === currentSeasonIndex,
+                  key: name,
+                  name,
+                  onClick: () => onSeasonSelected(index)
+                })
               ))
             }
-            <BareButton onClick={onGoToAboutUsPage} style={styleSideMenuButton}>
-              <TextMedium>About us</TextMedium>
-            </BareButton>
+            {
+              renderSideMenuButton({
+                isSelected: isCurrentRouteAllSeasons,
+                name: 'All seasons',
+                onClick: onAllSeasonsSelected
+              })
+            }
+            {
+              renderSideMenuButton({
+                isSelected: isCurrentRouteAboutUs,
+                name: 'About us',
+                onClick: onGoToAboutUsPage
+              })
+            }
             </Fragment>)
           : <LoadingSpinner style={styleSideMenuLoadingSpinner} />
       }

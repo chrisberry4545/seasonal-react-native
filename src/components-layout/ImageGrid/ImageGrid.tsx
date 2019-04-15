@@ -27,7 +27,7 @@ export const ImageGrid: SFC<IImageGrid> = ({
     {
       data && data.length > 0
         ? data.map((item, index) => (
-          <ImageGridItem { ...item }
+          <ImageGridItem { ...item } key={item.id}
             evenGridItem={ index % 2 === 0 } onClick={onClick} />
         ))
         : <TextHeadingMedium

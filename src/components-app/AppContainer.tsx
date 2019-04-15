@@ -6,6 +6,7 @@ import {
 } from 'react-navigation';
 import {
   AboutUsPage,
+  AllSeasonsPage,
   FoodDetailsPage,
   SeasonDetailsPage
 } from '../components-pages';
@@ -19,6 +20,7 @@ export const AppContainer: SFC<{}> = () => {
   const navigation: { [key: string]: NavigationScreenRouteConfig} = {
     [ROUTES.SEASON_DETAILS]: SeasonDetailsPage,
     [ROUTES.ABOUT_US]: AboutUsPage,
+    [ROUTES.ALL_SEASONS]: AllSeasonsPage,
     [ROUTES.FOOD_DETAILS]: FoodDetailsPage
   };
   const DrawerNavigator = createDrawerNavigator(navigation, {
