@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-export const IconBase = ({
-  name,
-  size
-}: {
+export const IconBase: SFC<{
   name: string,
   size?: number
+}> = ({
+  name,
+  size
 }) => (
   <Ionicons name={name} size={size} />
 );

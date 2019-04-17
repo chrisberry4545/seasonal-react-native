@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import {
   ISeasonNameViewInputProps
@@ -12,9 +12,9 @@ const styleSeasonNameView: TextStyle = {
   textAlign: 'center'
 };
 
-export const SeasonNameView = ({
+export const SeasonNameView: SFC<ISeasonNameViewInputProps> = ({
   name
-}: ISeasonNameViewInputProps) => (
+}) => (
   <TextHeadingMedium style={styleSeasonNameView}>
     {name}
   </TextHeadingMedium>

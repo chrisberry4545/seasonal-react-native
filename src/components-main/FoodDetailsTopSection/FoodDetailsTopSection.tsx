@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import {
   BareButton,
@@ -38,12 +38,12 @@ const styleFoodDetailsTopSectionImage: ImageStyle = {
   flex: 1
 };
 
-export const FoodDetailsTopSection = ({
+export const FoodDetailsTopSection: SFC<IFoodDetailsTopSectionProps> = ({
   foodImageUrl,
   foodName,
   isLoading,
   onGoBack
-}: IFoodDetailsTopSectionProps) => (
+}) => (
   !isLoading
     ? <View style={styleFoodDetailsTopSection}>
     <View style={styleFoodDetailsTopSectionInner}>

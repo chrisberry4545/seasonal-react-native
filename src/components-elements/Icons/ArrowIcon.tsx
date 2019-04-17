@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { SFC } from 'react';
 import { IIcon } from './icon.interface';
 import { IconBase } from './IconBase';
 
-export const ArrowIcon = ({
+export const ArrowIcon: SFC<IIcon> = ({
   size
-}: IIcon) => (
+}) => (
   <IconBase name='ios-arrow-round-back' size={size} />
 );

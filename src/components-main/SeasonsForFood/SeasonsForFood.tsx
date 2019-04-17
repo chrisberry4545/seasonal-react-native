@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { SFC } from 'react';
 
 import {
   TextMedium,
@@ -73,11 +73,11 @@ const styleSeasonsForFoodSeasonKeyMarkerSelected: ViewStyle = {
   ...styleSeasonsForFoodSeasonSelected
 };
 
-export const SeasonsForFood = ({
+export const SeasonsForFood: SFC<ISeasonForFoodProps> = ({
   isLoading,
   seasonsSelectedForFood,
   onSeasonSelected
-}: ISeasonForFoodProps) => (
+}) => (
   !isLoading
     ? <View style={styleSeasonsForFood}>
     <TextHeadingMedium style={styleSeasonsForFoodTitle}>

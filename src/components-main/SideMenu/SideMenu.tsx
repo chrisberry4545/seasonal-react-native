@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, SFC } from 'react';
 
 import {
   BareButton,
@@ -59,7 +59,7 @@ const renderSideMenuButton = ({
   </BareButton>
 );
 
-export const SideMenu = ({
+export const SideMenu: SFC<ISideMenuProps> = ({
   allBasicSeasonData,
   currentSeasonIndex,
   isLoading,
@@ -69,7 +69,7 @@ export const SideMenu = ({
   onAllSeasonsSelected,
   onSeasonSelected,
   onGoToAboutUsPage
-}: ISideMenuProps) => (
+}) => (
   <View style={styleSideMenu}>
     <ScrollView style={styleSideMenuInner}>
       {
