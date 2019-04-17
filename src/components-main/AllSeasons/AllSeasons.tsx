@@ -3,8 +3,11 @@ import React, { Fragment } from 'react';
 import {
   IAllSeasonsProps
 } from './AllSeasons.interface';
-import { LoadingSpinner } from '../../components-elements';
-import { ImageGrid, SeasonNameView } from '../../components-layout';
+import {
+  ImageGrid,
+  SeasonNameView,
+  CenteredLoadingSpinner
+} from '../../components-layout';
 import { FlatList } from 'react-native-gesture-handler';
 
 export const AllSeasons = ({
@@ -14,7 +17,7 @@ export const AllSeasons = ({
   seasons
 }: IAllSeasonsProps) => (
   isLoading && seasons
-    ? <LoadingSpinner />
+    ? <CenteredLoadingSpinner />
     : <FlatList
         data={seasons!}
         renderItem={({ item }) => (

@@ -5,3 +5,5 @@ export * from './ImageGridItem/ImageGridItem';
 export * from './MainContainer/MainContainer';
 
 export * from './SeasonNameView/SeasonNameView';
+
+export * from './CenteredLoadingSpinner/CenteredLoadingSpinner';
