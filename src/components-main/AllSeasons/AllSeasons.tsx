@@ -16,10 +16,10 @@ export const AllSeasons: FC<IAllSeasonsProps> = ({
   onFoodClick,
   seasons
 }) => (
-  isLoading && seasons
+  isLoading || !seasons
     ? <CenteredLoadingSpinner />
     : <FlatList
-        data={seasons!}
+        data={seasons}
         renderItem={({ item }) => (
           <Fragment>
             <SeasonNameView name={item.name} />
