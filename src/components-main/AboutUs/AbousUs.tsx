@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import { TextLarge, TextHeadingLarge } from '../../components-elements';
 import { ScrollView, ViewStyle, TextStyle } from 'react-native';
@@ -18,7 +18,7 @@ const styleAboutUsText: TextStyle = {
   marginBottom: 30
 };
 
-export const AboutUs: SFC<{}> = () => (
+export const AboutUs: FC<{}> = () => (
   <ScrollView style={ styleAboutUs }>
     <TextHeadingLarge style={ styleAboutUsTitle }>
       About Eat Seasonal

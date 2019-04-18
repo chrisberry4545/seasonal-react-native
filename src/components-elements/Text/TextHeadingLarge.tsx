@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { Text, TextStyle } from 'react-native';
 import { headingBase } from './SharedTextStyles';
 
@@ -12,7 +12,7 @@ export const styleTextHeadingLarge: TextStyle = {
   lineHeight: 40
 };
 
-export const TextHeadingLarge: SFC<ITextInterface> = ({
+export const TextHeadingLarge: FC<ITextInterface> = ({
   children,
   style
 }) => (

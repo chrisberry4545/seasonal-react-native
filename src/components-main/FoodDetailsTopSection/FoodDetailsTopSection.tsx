@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import {
   BareButton,
@@ -38,7 +38,7 @@ const styleFoodDetailsTopSectionImage: ImageStyle = {
   flex: 1
 };
 
-export const FoodDetailsTopSection: SFC<IFoodDetailsTopSectionProps> = ({
+export const FoodDetailsTopSection: FC<IFoodDetailsTopSectionProps> = ({
   foodImageUrl,
   foodName,
   isLoading,

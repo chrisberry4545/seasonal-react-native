@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { ScrollView, View, ViewStyle } from 'react-native';
 import {
   HeaderConnecter
@@ -31,7 +31,7 @@ const styleSeasonDetailsContentWrapperLoadingIndicator: ViewStyle = {
 };
 
 export const SeasonDetailsContentWrapper:
-SFC<ISeasonDetailsContentWrapperInputProps> = ({
+FC<ISeasonDetailsContentWrapperInputProps> = ({
   isLoading,
   children
 }) => (

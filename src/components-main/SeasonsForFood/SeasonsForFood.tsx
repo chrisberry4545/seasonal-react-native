@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import {
   TextMedium,
@@ -73,7 +73,7 @@ const styleSeasonsForFoodSeasonKeyMarkerSelected: ViewStyle = {
   ...styleSeasonsForFoodSeasonSelected
 };
 
-export const SeasonsForFood: SFC<ISeasonForFoodProps> = ({
+export const SeasonsForFood: FC<ISeasonForFoodProps> = ({
   isLoading,
   seasonsSelectedForFood,
   onSeasonSelected

@@ -1,4 +1,4 @@
-import React, { Fragment, SFC } from 'react';
+import React, { Fragment, FC } from 'react';
 
 import {
   BareButton,
@@ -59,7 +59,7 @@ const renderSideMenuButton = ({
   </BareButton>
 );
 
-export const SideMenu: SFC<ISideMenuProps> = ({
+export const SideMenu: FC<ISideMenuProps> = ({
   allBasicSeasonData,
   currentSeasonIndex,
   isLoading,

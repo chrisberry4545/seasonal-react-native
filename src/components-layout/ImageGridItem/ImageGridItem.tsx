@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { Image, View, ViewStyle, ImageStyle, StyleSheet } from 'react-native';
 import { TextMedium, BareButton } from '../../components-elements';
 import { styles } from '../../styles';
@@ -36,7 +36,7 @@ const styleImageGridItemText: ViewStyle = {
   marginTop: gridPadding
 };
 
-export const ImageGridItem: SFC<IImageGridItem> = ({
+export const ImageGridItem: FC<IImageGridItem> = ({
   id,
   evenGridItem,
   name,

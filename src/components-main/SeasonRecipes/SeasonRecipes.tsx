@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import {
   ImageGrid
@@ -9,7 +9,7 @@ import {
 } from '../SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
 import { ISeasonRecipesProps } from './SeasonRecipes.interface';
 
-export const SeasonRecipes: SFC<ISeasonRecipesProps> = ({
+export const SeasonRecipes: FC<ISeasonRecipesProps> = ({
   recipes,
   onRecipeClick
 }) => (

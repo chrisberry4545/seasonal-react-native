@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { IIcon } from './icon.interface';
 import { IconBase } from './IconBase';
 
-export const CrossIcon: SFC<IIcon> = ({
+export const CrossIcon: FC<IIcon> = ({
   size
 }) => (
   <IconBase name='ios-close' size={size} />

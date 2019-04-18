@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import {
   AboutUs,
@@ -8,7 +8,7 @@ import {
 
 import { MainContainer } from '../../components-layout';
 
-export const AboutUsPage: SFC<{}> = () => (
+export const AboutUsPage: FC<{}> = () => (
   <MainContainer>
     <HeaderConnecter />
     <AboutUs />

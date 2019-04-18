@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import {
   SeasonDetailsContentWrapperConnector
@@ -9,7 +9,7 @@ import {
   ImageGrid
 } from '../../components-layout';
 
-export const SeasonFood: SFC<ISeasonFoodProps> = ({
+export const SeasonFood: FC<ISeasonFoodProps> = ({
   food,
   onFoodClick
 }) => (

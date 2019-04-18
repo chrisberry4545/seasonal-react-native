@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import { ViewStyle } from 'react-native';
 import { LoadingSpinner } from '../../components-elements';
@@ -9,6 +9,6 @@ const styleCenteredLoadingSpinner: ViewStyle = {
   paddingBottom: 120
 };
 
-export const CenteredLoadingSpinner: SFC<{}> = () => (
+export const CenteredLoadingSpinner: FC<{}> = () => (
   <LoadingSpinner style={styleCenteredLoadingSpinner} />
 );

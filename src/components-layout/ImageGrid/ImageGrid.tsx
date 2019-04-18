@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { View, ViewStyle, TextStyle } from 'react-native';
 
 import { IImageGrid } from './ImageGrid.interface';
@@ -19,7 +19,7 @@ const styleImageGridNoResults: TextStyle = {
   textAlign: 'center'
 };
 
-export const ImageGrid: SFC<IImageGrid> = ({
+export const ImageGrid: FC<IImageGrid> = ({
   data,
   onClick
 }) => (

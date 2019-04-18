@@ -1,11 +1,11 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { TouchableOpacity } from 'react-native';
 
 import {
   IButton
 } from './Button.interface';
 
-export const BareButton: SFC<IButton> = ({
+export const BareButton: FC<IButton> = ({
   activeOpacity,
   children,
   onClick,

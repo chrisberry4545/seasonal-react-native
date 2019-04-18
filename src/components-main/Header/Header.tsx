@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { View, ViewStyle, TextStyle, StyleSheet } from 'react-native';
 import {
   styles
@@ -30,7 +30,7 @@ const styleHeaderHeading: TextStyle = {
   textAlign: 'center'
 };
 
-export const Header: SFC<IHeaderDispatchProps> = ({
+export const Header: FC<IHeaderDispatchProps> = ({
   onMenuOpen,
   onMenuClose
 }) => {

@@ -1,4 +1,4 @@
-import React, { Fragment, SFC } from 'react';
+import React, { Fragment, FC } from 'react';
 
 import {
   IAllSeasonsProps
@@ -10,7 +10,7 @@ import {
 } from '../../components-layout';
 import { FlatList } from 'react-native-gesture-handler';
 
-export const AllSeasons: SFC<IAllSeasonsProps> = ({
+export const AllSeasons: FC<IAllSeasonsProps> = ({
   isLoading,
   increaseNumberOfAllFoodSeasonsInView,
   onFoodClick,

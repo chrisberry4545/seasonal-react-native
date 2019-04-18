@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import { TextInput, TextInputProps, TextStyle } from 'react-native';
 
@@ -7,7 +7,7 @@ const styleInput: TextStyle = {
   width: '100%'
 };
 
-export const Input: SFC<TextInputProps> = ({
+export const Input: FC<TextInputProps> = ({
   style,
   ...rest
 }) => (

@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import {
   createAppContainer,
   createDrawerNavigator,
@@ -16,7 +16,7 @@ import {
 import { ROUTES } from '../const';
 import { SideMenuConnecter } from '../components-main';
 
-export const AppContainer: SFC<{}> = () => {
+export const AppContainer: FC<{}> = () => {
   const navigation: { [key: string]: NavigationScreenRouteConfig} = {
     [ROUTES.SEASON_DETAILS]: SeasonDetailsPage,
     [ROUTES.ABOUT_US]: AboutUsPage,

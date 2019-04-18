@@ -1,7 +1,7 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-export const IconBase: SFC<{
+export const IconBase: FC<{
   name: string,
   size?: number
 }> = ({

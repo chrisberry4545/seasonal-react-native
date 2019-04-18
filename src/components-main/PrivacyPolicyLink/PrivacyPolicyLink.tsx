@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import { Linking, TextStyle } from 'react-native';
 
@@ -25,7 +25,7 @@ const linkToPrivacyPolicy = (): void => {
   });
 };
 
-export const PrivacyPolicyLink: SFC<{}> = () => (
+export const PrivacyPolicyLink: FC<{}> = () => (
   <BareButton
     style={ stylePrivacyPolicyLink }
     onClick={linkToPrivacyPolicy}>

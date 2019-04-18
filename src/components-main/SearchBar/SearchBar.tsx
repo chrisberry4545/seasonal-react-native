@@ -1,4 +1,4 @@
-import React, { SFC, Fragment } from 'react';
+import React, { FC, Fragment } from 'react';
 
 import { ISearchBarProps } from './SearchBar.interface';
 import {
@@ -40,7 +40,7 @@ const styleSearchBarCloseButton: ViewStyle = {
   top: -10
 };
 
-export const SearchBar: SFC<ISearchBarProps> = ({
+export const SearchBar: FC<ISearchBarProps> = ({
   isSearchBarVisible,
   onHideSearchBar,
   onSearchChanged,

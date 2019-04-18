@@ -1,7 +1,7 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 import { ActivityIndicator, ViewStyle } from 'react-native';
 
-export const LoadingSpinner: SFC<{
+export const LoadingSpinner: FC<{
   size?: 'small' | 'large',
   style?: ViewStyle
 }> = ({

@@ -3,7 +3,7 @@ import {
   styles
 } from '../../styles';
 import { ViewStyle, View } from 'react-native';
-import { SFC } from 'react';
+import { FC } from 'react';
 
 const styleMainContainer: ViewStyle = {
   backgroundColor: styles.colors.backgroundColor,
@@ -11,7 +11,7 @@ const styleMainContainer: ViewStyle = {
   padding: 20
 };
 
-export const MainContainer: SFC<{}> = ({
+export const MainContainer: FC<{}> = ({
   children
 }) => (
   <View style={ styleMainContainer }>
