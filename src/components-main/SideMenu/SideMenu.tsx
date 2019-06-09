@@ -76,6 +76,13 @@ export const SideMenu: FC<ISideMenuProps> = ({
         !isLoading
           ? (<Fragment>
             {
+              renderSideMenuButton({
+                isSelected: isCurrentRouteAllSeasons,
+                name: 'All seasons',
+                onClick: onAllSeasonsSelected
+              })
+            }
+            {
               allBasicSeasonData &&
               allBasicSeasonData.map(({ name }, index) => (
                 renderSideMenuButton({
@@ -86,13 +93,6 @@ export const SideMenu: FC<ISideMenuProps> = ({
                   onClick: () => onSeasonSelected(index)
                 })
               ))
-            }
-            {
-              renderSideMenuButton({
-                isSelected: isCurrentRouteAllSeasons,
-                name: 'All seasons',
-                onClick: onAllSeasonsSelected
-              })
             }
             {
               renderSideMenuButton({
