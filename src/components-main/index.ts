@@ -23,3 +23,5 @@ export * from './SeasonsForFood/SeasonsForFood.connector';
 export * from './SideMenu/SideMenu.connector';
 
 export * from './AllSeasons/AllSeasons.connector';
+
+export * from './AllSeasonsGraph/AllSeasonsGraph.connector';
