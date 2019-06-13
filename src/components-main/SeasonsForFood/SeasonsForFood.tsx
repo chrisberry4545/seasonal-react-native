@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import {
   TextMedium,
-  TextHeadingMedium,
+  TextHeadingSmall,
   TextSmall,
   BareButton
 } from '../../components-elements';
@@ -11,14 +11,9 @@ import { ISeasonForFoodProps } from './SeasonsForFood.interface';
 import { View, ViewStyle, TextStyle } from 'react-native';
 import { styles } from '../../styles';
 
-const styleSeasonsForFood: TextStyle = {
-  alignItems: 'center',
-  flex: 1
-};
-
 const styleSeasonsForFoodTitle: TextStyle = {
-  marginBottom: 10,
-  marginTop: 10,
+  marginBottom: 15,
+  marginTop: 24,
   textAlign: 'center',
   width: '100%'
 };
@@ -79,10 +74,10 @@ export const SeasonsForFood: FC<ISeasonForFoodProps> = ({
   onSeasonSelected
 }) => (
   !isLoading
-    ? <View style={styleSeasonsForFood}>
-    <TextHeadingMedium style={styleSeasonsForFoodTitle}>
+    ? <View>
+    <TextHeadingSmall style={styleSeasonsForFoodTitle}>
       When are they in season?
-    </TextHeadingMedium>
+    </TextHeadingSmall>
     <View style={styleSeasonsForFoodSeasonWrapper}>
       {
         seasonsSelectedForFood && seasonsSelectedForFood.map((

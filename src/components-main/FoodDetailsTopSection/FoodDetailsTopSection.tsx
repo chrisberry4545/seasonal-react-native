@@ -9,12 +9,16 @@ import {
 import {
   IFoodDetailsTopSectionProps
 } from './FoodDetailsTopSection.interface';
-import { View, Image, ViewStyle, TextStyle, ImageStyle } from 'react-native';
+import { View, Image, ViewStyle, TextStyle, ImageStyle, StyleSheet } from 'react-native';
+import { styles } from '../../styles';
 
 const iconWidth = 30;
 
 const styleFoodDetailsTopSection: ViewStyle = {
-  height: 300
+  borderBottomWidth: StyleSheet.hairlineWidth,
+  borderColor: styles.colors.greyMed,
+  height: 300,
+  paddingBottom: 33
 };
 
 const styleFoodDetailsTopSectionInner: ViewStyle = {

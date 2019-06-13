@@ -8,11 +8,14 @@ const gridPadding = 18;
 
 const styleImageGridItem: ViewStyle = {
   aspectRatio: 1,
-  borderBottomWidth: StyleSheet.hairlineWidth,
-  borderColor: styles.colors.greyMed,
   marginBottom: gridPadding,
   paddingBottom: gridPadding,
   width: '50%'
+};
+
+const styleImageGridItemWithBorder: ViewStyle = {
+  borderBottomWidth: StyleSheet.hairlineWidth,
+  borderColor: styles.colors.greyMed
 };
 
 const styleImageGridItemInner: ViewStyle = {
@@ -41,10 +44,14 @@ export const ImageGridItem: FC<IImageGridItem> = ({
   evenGridItem,
   name,
   imageUrlSmall,
-  onClick
+  onClick,
+  hasBottomBorder
 }) => (
   <BareButton
-    style={ styleImageGridItem }
+    style={ [
+      styleImageGridItem,
+      hasBottomBorder ? [styleImageGridItemWithBorder] : undefined
+    ] }
     onClick={() => {
       if (onClick) {
         onClick(id);

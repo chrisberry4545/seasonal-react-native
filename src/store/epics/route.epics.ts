@@ -19,7 +19,8 @@ import {
   IState,
   selectCurrentSeasonRecipesById,
   GO_TO_ALL_SEASONS_VIEW,
-  setAllSeasonsWithFoodDataStart
+  setAllSeasonsWithFoodDataStart,
+  FOOD_DETAILS_SELECT_RECIPE
 } from '@chrisb-dev/seasonal-shared';
 import { withLatestFrom, map, tap, ignoreElements, mapTo } from 'rxjs/operators';
 import { goToLinkUrl } from '../../helpers';
@@ -31,7 +32,10 @@ export const goToRecipeLink$: AppSeasonalEpic = (
   state$: StateObservable<IState>
 ): Observable<Action> => (
   actions$.pipe(
-    ofType(RECIPE_ITEM_CLICKED),
+    ofType(
+      FOOD_DETAILS_SELECT_RECIPE,
+      RECIPE_ITEM_CLICKED
+    ),
     withLatestFrom(state$),
     map(([
       action,

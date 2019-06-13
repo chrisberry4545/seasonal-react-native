@@ -4,7 +4,8 @@ import {
   FoodDetailsLoaderConnecter,
   FoodDetailsTopSectionConnecter,
   SeasonsForFoodConnecter,
-  HeaderConnecter
+  HeaderConnecter,
+  RecipesForFoodConnecter
 } from '../../components-main';
 
 import { MainContainer } from '../../components-layout';
@@ -16,6 +17,7 @@ export const FoodDetailsPage: FC<{}> = () => (
     <FoodDetailsLoaderConnecter />
     <ScrollView>
       <FoodDetailsTopSectionConnecter />
+      <RecipesForFoodConnecter />
       <SeasonsForFoodConnecter />
     </ScrollView>
   </MainContainer>

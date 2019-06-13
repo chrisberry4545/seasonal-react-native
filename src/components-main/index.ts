@@ -10,6 +10,8 @@ export * from './Header/Header.connector';
 
 export * from './PrivacyPolicyLink/PrivacyPolicyLink';
 
+export * from './RecipesForFood/RecipesForFood.connector';
+
 export * from './SearchBar/SearchBar.connector';
 
 export * from './SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';

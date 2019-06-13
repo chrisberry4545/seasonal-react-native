@@ -14,6 +14,6 @@ export const SeasonFood: FC<ISeasonFoodProps> = ({
   onFoodClick
 }) => (
   <SeasonDetailsContentWrapperConnector>
-    <ImageGrid data={ food } onClick={onFoodClick} />
+    <ImageGrid data={ food } onClick={onFoodClick} noResultsMessage='No results found' />
   </SeasonDetailsContentWrapperConnector>
 );

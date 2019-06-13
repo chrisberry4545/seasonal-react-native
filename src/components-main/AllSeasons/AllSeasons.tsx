@@ -23,7 +23,8 @@ export const AllSeasons: FC<IAllSeasonsProps> = ({
         renderItem={({ item }) => (
           <Fragment>
             <SeasonNameView name={item.name} />
-            <ImageGrid data={item.food} onClick={onFoodClick} />
+            <ImageGrid data={item.food} onClick={onFoodClick}
+              noResultsMessage='No results found' />
           </Fragment>
         )}
         keyExtractor={(item) => item.name}

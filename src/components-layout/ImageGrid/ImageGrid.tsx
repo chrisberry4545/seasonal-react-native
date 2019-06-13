@@ -19,21 +19,33 @@ const styleImageGridNoResults: TextStyle = {
   textAlign: 'center'
 };
 
+const isEven = (index: number) => index % 2 === 0;
+
+const hasBorder = (totalLength: number, index: number) =>
+  index < totalLength - (isEven(totalLength) ? 2 : 1);
+
 export const ImageGrid: FC<IImageGrid> = ({
   data,
-  onClick
+  onClick,
+  noResultsMessage
 }) => (
   <View style={ styleImageGrid }>
     {
       data && data.length > 0
         ? data.map((item, index) => (
-          <ImageGridItem { ...item } key={item.id}
-            evenGridItem={ index % 2 === 0 } onClick={onClick} />
+          <ImageGridItem
+            { ...item }
+            key={item.id}
+            evenGridItem={isEven(index)}
+            onClick={onClick}
+            hasBottomBorder={hasBorder(data.length, index)} />
         ))
-        : <TextHeadingMedium
-            style={ styleImageGridNoResults }>
-            No results found
-          </TextHeadingMedium>
+        : noResultsMessage
+          ? <TextHeadingMedium
+              style={ styleImageGridNoResults }>
+              { noResultsMessage }
+            </TextHeadingMedium>
+          : null
     }
   </View>
 );
