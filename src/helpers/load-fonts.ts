@@ -1,4 +1,4 @@
-import { Font } from 'expo';
+import * as Font from 'expo-font';
 import {
   styles
 } from './../styles';
