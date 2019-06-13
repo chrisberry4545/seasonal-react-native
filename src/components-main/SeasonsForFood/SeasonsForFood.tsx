@@ -30,7 +30,7 @@ const styleSeasonsForFoodSeasonWrapper: ViewStyle = {
 
 const styleSeasonsForFoodSeason: ViewStyle = {
   alignItems: 'center',
-  backgroundColor: styles.colors.greyMed,
+  backgroundColor: styles.colors.backgroundColor,
   borderColor: styles.colors.greyMed,
   borderWidth: 1,
   display: 'flex',
@@ -41,7 +41,8 @@ const styleSeasonsForFoodSeason: ViewStyle = {
 };
 
 const styleSeasonsForFoodSeasonSelected: ViewStyle = {
-  backgroundColor: styles.colors.backgroundColor
+  backgroundColor: styles.colors.selectionColorAlt,
+  borderColor: styles.colors.selectionColorAlt
 };
 
 const styleSeasonsForFoodSeasonKey: ViewStyle = {

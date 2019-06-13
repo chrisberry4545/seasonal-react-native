@@ -4,5 +4,6 @@ export const colors = {
   greyLight: '#EEEEEE',
   greyMed: '#CCCCCC',
   primaryText: '#20303C',
-  selectionColor: '#F7F7F7'
+  selectionColor: '#F7F7F7',
+  selectionColorAlt: '#BAF9FE'
 };
