@@ -12,7 +12,7 @@
     "react-schematics": "schematics @chrisb-dev/react-schematics:react-components --scss=false"
   },
   "dependencies": {
-    "@chrisb-dev/seasonal-shared": "1.9.1",
+    "@chrisb-dev/seasonal-shared": "1.10.1",
     "@types/expo": "32.0.8",
     "@types/expo__vector-icons": "^9.0.1",
     "@types/node": "^11.11.3",

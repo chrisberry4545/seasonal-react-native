@@ -4,7 +4,7 @@ import {
 } from './RecipesForFood';
 import {
   selectIsFoodDataOrBasicSeasonsLoading,
-  selectCurrentFoodDetailsRecipes,
+  selectVisibleRecipesForFoodDetailsData,
   foodDetailsSelectRecipe
 } from '@chrisb-dev/seasonal-shared';
 
@@ -18,7 +18,7 @@ import { Dispatch } from 'redux';
 const mapStateToProps = (
   state: IState
 ): IRecipeForFoodInputProps => ({
-  currentFoodDetailsRecipes: selectCurrentFoodDetailsRecipes(state),
+  currentFoodDetailsRecipes: selectVisibleRecipesForFoodDetailsData(state),
   isLoading: selectIsFoodDataOrBasicSeasonsLoading(state)
 });
 
