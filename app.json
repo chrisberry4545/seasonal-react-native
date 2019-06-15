@@ -9,12 +9,12 @@
       "ios",
       "android"
     ],
-    "version": "1.11.0",
+    "version": "1.11.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "cover",
+      "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -29,7 +29,7 @@
     "android": {
       "package": "com.chrisbdev.seasonal",
       "permissions": [],
-      "versionCode": 22
+      "versionCode": 23
     }
   }
 }
