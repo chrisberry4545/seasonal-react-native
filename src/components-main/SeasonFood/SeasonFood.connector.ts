@@ -8,7 +8,8 @@ import {
 } from './SeasonFood';
 import {
   selectVisibleFoodData,
-  foodItemClicked
+  foodItemClicked,
+  selectIsCurrentSeasonFoodLoading
 } from '@chrisb-dev/seasonal-shared';
 import { IState } from '../../interfaces';
 import { Dispatch } from 'redux';
@@ -17,7 +18,8 @@ const mapStateToProps = (
   state: IState
 ): ISeasonFoodInputProps => {
   return {
-    food: selectVisibleFoodData(state)
+    food: selectVisibleFoodData(state),
+    isLoading: selectIsCurrentSeasonFoodLoading(state)
   };
 };
 

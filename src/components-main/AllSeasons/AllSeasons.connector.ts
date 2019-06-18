@@ -10,7 +10,7 @@ import {
 } from './AllSeasons.interface';
 import { Dispatch } from 'redux';
 import {
-  selectIsAllSeasonsWithFoodDataLoading,
+  selectIsAllSeasonsFoodLoading,
   selectAllSeasonsVisibleFoodData,
   increaseNumberOfAllFoodSeasonsInView,
   foodItemClicked
@@ -19,7 +19,7 @@ import {
 const mapStateToProps = (
   state: IState
 ): IAllSeasonsInputProps => ({
-  isLoading: selectIsAllSeasonsWithFoodDataLoading(state),
+  isLoading: selectIsAllSeasonsFoodLoading(state),
   seasons: selectAllSeasonsVisibleFoodData(state)
 });
 

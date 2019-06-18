@@ -3,8 +3,8 @@ import {
   SideMenu
 } from './SideMenu';
 import {
-  selectAllBasicSeasonData,
-  selectIsBasicSeasonDataLoading,
+  selectAllBasicSeasons,
+  selectIsBasicSeasonsLoading,
   selectSeason,
   selectCurrentSeasonIndex,
   goToAllSeasonsView
@@ -24,12 +24,12 @@ import { getIsCurrentRouteAllSeasons, getIsCurrentRouteAboutUs, getIsCurrentRout
 const mapStateToProps = (
   state: IState
 ): ISideMenuInputProps => ({
-  allBasicSeasonData: selectAllBasicSeasonData(state),
+  allBasicSeasonData: selectAllBasicSeasons(state),
   currentSeasonIndex: selectCurrentSeasonIndex(state),
   isCurrentRouteAboutUs: getIsCurrentRouteAboutUs(),
   isCurrentRouteAllSeasons: getIsCurrentRouteAllSeasons(),
   isCurrentRouteSeasonDetails: getIsCurrentRouteSeasonDetails(),
-  isLoading: selectIsBasicSeasonDataLoading(state)
+  isLoading: selectIsBasicSeasonsLoading(state)
 });
 
 const mapDispatchToProps = (

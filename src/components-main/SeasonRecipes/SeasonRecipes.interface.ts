@@ -3,6 +3,7 @@ import {
 } from '@chrisb-dev/seasonal-shared';
 
 export interface ISeasonRecipesInputProps {
+  isLoading: boolean;
   recipes: IRecipe[] | undefined;
 }
 

@@ -15,11 +15,11 @@ import {
   FOOD_DETAILS_SELECT_SEASON,
   SELECT_SEASON,
   IFoodItemClicked,
-  setCurrentFoodDetailsDataStart,
+  setCurrentFoodDetailsStart,
   IState,
   selectCurrentSeasonRecipesById,
   GO_TO_ALL_SEASONS_VIEW,
-  setAllSeasonsWithFoodDataStart,
+  setAllSeasonsWithFoodStart,
   FOOD_DETAILS_SELECT_RECIPE
 } from '@chrisb-dev/seasonal-shared';
 import { withLatestFrom, map, tap, ignoreElements, mapTo } from 'rxjs/operators';
@@ -62,7 +62,7 @@ export const goToFoodLink$: AppSeasonalEpic = (
     tap((foodItemId) => navigate(ROUTES.FOOD_DETAILS, {
       id: foodItemId
     })),
-    map((foodItemId) => setCurrentFoodDetailsDataStart(foodItemId))
+    map((foodItemId) => setCurrentFoodDetailsStart(foodItemId))
   )
 );
 
@@ -105,7 +105,7 @@ export const goToAllSeasonsView$: AppSeasonalEpic = (
   actions$.pipe(
     ofType(GO_TO_ALL_SEASONS_VIEW),
     tap(() => navigate(ROUTES.ALL_SEASONS)),
-    mapTo(setAllSeasonsWithFoodDataStart())
+    mapTo(setAllSeasonsWithFoodStart())
   )
 );
 

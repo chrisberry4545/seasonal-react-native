@@ -8,12 +8,21 @@ import {
   SeasonDetailsContentWrapperConnector
 } from '../SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
 import { ISeasonRecipesProps } from './SeasonRecipes.interface';
+import { LoadingSpinner } from '../../components-elements';
+import { ViewStyle } from 'react-native';
+
+const styleSeasonRecipesLoadingSpinner: ViewStyle = {
+  flex: 1
+};
 
 export const SeasonRecipes: FC<ISeasonRecipesProps> = ({
+  isLoading,
   recipes,
   onRecipeClick
 }) => (
-  <SeasonDetailsContentWrapperConnector>
-    <ImageGrid data={ recipes } onClick={ onRecipeClick } />
-  </SeasonDetailsContentWrapperConnector>
+  !isLoading
+  ? <SeasonDetailsContentWrapperConnector>
+      <ImageGrid data={ recipes } onClick={ onRecipeClick } />
+    </SeasonDetailsContentWrapperConnector>
+  : <LoadingSpinner style={styleSeasonRecipesLoadingSpinner} />
 );

@@ -7,7 +7,7 @@ import {
   SeasonDetailsContentWrapper
 } from './SeasonDetailsContentWrapper';
 import {
-  selectIsCurrentSeasonLoading
+  selectIsBasicSeasonsLoading
 } from '@chrisb-dev/seasonal-shared';
 import { IState } from '../../interfaces';
 
@@ -15,7 +15,7 @@ const mapStateToProps = (
   state: IState
 ): ISeasonDetailsContentWrapperInputProps => {
   return {
-    isLoading: selectIsCurrentSeasonLoading(state)
+    isLoading: selectIsBasicSeasonsLoading(state)
   };
 };
 

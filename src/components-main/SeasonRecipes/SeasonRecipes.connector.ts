@@ -8,7 +8,8 @@ import {
 } from './SeasonRecipes';
 import {
   selectVisibleRecipeData,
-  recipeItemClicked
+  recipeItemClicked,
+  selectIsCurrentSeasonRecipesLoading
 } from '@chrisb-dev/seasonal-shared';
 import { IState } from '../../interfaces';
 
@@ -18,6 +19,7 @@ const mapStateToProps = (
   state: IState
 ): ISeasonRecipesInputProps => {
   return {
+    isLoading: selectIsCurrentSeasonRecipesLoading(state),
     recipes: selectVisibleRecipeData(state)
   };
 };
