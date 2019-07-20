@@ -15,6 +15,7 @@ import {
   goBack$
 } from './route.epics';
 import { trackActionEpic$ } from './tracking.epics';
+import { storeSettings$, getStoredSettings$ } from './settings.epics';
 
 export const rootEpic = combineEpics(
   ...rootEpics,
@@ -26,5 +27,7 @@ export const rootEpic = combineEpics(
   goToAllSeasonsView$,
   closeMenu$,
   openMenu$,
-  trackActionEpic$
+  trackActionEpic$,
+  getStoredSettings$,
+  storeSettings$
 );

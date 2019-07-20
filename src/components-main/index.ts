@@ -2,6 +2,8 @@ export * from './AboutUs/AbousUs';
 
 export * from './CurrentSeasonName/CurrentSeasonName.connector';
 
+export * from './DietaryFilters/DietaryFilters.connector';
+
 export * from './FoodDetailsLoader/FoodDetailsLoader.connector';
 
 export * from './FoodDetailsTopSection/FoodDetailsTopSection.connector';
