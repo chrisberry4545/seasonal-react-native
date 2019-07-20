@@ -5,6 +5,7 @@ import { IRecipeForFoodProps } from './RecipesForFood.interface';
 import { ImageGrid } from '../../components-layout';
 import { TextHeadingSmall } from '../../components-elements';
 import { styles } from '../../styles';
+import { DietaryFiltersConnector } from '../DietaryFilters/DietaryFilters.connector';
 
 const styleRecipesForFood: ViewStyle = {
   borderBottomWidth: StyleSheet.hairlineWidth,
@@ -28,6 +29,7 @@ export const RecipesForFood: FC<IRecipeForFoodProps> = ({
       <TextHeadingSmall style={styleRecipesForFoodTitle}>
         Recipes
       </TextHeadingSmall>
+      <DietaryFiltersConnector />
       <ImageGrid data={currentFoodDetailsRecipes} onClick={onRecipeSelected} noResultsMessage='No results found' />
     </View>
     : null
