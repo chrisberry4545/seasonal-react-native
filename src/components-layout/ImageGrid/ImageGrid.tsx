@@ -4,7 +4,7 @@ import { View, ViewStyle, TextStyle } from 'react-native';
 import { IImageGrid } from './ImageGrid.interface';
 
 import { ImageGridItem } from '../ImageGridItem/ImageGridItem';
-import { TextHeadingMedium } from '../../components-elements';
+import { TextMedium } from '../../components-elements';
 
 const styleImageGrid: ViewStyle = {
   flex: 1,
@@ -15,6 +15,7 @@ const styleImageGrid: ViewStyle = {
 
 const styleImageGridNoResults: TextStyle = {
   flex: 1,
+  marginBottom: 40,
   marginTop: 20,
   textAlign: 'center'
 };
@@ -41,10 +42,10 @@ export const ImageGrid: FC<IImageGrid> = ({
             hasBottomBorder={hasBorder(data.length, index)} />
         ))
         : noResultsMessage
-          ? <TextHeadingMedium
+          ? <TextMedium
               style={ styleImageGridNoResults }>
               { noResultsMessage }
-            </TextHeadingMedium>
+            </TextMedium>
           : null
     }
   </View>

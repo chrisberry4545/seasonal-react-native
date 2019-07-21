@@ -24,7 +24,7 @@ export const RecipesForFood: FC<IRecipeForFoodProps> = ({
   currentFoodDetailsRecipes,
   onRecipeSelected
 }) => (
-  !isLoading && currentFoodDetailsRecipes && currentFoodDetailsRecipes.length > 0
+  !isLoading && currentFoodDetailsRecipes
     ? <View style={styleRecipesForFood}>
       <TextHeadingSmall style={styleRecipesForFoodTitle}>
         Recipes
