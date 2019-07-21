@@ -6,23 +6,19 @@ import {
 import { ISeasonFoodProps } from './SeasonFood.interface';
 
 import {
-  ImageGrid
+  ImageGrid, CenteredLoadingSpinner
 } from '../../components-layout';
-import { LoadingSpinner } from '../../components-elements';
-import { ViewStyle } from 'react-native';
-
-const styleSeasonFoodLoadingSpinner: ViewStyle = {
-  flex: 1
-};
 
 export const SeasonFood: FC<ISeasonFoodProps> = ({
   isLoading,
   food,
   onFoodClick
 }) => (
-  !isLoading
-   ? <SeasonDetailsContentWrapperConnector>
-      <ImageGrid data={ food } onClick={onFoodClick} noResultsMessage='No results found' />
-    </SeasonDetailsContentWrapperConnector>
-   : <LoadingSpinner style={ styleSeasonFoodLoadingSpinner } />
+  <SeasonDetailsContentWrapperConnector>
+    {
+    !isLoading
+      ? <ImageGrid data={ food } onClick={onFoodClick} noResultsMessage='No results found' />
+      : <CenteredLoadingSpinner />
+    }
+  </SeasonDetailsContentWrapperConnector>
 );
