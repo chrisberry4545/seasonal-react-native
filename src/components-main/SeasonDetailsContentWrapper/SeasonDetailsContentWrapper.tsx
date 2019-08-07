@@ -8,9 +8,8 @@ import {
   ISeasonDetailsContentWrapperInputProps
 } from './SeasonDetailsContentWrapper.interface';
 import { MainContainer, CenteredLoadingSpinner } from '../../components-layout';
-import { CurrentSeasonNameConnecter } from '../CurrentSeasonName/CurrentSeasonName.connector';
 
-const styleSeasonalDetails: ViewStyle = {
+const styleSeasonalDetailsContentWrapper: ViewStyle = {
   flex: 1
 };
 
@@ -21,15 +20,12 @@ FC<ISeasonDetailsContentWrapperInputProps> = ({
 }) => (
       <MainContainer>
         <HeaderConnecter />
-        {
-          !isLoading
-            ? (
-              <ScrollView style={ styleSeasonalDetails }>
-                <CurrentSeasonNameConnecter />
-                { children }
-              </ScrollView>
-            )
-            : <CenteredLoadingSpinner />
-        }
+        <ScrollView style={ styleSeasonalDetailsContentWrapper }>
+          {
+            !isLoading
+              ? children
+              : <CenteredLoadingSpinner />
+          }
+        </ScrollView>
       </MainContainer>
 );
