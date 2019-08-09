@@ -6,7 +6,7 @@ import {
 import { ISeasonFoodProps } from './SeasonFood.interface';
 
 import {
-  ImageGrid, CenteredLoadingSpinner
+  ImageGrid, TopLoadingSpinner
 } from '../../components-layout';
 
 export const SeasonFood: FC<ISeasonFoodProps> = ({
@@ -18,7 +18,7 @@ export const SeasonFood: FC<ISeasonFoodProps> = ({
     {
     !isLoading
       ? <ImageGrid data={ food } onClick={onFoodClick} noResultsMessage='No results found' />
-      : <CenteredLoadingSpinner />
+      : <TopLoadingSpinner />
     }
   </SeasonDetailsContentWrapperConnector>
 );

@@ -6,4 +6,4 @@ export * from './MainContainer/MainContainer';
 
 export * from './SeasonNameView/SeasonNameView';
 
-export * from './CenteredLoadingSpinner/CenteredLoadingSpinner';
+export * from './TopLoadingSpinner/TopLoadingSpinner';

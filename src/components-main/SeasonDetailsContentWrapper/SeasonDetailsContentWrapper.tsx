@@ -7,7 +7,7 @@ import {
 import {
   ISeasonDetailsContentWrapperInputProps
 } from './SeasonDetailsContentWrapper.interface';
-import { MainContainer, CenteredLoadingSpinner } from '../../components-layout';
+import { MainContainer, TopLoadingSpinner } from '../../components-layout';
 
 const styleSeasonalDetailsContentWrapper: ViewStyle = {
   flex: 1
@@ -24,7 +24,7 @@ FC<ISeasonDetailsContentWrapperInputProps> = ({
           {
             !isLoading
               ? children
-              : <CenteredLoadingSpinner />
+              : <TopLoadingSpinner />
           }
         </ScrollView>
       </MainContainer>

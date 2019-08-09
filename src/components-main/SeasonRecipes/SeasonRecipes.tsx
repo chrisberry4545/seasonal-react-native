@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 
 import {
-  ImageGrid, CenteredLoadingSpinner
+  ImageGrid, TopLoadingSpinner
 } from '../../components-layout';
 
 import {
@@ -20,7 +20,7 @@ export const SeasonRecipes: FC<ISeasonRecipesProps> = ({
     {
       !isLoading
         ? <ImageGrid data={ recipes } onClick={ onRecipeClick } />
-        : <CenteredLoadingSpinner />
+        : <TopLoadingSpinner />
     }
   </SeasonDetailsContentWrapperConnector>
 );

@@ -6,7 +6,7 @@ import {
 import {
   ImageGrid,
   SeasonNameView,
-  CenteredLoadingSpinner
+  TopLoadingSpinner
 } from '../../components-layout';
 import { FlatList } from 'react-native-gesture-handler';
 
@@ -17,7 +17,7 @@ export const AllSeasons: FC<IAllSeasonsProps> = ({
   seasons
 }) => (
   isLoading || !seasons
-    ? <CenteredLoadingSpinner />
+    ? <TopLoadingSpinner />
     : <FlatList
         data={seasons}
         renderItem={({ item }) => (
