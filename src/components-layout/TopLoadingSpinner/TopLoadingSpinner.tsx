@@ -5,7 +5,7 @@ import { LoadingSpinner } from '../../components-elements';
 
 const styleTopLoadingSpinner: ViewStyle = {
   flex: 1,
-  paddingTop: 80
+  paddingTop: 60
 };
 
 export const TopLoadingSpinner: FC<{}> = () => (
