@@ -8,6 +8,8 @@ export * from './FoodDetailsLoader/FoodDetailsLoader.connector';
 
 export * from './FoodDetailsTopSection/FoodDetailsTopSection.connector';
 
+export * from './GlobalModals/GlobalModals';
+
 export * from './Header/Header.connector';
 
 export * from './PrivacyPolicyLink/PrivacyPolicyLink';
@@ -19,6 +21,14 @@ export * from './SearchBar/SearchBar.connector';
 export * from './SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connector';
 
 export * from './SeasonFood/SeasonFood.connector';
+
+export * from './SelectCountry/SelectCountry.connector';
+
+export * from './SelectLocation/SelectLocation.connector';
+
+export * from './SelectLocationModal/SelectLocationModal.connector';
+
+export * from './SelectRegion/SelectRegion.connector';
 
 export * from './SeasonRecipes/SeasonRecipes.connector';
 

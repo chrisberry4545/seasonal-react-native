@@ -4,5 +4,6 @@ export enum ROUTES {
   ABOUT_US =  'more-info',
   FOOD_TAB = 'food-tab',
   RECIPES_TAB = 'recipes-tab',
-  FOOD_DETAILS = 'food-details'
+  FOOD_DETAILS = 'food-details',
+  SETTINGS = 'settings'
 }

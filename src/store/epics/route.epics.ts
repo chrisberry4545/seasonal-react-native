@@ -4,7 +4,8 @@ import { StateObservable, ActionsObservable, ofType } from 'redux-observable';
 import { Observable } from 'rxjs';
 import {
   GO_BACK_FROM_FOOD_DETAILS,
-  GO_TO_ABOUT_US_PAGE
+  GO_TO_ABOUT_US_PAGE,
+  GO_TO_SETTINGS_PAGE
 } from '../actions';
 import {
   RECIPE_ITEM_CLICKED,
@@ -72,6 +73,16 @@ export const goToAboutUsPage$: AppSeasonalEpic = (
   actions$.pipe(
     ofType(GO_TO_ABOUT_US_PAGE),
     tap(() => navigate(ROUTES.ABOUT_US)),
+    ignoreElements()
+  )
+);
+
+export const goToSettingsPage$: AppSeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GO_TO_SETTINGS_PAGE),
+    tap(() => navigate(ROUTES.SETTINGS)),
     ignoreElements()
   )
 );

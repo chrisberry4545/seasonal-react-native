@@ -8,7 +8,8 @@ import {
   AboutUsPage,
   AllSeasonsPage,
   FoodDetailsPage,
-  SeasonDetailsPage
+  SeasonDetailsPage,
+  SettingsPage
 } from '../components-pages';
 import {
   setTopLevelNavigator
@@ -21,7 +22,8 @@ export const AppContainer: FC<{}> = () => {
     [ROUTES.SEASON_DETAILS]: SeasonDetailsPage,
     [ROUTES.ABOUT_US]: AboutUsPage,
     [ROUTES.ALL_SEASONS]: AllSeasonsPage,
-    [ROUTES.FOOD_DETAILS]: FoodDetailsPage
+    [ROUTES.FOOD_DETAILS]: FoodDetailsPage,
+    [ROUTES.SETTINGS]: SettingsPage
   };
   const DrawerNavigator = createDrawerNavigator(navigation, {
     contentComponent: () => <SideMenuConnecter />,

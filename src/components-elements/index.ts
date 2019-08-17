@@ -6,4 +6,6 @@ export * from './Inputs';
 
 export * from './LoadingSpinner/LoadingSpinner';
 
+export * from './SelectBox/SelectBox';
+
 export * from './Text';

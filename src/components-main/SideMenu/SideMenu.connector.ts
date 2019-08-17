@@ -10,7 +10,7 @@ import {
   goToAllSeasonsView
 } from '@chrisb-dev/seasonal-shared';
 import {
-  goToAboutUsPage
+  goToAboutUsPage, goToSettingsPage
 } from '../../store';
 
 import { IState } from '../../interfaces';
@@ -19,7 +19,12 @@ import {
   ISideMenuDispatchProps
 } from './SideMenu.interface';
 import { Dispatch } from 'redux';
-import { getIsCurrentRouteAllSeasons, getIsCurrentRouteAboutUs, getIsCurrentRouteSeasonDetails } from '../../services';
+import {
+  getIsCurrentRouteAllSeasons,
+  getIsCurrentRouteAboutUs,
+  getIsCurrentRouteSeasonDetails,
+  getIsCurrentRouteSettings
+} from '../../services';
 
 const mapStateToProps = (
   state: IState
@@ -29,6 +34,7 @@ const mapStateToProps = (
   isCurrentRouteAboutUs: getIsCurrentRouteAboutUs(),
   isCurrentRouteAllSeasons: getIsCurrentRouteAllSeasons(),
   isCurrentRouteSeasonDetails: getIsCurrentRouteSeasonDetails(),
+  isCurrentRouteSettings: getIsCurrentRouteSettings(),
   isLoading: selectIsBasicSeasonsLoading(state)
 });
 
@@ -37,6 +43,7 @@ const mapDispatchToProps = (
 ): ISideMenuDispatchProps => ({
   onAllSeasonsSelected: () => dispatch(goToAllSeasonsView()),
   onGoToAboutUsPage: () => dispatch(goToAboutUsPage()),
+  onGoToSettingsPage: () => dispatch(goToSettingsPage()),
   onSeasonSelected: (
     seasonIndex: number
   ) => dispatch(selectSeason(seasonIndex))
