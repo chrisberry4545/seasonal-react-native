@@ -1,20 +1,33 @@
 import React, { FC, Fragment } from 'react';
 
 import { ISelectRegionProps } from './SelectRegion.interface';
-import { SelectBox, ArrowIcon } from '../../components-elements';
+import { SelectBox, TextHeadingMedium, ArrowIcon, BareButton } from '../../components-elements';
+import { ViewStyle } from 'react-native';
+import { sizes } from '../../styles/sizes';
 
-import {
-  BareButton
-} from '../../components-elements';
+const styleSelectRegionHeading: ViewStyle = {
+  alignItems: 'center',
+  flexDirection: 'row',
+  marginBottom: sizes.defaultHeadingMarginBottom
+};
+
+const styleSelectRegionText: ViewStyle = {
+  marginLeft: 6
+};
 
 export const SelectRegion: FC<ISelectRegionProps> = ({
   regionsSelectOptions,
-  goBackFromRegionSelection,
-  onRegionSelected
+  onRegionSelected,
+  goBackFromRegionSelection
 }) => (
   <Fragment>
-    <BareButton onClick={goBackFromRegionSelection}>
-      <ArrowIcon />
+    <BareButton
+      onClick={goBackFromRegionSelection}
+      style={styleSelectRegionHeading}>
+      <ArrowIcon size={26} />
+      <TextHeadingMedium style={styleSelectRegionText}>
+        Select your region
+      </TextHeadingMedium>
     </BareButton>
     <SelectBox options={regionsSelectOptions}
       onSelected={(value) => onRegionSelected(value)} />
