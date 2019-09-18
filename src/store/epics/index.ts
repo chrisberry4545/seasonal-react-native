@@ -17,6 +17,7 @@ import {
 } from './route.epics';
 import { trackActionEpic$ } from './tracking.epics';
 import { storeSettings$, getStoredSettings$ } from './settings.epics';
+import { tempInitCountryToGbr$ } from './temp-init-country-to-gbr.epic';
 
 export const rootEpic = combineEpics(
   ...rootEpics,
@@ -31,5 +32,6 @@ export const rootEpic = combineEpics(
   openMenu$,
   trackActionEpic$,
   getStoredSettings$,
-  storeSettings$
+  storeSettings$,
+  tempInitCountryToGbr$
 );

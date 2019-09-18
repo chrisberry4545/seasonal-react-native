@@ -11,7 +11,6 @@ import {
   ignoreElements,
   withLatestFrom,
   tap,
-  filter,
   switchMap
 } from 'rxjs/operators';
 import { Action } from 'redux';
