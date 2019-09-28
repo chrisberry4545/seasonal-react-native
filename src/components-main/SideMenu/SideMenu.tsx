@@ -77,13 +77,13 @@ export const SideMenu: FC<ISideMenuProps> = ({
       {
         !isLoading
           ? (<Fragment>
-            {
+            {/* {
               renderSideMenuButton({
                 isSelected: isCurrentRouteSettings,
                 name: 'Settings',
                 onClick: onGoToSettingsPage
               })
-            }
+            } */}
             {
               renderSideMenuButton({
                 isSelected: isCurrentRouteAllSeasons,
