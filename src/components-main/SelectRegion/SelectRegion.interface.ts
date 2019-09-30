@@ -1,11 +1,10 @@
-import { ISelectOption } from '@chrisb-dev/seasonal-shared';
+import { IGroupedSelectOptions } from '@chrisb-dev/seasonal-shared';
 
 export interface ISelectRegionInputProps {
-  regionsSelectOptions: ISelectOption[] | undefined;
+  countrySelectGroups: IGroupedSelectOptions[] | undefined;
 }
 
 export interface ISelectRegionDispatchProps {
-  goBackFromRegionSelection: () => void;
   onRegionSelected: (regionCode: string) => void;
 }
 

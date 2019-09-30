@@ -9,7 +9,7 @@ import {
 export const styleTextLarge: TextStyle = {
   ...textBase,
   fontSize: 16,
-  lineHeight: 16
+  lineHeight: 20
 };
 
 export const TextLarge: FC<ITextInterface> = ({

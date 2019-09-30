@@ -22,8 +22,6 @@ export * from './SeasonDetailsContentWrapper/SeasonDetailsContentWrapper.connect
 
 export * from './SeasonFood/SeasonFood.connector';
 
-export * from './SelectCountry/SelectCountry.connector';
-
 export * from './SelectLocation/SelectLocation.connector';
 
 export * from './SelectLocationModal/SelectLocationModal.connector';

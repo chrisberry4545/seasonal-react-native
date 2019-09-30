@@ -9,7 +9,8 @@ const styleModalView: ViewStyle = {
 
 const styleModalLayoutCloseButtonView: ViewStyle = {
   flexDirection: 'row',
-  justifyContent: 'flex-end'
+  justifyContent: 'flex-end',
+  marginTop: 20
 };
 
 export const ModalLayout: FC<IModalLayout> = ({

@@ -3,7 +3,8 @@ import {
   SelectRegion
 } from './SelectRegion';
 import {
-  selectRegionsSelectOptions, setRegion, goBackFromRegionSelection
+  setRegion,
+  selectCountryAndRegionsSelectGroup
 } from '@chrisb-dev/seasonal-shared';
 import {
   ISelectRegionDispatchProps,
@@ -13,13 +14,12 @@ import { Dispatch } from 'redux';
 import { IState } from '../../interfaces';
 
 const mapStateToProps = (state: IState): ISelectRegionInputProps => ({
-  regionsSelectOptions: selectRegionsSelectOptions(state)
+  countrySelectGroups: selectCountryAndRegionsSelectGroup(state)
 });
 
 const mapDispatchToProps = (
   dispatch: Dispatch
 ): ISelectRegionDispatchProps => ({
-  goBackFromRegionSelection: () => dispatch(goBackFromRegionSelection()),
   onRegionSelected: (regionCode: string) => dispatch(setRegion(regionCode))
 });
 

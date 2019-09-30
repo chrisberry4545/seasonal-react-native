@@ -3,7 +3,7 @@ import {
   SelectLocation
 } from './SelectLocation';
 import {
-  selectAreCountriesLoading, selectIsRegionMenuVisible
+  selectAreCountriesLoading
 } from '@chrisb-dev/seasonal-shared';
 import {
   ISelectLocationInputProps
@@ -11,8 +11,7 @@ import {
 import { IState } from '../../interfaces';
 
 const mapStateToProps = (state: IState): ISelectLocationInputProps => ({
-  isLoading: selectAreCountriesLoading(state),
-  isRegionsMenuVisible: selectIsRegionMenuVisible(state)
+  isLoading: selectAreCountriesLoading(state)
 });
 
 export const SelectLocationConnecter = connect(
