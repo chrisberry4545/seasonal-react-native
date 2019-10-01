@@ -2,10 +2,10 @@ import React, { FC, Fragment } from 'react';
 
 import { ISelectRegionProps } from './SelectRegion.interface';
 import { TextHeadingMedium, GroupedSelectBox } from '../../components-elements';
-import { ViewStyle } from 'react-native';
+import { ViewStyle, View } from 'react-native';
 import { sizes } from '../../styles/sizes';
 
-const styleSelectRegionHeading: ViewStyle = {
+const styleSelectRegionHeader: ViewStyle = {
   alignItems: 'center',
   flexDirection: 'row',
   marginBottom: sizes.defaultHeadingMarginBottom
@@ -13,12 +13,16 @@ const styleSelectRegionHeading: ViewStyle = {
 
 export const SelectRegion: FC<ISelectRegionProps> = ({
   countrySelectGroups,
-  onRegionSelected
+  onRegionSelected,
+  children
 }) => (
   <Fragment>
-    <TextHeadingMedium style={styleSelectRegionHeading}>
-      Select your region
-    </TextHeadingMedium>
+    <View style={styleSelectRegionHeader}>
+      {children}
+      <TextHeadingMedium>
+        Select your region
+      </TextHeadingMedium>
+    </View>
     <GroupedSelectBox groups={countrySelectGroups} onSelected={onRegionSelected} />
   </Fragment>
 );

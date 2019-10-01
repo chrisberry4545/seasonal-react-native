@@ -4,6 +4,8 @@ export * from './GroupedSelectBox/GroupedSelectBox';
 
 export * from './Icons';
 
+export * from './IconButtons';
+
 export * from './Inputs';
 
 export * from './LoadingSpinner/LoadingSpinner';

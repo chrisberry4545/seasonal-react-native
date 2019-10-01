@@ -5,9 +5,12 @@ import { TopLoadingSpinner } from '../../components-layout';
 import { SelectRegionConnecter } from '../SelectRegion/SelectRegion.connector';
 
 export const SelectLocation: FC<ISelectLocationInputProps> = ({
-  isLoading
+  isLoading,
+  children
 }) => (
   isLoading
     ? <TopLoadingSpinner />
-    : <SelectRegionConnecter />
+    : <SelectRegionConnecter>
+      {children}
+    </SelectRegionConnecter>
 );

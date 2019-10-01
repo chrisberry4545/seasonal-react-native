@@ -16,7 +16,7 @@ export const RegionChangedPrompt: FC<IRegionChangedPromptProps> = ({
 }) => (
   <Toast onClose={hideRegionChangedPrompt} isVisible={Boolean(currentRegion && isVisible)}>
     <TextLarge>
-      Your region is set to: { currentRegion && currentRegion.name }.
+      We've detected your closest region as: { currentRegion && currentRegion.name }.
     </TextLarge>
     <BareButton onClick={showRegionSelector} style={styleRegionChangedPromptButton}>
       <TextLarge>

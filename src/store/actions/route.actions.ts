@@ -20,3 +20,10 @@ export function goToSettingsPage() {
     type: GO_TO_SETTINGS_PAGE
   };
 }
+
+export const GO_BACK_FROM_SETTINGS_PAGE = 'GO_BACK_FROM_SETTINGS_PAGE';
+export function goBackFromSettingsPage() {
+  return {
+    type: GO_BACK_FROM_SETTINGS_PAGE
+  };
+}

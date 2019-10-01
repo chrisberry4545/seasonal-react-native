@@ -5,7 +5,8 @@ import { Observable } from 'rxjs';
 import {
   GO_BACK_FROM_FOOD_DETAILS,
   GO_TO_ABOUT_US_PAGE,
-  GO_TO_SETTINGS_PAGE
+  GO_TO_SETTINGS_PAGE,
+  GO_BACK_FROM_SETTINGS_PAGE
 } from '../actions';
 import {
   RECIPE_ITEM_CLICKED,
@@ -91,7 +92,10 @@ export const goBack$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
-    ofType(GO_BACK_FROM_FOOD_DETAILS),
+    ofType(
+      GO_BACK_FROM_FOOD_DETAILS,
+      GO_BACK_FROM_SETTINGS_PAGE
+    ),
     tap(() => navigateBackOne()),
     ignoreElements()
   )

@@ -28,6 +28,8 @@ export * from './SelectLocationModal/SelectLocationModal.connector';
 
 export * from './SelectRegion/SelectRegion.connector';
 
+export * from './SettingsBackButton/SettingsBackButton.connector';
+
 export * from './SeasonRecipes/SeasonRecipes.connector';
 
 export * from './SeasonsForFood/SeasonsForFood.connector';
