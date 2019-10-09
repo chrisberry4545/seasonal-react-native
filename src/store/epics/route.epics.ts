@@ -22,7 +22,8 @@ import {
   selectCurrentSeasonRecipesById,
   GO_TO_ALL_SEASONS_VIEW,
   setAllSeasonsWithFoodStart,
-  FOOD_DETAILS_SELECT_RECIPE
+  FOOD_DETAILS_SELECT_RECIPE,
+  SET_REGION
 } from '@chrisb-dev/seasonal-shared';
 import { withLatestFrom, map, tap, ignoreElements, mapTo } from 'rxjs/operators';
 import { goToLinkUrl } from '../../helpers';
@@ -93,6 +94,7 @@ export const goBack$: AppSeasonalEpic = (
 ): Observable<Action> => (
   actions$.pipe(
     ofType(
+      SET_REGION,
       GO_BACK_FROM_FOOD_DETAILS,
       GO_BACK_FROM_SETTINGS_PAGE
     ),
