@@ -8,6 +8,7 @@ import {
 import { Provider } from 'react-redux';
 import { store } from './src/store';
 import { AppContainer } from './src/components-app';
+import { GlobalModals } from './src/components-main/GlobalModals/GlobalModals';
 
 interface IAppState {
   fontsLoaded: boolean;
@@ -29,6 +30,7 @@ export default class App extends Component<{}, IAppState> {
     return (
       <Provider store={store}>
         <AppContainer />
+        <GlobalModals />
       </Provider>
     );
   }

@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 
 import {
-  BareButton,
   TextHeadingMedium,
-  ArrowIcon
+  BackArrowIconButton
 } from '../../components-elements';
 
 import {
@@ -11,8 +10,7 @@ import {
 } from './FoodDetailsTopSection.interface';
 import { View, Image, ViewStyle, TextStyle, ImageStyle, StyleSheet } from 'react-native';
 import { styles } from '../../styles';
-
-const iconWidth = 30;
+import { sizes } from '../../styles/sizes';
 
 const styleFoodDetailsTopSection: ViewStyle = {
   borderBottomWidth: StyleSheet.hairlineWidth,
@@ -33,7 +31,7 @@ const styleFoodDetailsTopSectionInner: ViewStyle = {
 
 const styleFoodDetailsTopSectionText: TextStyle = {
   flex: 1,
-  marginRight: iconWidth,
+  marginRight: sizes.arrowIcon,
   textAlign: 'center'
 };
 
@@ -51,10 +49,7 @@ export const FoodDetailsTopSection: FC<IFoodDetailsTopSectionProps> = ({
   !isLoading
     ? <View style={styleFoodDetailsTopSection}>
     <View style={styleFoodDetailsTopSectionInner}>
-      <BareButton
-        onClick={onGoBack}>
-        <ArrowIcon size={iconWidth} />
-      </BareButton>
+      <BackArrowIconButton onClick={onGoBack} />
       <TextHeadingMedium style={styleFoodDetailsTopSectionText}>
         {foodName}
       </TextHeadingMedium>

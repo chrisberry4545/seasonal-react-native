@@ -64,17 +64,26 @@ export const SideMenu: FC<ISideMenuProps> = ({
   currentSeasonIndex,
   isLoading,
   isCurrentRouteAboutUs,
+  isCurrentRouteSettings,
   isCurrentRouteAllSeasons,
   isCurrentRouteSeasonDetails,
   onAllSeasonsSelected,
   onSeasonSelected,
-  onGoToAboutUsPage
+  onGoToAboutUsPage,
+  onGoToSettingsPage
 }) => (
   <View style={styleSideMenu}>
     <ScrollView style={styleSideMenuInner}>
       {
         !isLoading
           ? (<Fragment>
+            {
+              renderSideMenuButton({
+                isSelected: isCurrentRouteSettings,
+                name: 'Change region',
+                onClick: onGoToSettingsPage
+              })
+            }
             {
               renderSideMenuButton({
                 isSelected: isCurrentRouteAllSeasons,

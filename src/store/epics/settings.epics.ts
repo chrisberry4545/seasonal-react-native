@@ -1,7 +1,17 @@
 import { ActionsObservable, ofType, StateObservable } from 'redux-observable';
 
 import {
-  SET_DIET_TYPE, selectSettingsState, INIT_APP, initSettings, ISettingsState
+  getNearestRegionFromLatLng,
+  SET_DIET_TYPE,
+  selectSettingsState,
+  INIT_APP,
+  initSettings,
+  ISettingsState,
+  SET_REGION, DIET_TYPE,
+  GET_COUNTRIES_SUCCESS,
+  selectAllRegions,
+  userRegionDetected,
+  SET_USER_REGION_DETECTED
 } from '@chrisb-dev/seasonal-shared';
 
 import { IState } from '../../interfaces';
@@ -11,13 +21,14 @@ import {
   ignoreElements,
   withLatestFrom,
   tap,
-  filter,
-  switchMap
+  switchMap,
+  catchError,
+  filter
 } from 'rxjs/operators';
 import { Action } from 'redux';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { AppSeasonalEpic } from './seasonal-epic.type';
-import { setStoredData, getStoredData } from '../../helpers';
+import { setStoredData, getStoredData, getCurrentDeviceLocation$ } from '../../helpers';
 
 const settingsStorageKey = 'seasonalSettings';
 
@@ -26,7 +37,11 @@ export const storeSettings$: AppSeasonalEpic = (
   state$: StateObservable<IState>
 ): Observable<Action> => (
   actions$.pipe(
-    ofType(SET_DIET_TYPE),
+    ofType(
+      SET_DIET_TYPE,
+      SET_REGION,
+      SET_USER_REGION_DETECTED
+    ),
     withLatestFrom(state$),
     map(([, state]) => selectSettingsState(state)),
     tap((settingsState) => setStoredData(settingsStorageKey, settingsState)),
@@ -40,7 +55,46 @@ export const getStoredSettings$: AppSeasonalEpic = (
   actions$.pipe(
     ofType(INIT_APP),
     switchMap(() => getStoredData<ISettingsState>(settingsStorageKey)),
-    filter(Boolean),
-    map((settings) => initSettings(settings as ISettingsState))
+    map((settings) => initSettings(settings || {
+      dietType: DIET_TYPE.ALL,
+      selectedRegionCode: undefined
+    }))
+  )
+);
+
+export const detectCountry$: AppSeasonalEpic = (
+  actions$: ActionsObservable<Action>,
+  state$: StateObservable<IState>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GET_COUNTRIES_SUCCESS),
+    withLatestFrom(state$),
+    map(([, state]) => selectAllRegions(state)),
+    filter((allRegions) => Boolean(allRegions)),
+    switchMap((allRegions) => (
+      getCurrentDeviceLocation$().pipe(
+        map((location) => ({
+          allRegions,
+          location: {
+            lat: location.coords.latitude,
+            lng: location.coords.longitude
+          }
+        })),
+        catchError(() => {
+          const firstRegion = allRegions![0];
+          return of({
+            allRegions,
+            location: {
+              lat: firstRegion.latLng.lat,
+              lng: firstRegion.latLng.lng
+            }
+          });
+        })
+      )
+    )),
+    map(({ allRegions, location }) => getNearestRegionFromLatLng(
+      allRegions, location
+    )),
+    map((nearestRegion) => userRegionDetected(nearestRegion!.code))
   )
 );

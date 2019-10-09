@@ -51,26 +51,26 @@ export const getCurrentNavigatorRoute = () => {
   return null;
 };
 
-export const getIsCurrentRouteAllSeasons = () => {
+const isCurrentRoute = (route: ROUTES) => {
   const currentRoute = getCurrentNavigatorRoute();
   if (currentRoute) {
-    return currentRoute.routeName === ROUTES.ALL_SEASONS;
+    return currentRoute.routeName === route;
   }
   return false;
 };
 
-export const getIsCurrentRouteSeasonDetails = () => {
-  const currentRoute = getCurrentNavigatorRoute();
-  if (currentRoute) {
-    return currentRoute.routeName === ROUTES.SEASON_DETAILS;
-  }
-  return false;
-};
+export const getIsCurrentRouteAllSeasons = () => (
+  isCurrentRoute(ROUTES.ALL_SEASONS)
+);
 
-export const getIsCurrentRouteAboutUs = () => {
-  const currentRoute = getCurrentNavigatorRoute();
-  if (currentRoute) {
-    return currentRoute.routeName === ROUTES.ABOUT_US;
-  }
-  return false;
-};
+export const getIsCurrentRouteSeasonDetails = () => (
+  isCurrentRoute(ROUTES.SEASON_DETAILS)
+);
+
+export const getIsCurrentRouteAboutUs = () => (
+  isCurrentRoute(ROUTES.ABOUT_US)
+);
+
+export const getIsCurrentRouteSettings = () => (
+  isCurrentRoute(ROUTES.SETTINGS)
+);

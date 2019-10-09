@@ -4,7 +4,9 @@ import { StateObservable, ActionsObservable, ofType } from 'redux-observable';
 import { Observable } from 'rxjs';
 import {
   GO_BACK_FROM_FOOD_DETAILS,
-  GO_TO_ABOUT_US_PAGE
+  GO_TO_ABOUT_US_PAGE,
+  GO_TO_SETTINGS_PAGE,
+  GO_BACK_FROM_SETTINGS_PAGE
 } from '../actions';
 import {
   RECIPE_ITEM_CLICKED,
@@ -20,7 +22,8 @@ import {
   selectCurrentSeasonRecipesById,
   GO_TO_ALL_SEASONS_VIEW,
   setAllSeasonsWithFoodStart,
-  FOOD_DETAILS_SELECT_RECIPE
+  FOOD_DETAILS_SELECT_RECIPE,
+  SET_REGION
 } from '@chrisb-dev/seasonal-shared';
 import { withLatestFrom, map, tap, ignoreElements, mapTo } from 'rxjs/operators';
 import { goToLinkUrl } from '../../helpers';
@@ -76,11 +79,25 @@ export const goToAboutUsPage$: AppSeasonalEpic = (
   )
 );
 
+export const goToSettingsPage$: AppSeasonalEpic = (
+  actions$: ActionsObservable<Action>
+): Observable<Action> => (
+  actions$.pipe(
+    ofType(GO_TO_SETTINGS_PAGE),
+    tap(() => navigate(ROUTES.SETTINGS)),
+    ignoreElements()
+  )
+);
+
 export const goBack$: AppSeasonalEpic = (
   actions$: ActionsObservable<Action>
 ): Observable<Action> => (
   actions$.pipe(
-    ofType(GO_BACK_FROM_FOOD_DETAILS),
+    ofType(
+      SET_REGION,
+      GO_BACK_FROM_FOOD_DETAILS,
+      GO_BACK_FROM_SETTINGS_PAGE
+    ),
     tap(() => navigateBackOne()),
     ignoreElements()
   )
