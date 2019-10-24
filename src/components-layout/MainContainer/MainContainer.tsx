@@ -8,7 +8,9 @@ import { FC } from 'react';
 const styleMainContainer: ViewStyle = {
   backgroundColor: styles.colors.backgroundColor,
   flex: 1,
-  padding: 20
+  paddingLeft: 20,
+  paddingRight: 20,
+  paddingTop: 10
 };
 
 export const MainContainer: FC<{}> = ({
