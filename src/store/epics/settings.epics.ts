@@ -11,7 +11,8 @@ import {
   GET_COUNTRIES_SUCCESS,
   selectAllRegions,
   userRegionDetected,
-  SET_USER_REGION_DETECTED
+  SET_USER_REGION_DETECTED,
+  selectSettingsRegionCode
 } from '@chrisb-dev/seasonal-shared';
 
 import { IState } from '../../interfaces';
@@ -69,9 +70,14 @@ export const detectCountry$: AppSeasonalEpic = (
   actions$.pipe(
     ofType(GET_COUNTRIES_SUCCESS),
     withLatestFrom(state$),
-    map(([, state]) => selectAllRegions(state)),
-    filter((allRegions) => Boolean(allRegions)),
-    switchMap((allRegions) => (
+    map(([, state]) => ({
+      allRegions: selectAllRegions(state),
+      regionCode: selectSettingsRegionCode(state)
+    })),
+    filter(({ allRegions, regionCode }) =>
+      Boolean(regionCode && allRegions)
+    ),
+    switchMap(({ allRegions }) => (
       getCurrentDeviceLocation$().pipe(
         map((location) => ({
           allRegions,
