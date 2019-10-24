@@ -3,7 +3,9 @@ import { IIcon } from './icon.interface';
 import { IconBase } from './IconBase';
 
 export const BurgerIcon: FC<IIcon> = ({
-  size
+  size,
+  color
 }) => (
-  <IconBase name='ios-menu' size={size} />
+  <IconBase name='ios-menu'
+    size={size} color={color} />
 );

@@ -3,7 +3,9 @@ import { IIcon } from './icon.interface';
 import { IconBase } from './IconBase';
 
 export const MagnifyingGlassIcon: FC<IIcon> = ({
-  size
+  size,
+  color
 }) => (
-  <IconBase name='ios-search' size={size} />
+  <IconBase name='ios-search'
+    size={size} color={color} />
 );

@@ -2,10 +2,15 @@ import React, { FC } from 'react';
 
 import { IRegionChangedPromptProps } from './RegionChangedPrompt.interface';
 import { TextLarge, BareButton, Toast } from '../../components-elements';
-import { ViewStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import { colors } from '../../styles/colors';
 
 const styleRegionChangedPromptButton: ViewStyle = {
   marginTop: 4
+};
+
+const styleRegionChangedPromptText: TextStyle = {
+  color: colors.textLight
 };
 
 export const RegionChangedPrompt: FC<IRegionChangedPromptProps> = ({
@@ -15,11 +20,14 @@ export const RegionChangedPrompt: FC<IRegionChangedPromptProps> = ({
   showRegionSelector
 }) => (
   <Toast onClose={hideRegionChangedPrompt} isVisible={Boolean(currentRegion && isVisible)}>
-    <TextLarge>
-      We've detected your closest region as: { currentRegion && currentRegion.name }.
+    <TextLarge style={styleRegionChangedPromptText}>
+      We've detected your closest region as:
+    </TextLarge>
+    <TextLarge style={styleRegionChangedPromptText}>
+      { currentRegion && currentRegion.name }.
     </TextLarge>
     <BareButton onClick={showRegionSelector} style={styleRegionChangedPromptButton}>
-      <TextLarge>
+      <TextLarge style={styleRegionChangedPromptText}>
         If this is wrong, click here.
       </TextLarge>
     </BareButton>

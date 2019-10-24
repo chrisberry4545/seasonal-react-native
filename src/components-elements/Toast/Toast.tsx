@@ -6,12 +6,12 @@ import { colors } from '../../styles/colors';
 
 const styleToast: ViewStyle = {
   alignItems: 'center',
-  backgroundColor: colors.selectionColorAlt,
+  backgroundColor: colors.selectionColorAlt2,
   bottom: 0,
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
-  padding: 24,
+  padding: 12,
   position: 'absolute',
   width: '100%'
 };
@@ -37,7 +37,7 @@ export const Toast: FC<{
         {
           onClose &&
             <BareButton onClick={onClose}>
-              <CrossIcon size={32} />
+              <CrossIcon color={colors.textLight} size={32}  />
             </BareButton>
         }
       </View>

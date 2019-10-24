@@ -3,10 +3,12 @@ import { Ionicons } from '@expo/vector-icons';
 
 export const IconBase: FC<{
   name: string,
-  size?: number
+  size?: number,
+  color?: string
 }> = ({
   name,
-  size
+  size,
+  color
 }) => (
-  <Ionicons name={name} size={size} />
+  <Ionicons name={name} size={size} color={color} />
 );

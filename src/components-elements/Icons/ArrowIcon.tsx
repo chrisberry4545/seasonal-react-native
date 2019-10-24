@@ -3,7 +3,9 @@ import { IIcon } from './icon.interface';
 import { IconBase } from './IconBase';
 
 export const ArrowIcon: FC<IIcon> = ({
-  size
+  size,
+  color
 }) => (
-  <IconBase name='ios-arrow-round-back' size={size} />
+  <IconBase name='ios-arrow-round-back'
+    size={size} color={color} />
 );

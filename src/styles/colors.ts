@@ -5,5 +5,7 @@ export const colors = {
   greyMed: '#CCCCCC',
   primaryText: '#20303C',
   selectionColor: '#F7F7F7',
-  selectionColorAlt: '#BAF9FE'
+  selectionColorAlt: '#BAF9FE',
+  selectionColorAlt2: '#424242',
+  textLight: '#FFFFFF'
 };
