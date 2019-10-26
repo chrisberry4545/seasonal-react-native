@@ -10,7 +10,8 @@ import {
 import { MainContainer, TopLoadingSpinner } from '../../components-layout';
 import { TextHeadingSmall } from '../../components-elements';
 
-const styleSeasonDetaolsContentWarapper: TextStyle = {
+const styleSeasonDetailsContentWarapper: TextStyle = {
+  height: 20,
   marginBottom: 12,
   marginTop: 12,
   textAlign: 'center',
@@ -33,7 +34,7 @@ FC<ISeasonDetailsContentWrapperInputProps> = ({
           {
             !isLoading
               ? <Fragment>
-                <TextHeadingSmall style={styleSeasonDetaolsContentWarapper}>
+                <TextHeadingSmall style={styleSeasonDetailsContentWarapper}>
                   {currentSeasonName}
                 </TextHeadingSmall>
                 {children}
