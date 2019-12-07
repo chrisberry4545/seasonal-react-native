@@ -10,7 +10,13 @@ import {
   FOOD_DETAILS_SELECT_SEASON,
   OPEN_MENU,
   RECIPE_ITEM_CLICKED,
-  FOOD_ITEM_CLICKED
+  FOOD_ITEM_CLICKED,
+  SET_REGION,
+  SET_CURRENT_FOOD_DETAILS_ON_DIET_CHANGE,
+  SET_CURRENT_FOOD_DETAILS_SUCCESS,
+  SET_DIET_TYPE,
+  SHOW_LOCATION_SETTINGS_POPUP,
+  SHOW_SEARCH_BAR
 } from '@chrisb-dev/seasonal-shared';
 
 import {
@@ -30,7 +36,13 @@ const ACTIONS_TO_TRACK = [
   GO_BACK_FROM_FOOD_DETAILS,
   GO_TO_ABOUT_US_PAGE,
   RECIPE_ITEM_CLICKED,
-  FOOD_ITEM_CLICKED
+  FOOD_ITEM_CLICKED,
+  SET_REGION,
+  SET_CURRENT_FOOD_DETAILS_ON_DIET_CHANGE,
+  SET_CURRENT_FOOD_DETAILS_SUCCESS,
+  SET_DIET_TYPE,
+  SHOW_LOCATION_SETTINGS_POPUP,
+  SHOW_SEARCH_BAR
 ];
 
 export const trackActionEpic$: AppSeasonalEpic = (
@@ -38,7 +50,7 @@ export const trackActionEpic$: AppSeasonalEpic = (
 ): Observable<Action> => (
   actions$.pipe(
     filter(({ type }) => ACTIONS_TO_TRACK.includes(type)),
-    map(({ type }) => trackEvent(type)),
+    map(({ type, ...rest }) => trackEvent(type, rest)),
     ignoreElements()
   )
 );
